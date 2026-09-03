@@ -2,2340 +2,4924 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Deriv Live Analyzer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DERIV LIVE ENTRY - POWERED BY ELISY 254</title>
 
 <style>
-:root{
-  --bg:#050a0f;
-  --panel:#0b121a;
-  --panel2:#0f1822;
-  --border:#1b2a38;
-  --text:#eef5f8;
-  --muted:#8293a3;
-  --green:#16e57b;
-  --green2:#0dbb62;
-  --red:#ff4d5e;
-  --yellow:#ffc857;
-  --blue:#4da3ff;
+*{
+    box-sizing:border-box;
 }
 
-*{box-sizing:border-box}
+html,body{
+    margin:0;
+    padding:0;
+    min-height:100%;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#02050a;
+    color:#fff;
+}
 
 body{
-  margin:0;
-  background:
-    radial-gradient(circle at top right,#10251c 0,#050a0f 35%),
-    #050a0f;
-  color:var(--text);
-  font-family:Inter,Arial,sans-serif;
+    overflow-x:hidden;
 }
 
-button,input,select{
-  font:inherit;
+/* ================= LOGIN ================= */
+
+#loginPage{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:
+        radial-gradient(circle at top,#12213a 0%,#050a12 45%,#02050a 100%);
 }
 
-button{
-  cursor:pointer;
+.login-box{
+    width:100%;
+    max-width:420px;
+    background:rgba(8,14,24,.97);
+    border:1px solid #26364d;
+    border-radius:20px;
+    padding:28px;
+    box-shadow:0 20px 70px rgba(0,0,0,.65);
 }
 
-.hidden{
-  display:none!important;
+.login-brand{
+    text-align:center;
+    margin-bottom:25px;
 }
 
-/* LOGIN */
-
-.login-page{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
+.login-brand h1{
+    margin:0;
+    font-size:25px;
+    letter-spacing:1.5px;
 }
 
-.login-card{
-  width:100%;
-  max-width:420px;
-  background:rgba(11,18,26,.96);
-  border:1px solid var(--border);
-  border-radius:24px;
-  padding:28px;
-  box-shadow:0 25px 80px rgba(0,0,0,.45);
+.login-brand p{
+    margin:8px 0 0;
+    color:#8fa3bd;
+    font-size:13px;
+    letter-spacing:1px;
 }
 
-.logo{
-  width:64px;
-  height:64px;
-  margin:0 auto 14px;
-  border-radius:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg,#19ed83,#0b9e55);
-  color:#03130b;
-  font-size:24px;
-  font-weight:900;
-}
-
-.login-title{
-  text-align:center;
-  font-size:25px;
-  font-weight:900;
-}
-
-.login-subtitle{
-  text-align:center;
-  color:var(--muted);
-  margin-top:6px;
-  margin-bottom:22px;
-}
-
-.security{
-  border:1px solid #164a31;
-  background:#07170f;
-  border-radius:14px;
-  padding:13px;
-  font-size:13px;
-  color:#9ce9bd;
-  margin-bottom:20px;
-}
-
-.security b{
-  color:var(--green);
+.login-lion{
+    width:105px;
+    height:105px;
+    object-fit:contain;
+    display:block;
+    margin:18px auto 10px;
+    border-radius:50%;
+    border:1px solid #31445e;
+    background:#050a11;
 }
 
 .field{
-  margin-bottom:15px;
+    margin-bottom:15px;
 }
 
 .field label{
-  display:block;
-  color:#aab8c4;
-  font-size:13px;
-  margin-bottom:7px;
+    display:block;
+    margin-bottom:7px;
+    font-size:12px;
+    color:#91a4bc;
+    text-transform:uppercase;
+    letter-spacing:.8px;
 }
 
-.input-wrap{
-  position:relative;
+.field input,
+select,
+button{
+    font-family:inherit;
 }
 
-input,select{
-  width:100%;
-  background:#071018;
-  border:1px solid #203342;
-  color:white;
-  border-radius:12px;
-  padding:13px 14px;
-  outline:none;
+.field input{
+    width:100%;
+    height:48px;
+    padding:0 14px;
+    border-radius:10px;
+    border:1px solid #26374f;
+    outline:none;
+    background:#050a12;
+    color:#fff;
+    font-size:15px;
 }
 
-input:focus,select:focus{
-  border-color:var(--green);
-}
-
-.password-toggle{
-  position:absolute;
-  right:10px;
-  top:8px;
-  background:transparent;
-  border:0;
-  color:#91a0ad;
-  padding:7px;
+.field input:focus{
+    border-color:#5f9cff;
 }
 
 .remember{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  color:#a8b5bf;
-  font-size:13px;
-  margin:8px 0 18px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#91a4bc;
+    font-size:13px;
+    margin:5px 0 18px;
 }
 
 .remember input{
-  width:auto;
+    width:16px;
+    height:16px;
 }
 
-.primary{
-  width:100%;
-  border:0;
-  border-radius:12px;
-  padding:14px;
-  background:linear-gradient(135deg,var(--green),var(--green2));
-  color:#03150c;
-  font-weight:900;
-  font-size:15px;
+.login-btn{
+    width:100%;
+    height:50px;
+    border:0;
+    border-radius:11px;
+    background:linear-gradient(135deg,#1769ff,#0e47b7);
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.primary:hover{
-  filter:brightness(1.08);
+.login-btn:active{
+    transform:scale(.99);
 }
 
-.error{
-  background:#2a0c12;
-  border:1px solid #70202c;
-  color:#ff9da8;
-  padding:12px;
-  border-radius:12px;
-  font-size:13px;
-  margin-top:13px;
-  display:none;
+.login-error{
+    min-height:20px;
+    text-align:center;
+    margin-top:12px;
+    color:#ff6d6d;
+    font-size:13px;
 }
 
-.or{
-  text-align:center;
-  color:#657583;
-  font-size:12px;
-  margin:18px 0;
+.whatsapp-order{
+    display:block;
+    text-align:center;
+    margin-top:18px;
+    color:#70a7ff;
+    text-decoration:none;
+    font-size:13px;
 }
 
-.whatsapp{
-  display:block;
-  text-decoration:none;
-  text-align:center;
-  background:#0b5e37;
-  border:1px solid #1aa962;
-  color:white;
-  border-radius:14px;
-  padding:15px;
+/* ================= APP ================= */
+
+#app{
+    display:none;
+    min-height:100vh;
 }
 
-.whatsapp strong{
-  display:block;
-  color:#65f0a8;
-  font-size:18px;
+.header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    padding:14px 16px;
+    background:rgba(3,8,15,.96);
+    border-bottom:1px solid #172235;
+    backdrop-filter:blur(12px);
 }
 
-.whatsapp span{
-  display:block;
-  color:#b9d9c8;
-  font-size:12px;
-  margin-top:4px;
-}
-
-.login-footer{
-  text-align:center;
-  color:#596b79;
-  font-size:11px;
-  margin-top:20px;
-}
-
-/* APP */
-
-.app{
-  min-height:100vh;
-}
-
-.topbar{
-  height:68px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 18px;
-  border-bottom:1px solid var(--border);
-  background:rgba(5,10,15,.92);
-  position:sticky;
-  top:0;
-  z-index:10;
-  backdrop-filter:blur(14px);
+.header-inner{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
+    display:flex;
+    align-items:center;
+    gap:13px;
 }
 
-.brand-logo{
-  width:38px;
-  height:38px;
-  border-radius:11px;
-  background:linear-gradient(135deg,#19ed83,#0b9e55);
-  color:#03130b;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
+.brand-text h1{
+    margin:0;
+    font-size:19px;
+    letter-spacing:1.1px;
 }
 
-.brand-title{
-  font-weight:900;
+.brand-text p{
+    margin:4px 0 0;
+    color:#7f93ad;
+    font-size:10px;
+    letter-spacing:1.4px;
+    font-weight:bold;
 }
 
-.brand-sub{
-  color:var(--muted);
-  font-size:11px;
-  margin-top:2px;
+.lion-logo{
+    width:60px;
+    height:60px;
+    object-fit:contain;
+    border-radius:50%;
+    background:#050a11;
+    border:1px solid #31445e;
 }
 
-.live{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  color:#7cf0af;
-  font-size:12px;
-  font-weight:800;
+.connection{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 11px;
+    border:1px solid #1e2d42;
+    border-radius:9px;
+    background:#07101b;
+    font-size:11px;
+    color:#8498b2;
 }
 
-.live-dot{
-  width:8px;
-  height:8px;
-  background:var(--green);
-  border-radius:50%;
-  box-shadow:0 0 12px var(--green);
+.connection-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#e3a32b;
 }
 
-.container{
-  width:min(1200px,94%);
-  margin:20px auto 45px;
+.connection.online .connection-dot{
+    background:#2bd576;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(12,1fr);
-  gap:14px;
+.connection.error .connection-dot{
+    background:#ff5555;
 }
 
-.card{
-  background:linear-gradient(180deg,#0c151e,#091119);
-  border:1px solid var(--border);
-  border-radius:17px;
-  padding:17px;
+/* ================= MAIN ================= */
+
+.main{
+    max-width:1250px;
+    margin:auto;
+    padding:16px;
+}
+
+.top-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:14px;
+}
+
+.panel{
+    background:#070d16;
+    border:1px solid #172438;
+    border-radius:15px;
+    padding:15px;
+    box-shadow:0 10px 35px rgba(0,0,0,.22);
+}
+
+.panel-title{
+    font-size:12px;
+    color:#8296b0;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:12px;
 }
 
 .controls{
-  grid-column:span 12;
-}
-
-.control-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:11px;
 }
 
 .control label{
-  display:block;
-  font-size:11px;
-  color:#8394a2;
-  text-transform:uppercase;
-  letter-spacing:.06em;
-  margin-bottom:7px;
+    display:block;
+    color:#71859f;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+    margin-bottom:6px;
 }
 
-.start-btn{
-  height:46px;
-  width:100%;
-  border:0;
-  border-radius:11px;
-  background:linear-gradient(135deg,var(--green),var(--green2));
-  color:#03150c;
-  font-weight:900;
+.control select,
+.control input{
+    width:100%;
+    height:42px;
+    border:1px solid #23344c;
+    background:#050a12;
+    color:#fff;
+    border-radius:9px;
+    padding:0 11px;
+    outline:none;
 }
 
-.stop{
-  background:#7b1824!important;
-  color:#fff!important;
+.control select:focus,
+.control input:focus{
+    border-color:#4c8dff;
 }
 
-.metrics{
-  grid-column:span 12;
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:12px;
+.full{
+    grid-column:1/-1;
 }
 
-.metric{
-  background:#0a131c;
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:14px;
+.market-info{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:12px;
+    padding:10px;
+    background:#050a11;
+    border-radius:9px;
+    border:1px solid #152236;
 }
 
-.metric-label{
-  color:#758795;
-  font-size:11px;
-  text-transform:uppercase;
+.market-name{
+    font-size:13px;
+    font-weight:bold;
 }
 
-.metric-value{
-  font-size:22px;
-  font-weight:900;
-  margin-top:7px;
+.market-symbol{
+    color:#657991;
+    font-size:11px;
+    margin-top:3px;
 }
 
-.green{
-  color:var(--green);
+.market-count{
+    text-align:right;
+    color:#7e93ae;
+    font-size:11px;
 }
 
-.yellow{
-  color:var(--yellow);
+.action-row{
+    display:flex;
+    gap:9px;
+    margin-top:12px;
 }
 
-.red{
-  color:var(--red);
+.action-btn{
+    flex:1;
+    height:44px;
+    border-radius:9px;
+    border:1px solid #2b4160;
+    background:#0b1726;
+    color:#fff;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-.section-title{
-  font-size:14px;
-  font-weight:900;
-  margin-bottom:14px;
+.action-btn.primary{
+    border-color:#1769ff;
+    background:#1257d4;
 }
 
-/* DIGITS */
+.action-btn.stop{
+    border-color:#71343b;
+    background:#241016;
+}
 
-.digits-card{
-  grid-column:span 8;
+.action-btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+/* ================= ENTRY ================= */
+
+.entry-box{
+    min-height:225px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    border-radius:12px;
+    background:
+        radial-gradient(circle at center,#0b1829 0%,#050a11 70%);
+    border:1px solid #1c2c42;
+    padding:18px;
+}
+
+.entry-status{
+    font-size:27px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.entry-status.wait{
+    color:#8395ac;
+}
+
+.entry-status.scanning{
+    color:#e2ad45;
+}
+
+.entry-status.good{
+    color:#35df86;
+}
+
+.entry-status.danger{
+    color:#ff6262;
+}
+
+.entry-contract{
+    margin-top:8px;
+    font-size:17px;
+    font-weight:bold;
+}
+
+.entry-detail{
+    margin-top:8px;
+    color:#8295ad;
+    font-size:12px;
+    max-width:500px;
+    line-height:1.5;
+}
+
+.confidence{
+    margin-top:13px;
+    font-size:31px;
+    font-weight:900;
+}
+
+.confidence small{
+    display:block;
+    font-size:10px;
+    color:#6e829c;
+    letter-spacing:1px;
+    margin-top:2px;
+}
+
+.timer{
+    margin-top:12px;
+    font-size:12px;
+    color:#d5a747;
+}
+
+.timer strong{
+    font-size:19px;
+}
+
+.reason{
+    margin-top:12px;
+    padding:9px 12px;
+    width:100%;
+    max-width:600px;
+    border-radius:8px;
+    background:#08121e;
+    border:1px solid #18283d;
+    color:#9eb0c7;
+    font-size:11px;
+    line-height:1.5;
+}
+
+/* ================= DIGITS ================= */
+
+.section{
+    margin-top:14px;
 }
 
 .digits{
-  display:grid;
-  grid-template-columns:repeat(10,1fr);
-  gap:7px;
+    display:grid;
+    grid-template-columns:repeat(10,1fr);
+    gap:7px;
 }
 
 .digit{
-  min-width:0;
-  padding:11px 5px;
-  background:#081019;
-  border:1px solid #1a2a37;
-  border-radius:10px;
-  text-align:center;
+    height:65px;
+    border-radius:10px;
+    background:#050a11;
+    border:1px solid #18283c;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
 }
 
 .digit-number{
-  font-size:17px;
-  font-weight:900;
+    font-size:18px;
+    font-weight:bold;
 }
 
-.digit-pct{
-  font-size:10px;
-  color:#7f919f;
-  margin-top:3px;
+.digit-percent{
+    font-size:10px;
+    color:#7489a3;
+    margin-top:3px;
 }
 
-.hot{
-  border-color:#15965a;
-  background:#092117;
+.digit-bar{
+    position:absolute;
+    bottom:0;
+    left:0;
+    height:3px;
+    background:#4b8eff;
+    width:0%;
 }
 
-.cold{
-  border-color:#71323a;
-  background:#190d11;
-}
-
-/* SIGNAL */
-
-.signal-card{
-  grid-column:span 4;
-}
-
-.signal{
-  border-radius:15px;
-  padding:18px;
-  border:1px solid #263643;
-  background:#081018;
-  text-align:center;
-}
-
-.signal.good{
-  border-color:#148f54;
-  background:#082015;
-}
-
-.signal.wait{
-  border-color:#594d24;
-  background:#18140a;
-}
-
-.signal-title{
-  font-size:22px;
-  font-weight:1000;
-}
-
-.signal-detail{
-  color:#a0afb9;
-  margin-top:5px;
-}
-
-.score{
-  font-size:38px;
-  font-weight:1000;
-  margin:10px 0;
-}
-
-.badges{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:7px;
-}
-
-.badge{
-  padding:6px 9px;
-  border-radius:8px;
-  background:#111d27;
-  color:#a9b8c2;
-  font-size:11px;
-}
-
-/* WINDOWS */
+/* ================= WINDOWS ================= */
 
 .windows{
-  grid-column:span 7;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
 }
 
-.window-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
+.window-card{
+    background:#050a11;
+    border:1px solid #17273b;
+    border-radius:10px;
+    padding:12px;
 }
 
-.window{
-  padding:13px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:#081019;
+.window-title{
+    color:#8ba0b9;
+    font-size:11px;
+    margin-bottom:8px;
+    text-transform:uppercase;
 }
 
-.window-name{
-  font-weight:900;
-  font-size:13px;
+.window-direction{
+    font-size:18px;
+    font-weight:bold;
 }
 
-.window-row{
-  display:flex;
-  justify-content:space-between;
-  margin-top:9px;
-  font-size:12px;
-  color:#94a4af;
+.window-score{
+    margin-top:5px;
+    font-size:11px;
+    color:#70859f;
 }
 
-.bar{
-  height:5px;
-  border-radius:99px;
-  background:#17242e;
-  overflow:hidden;
-  margin-top:5px;
+.window-agreement{
+    margin-top:8px;
+    height:5px;
+    background:#101b2a;
+    border-radius:5px;
+    overflow:hidden;
 }
 
-.bar span{
-  display:block;
-  height:100%;
-  background:var(--green);
+.window-agreement div{
+    height:100%;
+    width:0;
+    background:#3a82ff;
 }
 
-/* CONTRACTS */
+/* ================= SCANNER ================= */
 
-.contracts{
-  grid-column:span 5;
+.scanner{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:9px;
 }
 
-.contract-list{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:8px;
+.scan-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:11px;
+    border:1px solid #18283c;
+    border-radius:9px;
+    background:#050a11;
 }
 
-.contract{
-  border:1px solid var(--border);
-  border-radius:11px;
-  padding:11px;
-  background:#081019;
+.scan-left{
+    display:flex;
+    align-items:center;
+    gap:9px;
 }
 
-.contract strong{
-  display:block;
-  font-size:12px;
+.scan-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#596b81;
 }
 
-.contract small{
-  color:#748692;
+.scan-item.good .scan-dot{
+    background:#32dc82;
 }
 
-.market-read{
-  grid-column:span 7;
+.scan-item.bad .scan-dot{
+    background:#f04d5b;
 }
 
-.recent{
-  grid-column:span 5;
+.scan-name{
+    font-size:12px;
 }
 
-.read-row{
-  display:flex;
-  justify-content:space-between;
-  border-bottom:1px solid #15222c;
-  padding:11px 0;
-  font-size:13px;
+.scan-value{
+    color:#8599b2;
+    font-size:11px;
 }
 
-.read-row:last-child{
-  border-bottom:0;
-}
+/* ================= RECENT TICKS ================= */
 
-.tick-list{
-  max-height:260px;
-  overflow:auto;
+.ticks{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    max-height:135px;
+    overflow:hidden;
 }
 
 .tick{
-  display:flex;
-  justify-content:space-between;
-  padding:8px 0;
-  border-bottom:1px solid #14212b;
-  font-size:12px;
+    width:31px;
+    height:31px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#050a11;
+    border:1px solid #192a40;
+    border-radius:7px;
+    font-size:12px;
+    font-weight:bold;
 }
 
-.tick:last-child{
-  border-bottom:0;
-}
+/* ================= LOCK ================= */
 
-.order{
-  grid-column:span 12;
-}
-
-.order a{
-  display:block;
-  text-align:center;
-  text-decoration:none;
-  border-radius:14px;
-  padding:15px;
-  background:#0b5e37;
-  border:1px solid #1aa962;
-  color:white;
-  font-weight:900;
-}
-
-.footer{
-  text-align:center;
-  color:#536574;
-  font-size:11px;
-  margin-top:25px;
-}
-
-@media(max-width:900px){
-  .control-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .metrics{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .digits-card,
-  .signal-card,
-  .windows,
-  .contracts,
-  .market-read,
-  .recent{
-    grid-column:span 12;
-  }
-}
-
-@media(max-width:600px){
-  .container{
-    width:94%;
-  }
-
-  .topbar{
-    padding:0 12px;
-  }
-
-  .brand-sub{
+.lock-box{
+    margin-top:12px;
     display:none;
-  }
+    padding:13px;
+    background:#120d08;
+    border:1px solid #5b4020;
+    border-radius:10px;
+}
 
-  .control-grid{
-    grid-template-columns:1fr;
-  }
+.lock-box.active{
+    display:block;
+}
 
-  .metrics{
-    grid-template-columns:repeat(2,1fr);
-  }
+.lock-title{
+    font-size:13px;
+    font-weight:bold;
+    color:#e3ae4b;
+}
 
-  .digits{
-    grid-template-columns:repeat(5,1fr);
-  }
+.lock-text{
+    color:#8e7b5e;
+    font-size:11px;
+    margin:6px 0 10px;
+    line-height:1.5;
+}
 
-  .window-grid{
-    grid-template-columns:1fr;
-  }
+.lock-row{
+    display:flex;
+    gap:8px;
+}
 
-  .contract-list{
-    grid-template-columns:1fr 1fr;
-  }
+.lock-row input{
+    flex:1;
+    height:40px;
+    background:#080a0d;
+    color:#fff;
+    border:1px solid #3c3021;
+    border-radius:8px;
+    padding:0 10px;
+}
 
-  .metric-value{
-    font-size:19px;
-  }
+.unlock-btn,
+.contact-btn{
+    height:40px;
+    border-radius:8px;
+    padding:0 14px;
+    border:1px solid #805d29;
+    background:#4e3716;
+    color:#fff;
+    cursor:pointer;
+}
+
+.contact-btn{
+    margin-top:9px;
+    width:100%;
+    background:#071c13;
+    border-color:#235a43;
+    color:#63d89a;
+}
+
+.lock-message{
+    font-size:11px;
+    color:#ff7373;
+    margin-top:7px;
+}
+
+/* ================= RISK ================= */
+
+.risk{
+    margin:18px 0 5px;
+    text-align:center;
+    padding:17px;
+    border:1px solid #452328;
+    background:#10080a;
+    border-radius:12px;
+}
+
+.risk-title{
+    color:#ff646d;
+    font-weight:900;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+.risk-text{
+    color:#c99b9f;
+    font-size:11px;
+    line-height:1.7;
+    margin-top:6px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:800px){
+    .top-grid{
+        grid-template-columns:1fr;
+    }
+
+    .digits{
+        grid-template-columns:repeat(5,1fr);
+    }
+
+    .windows{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:520px){
+    .main{
+        padding:10px;
+    }
+
+    .header{
+        padding:10px;
+    }
+
+    .header-inner{
+        align-items:flex-start;
+    }
+
+    .brand-text h1{
+        font-size:15px;
+    }
+
+    .brand-text p{
+        font-size:8px;
+    }
+
+    .lion-logo{
+        width:48px;
+        height:48px;
+    }
+
+    .connection{
+        font-size:9px;
+        padding:7px;
+    }
+
+    .controls{
+        grid-template-columns:1fr;
+    }
+
+    .digits{
+        gap:5px;
+    }
+
+    .digit{
+        height:57px;
+    }
+
+    .scanner{
+        grid-template-columns:1fr;
+    }
+
+    .entry-status{
+        font-size:23px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
+<!-- =========================================================
+     LOGIN
+========================================================= -->
 
-<section id="loginPage" class="login-page">
+<div id="loginPage">
 
-  <div class="login-card">
+    <div class="login-box">
 
-    <div class="logo">DA</div>
+        <div class="login-brand">
 
-    <div class="login-title">Deriv Live Analyzer</div>
+            <h1>DERIV LIVE ENTRY</h1>
 
-    <div class="login-subtitle">
-      Manual Analysis Dashboard
-    </div>
+            <p>POWERED BY ELISY 254</p>
 
-    <div class="security">
-      🔐 <b>Secure access</b><br>
-      Live market analysis only. No automatic trading.
-    </div>
-
-    <form id="loginForm">
-
-      <div class="field">
-        <label>Username</label>
-        <input
-          id="username"
-          autocomplete="username"
-          placeholder="Enter username"
-        >
-      </div>
-
-      <div class="field">
-
-        <label>Password</label>
-
-        <div class="input-wrap">
-
-          <input
-            id="password"
-            type="password"
-            autocomplete="current-password"
-            placeholder="Enter password"
-          >
-
-          <button
-            type="button"
-            class="password-toggle"
-            id="togglePassword"
-          >👁</button>
+            <img
+                src="lion-logo.png"
+                class="login-lion"
+                alt="Lion logo"
+                onerror="this.style.display='none'"
+            >
 
         </div>
 
-      </div>
-
-      <label class="remember">
-        <input type="checkbox" id="remember">
-        Remember my username
-      </label>
-
-      <button class="primary" type="submit">
-        LOGIN
-      </button>
-
-      <div id="loginError" class="error">
-        <b>Invalid Login</b><br>
-        Incorrect username or password. Please try again.
-      </div>
-
-    </form>
-
-    <div class="or">OR</div>
-
-    <a
-      class="whatsapp"
-      target="_blank"
-      href="https://wa.me/254701859605?text=Hello%20I%20need%20a%20%24100%20order."
-    >
-      <strong>💬 $100 ORDER NOW</strong>
-      <span>Contact the order desk on WhatsApp</span>
-      <span>+254 701 859 605</span>
-    </a>
-
-    <div class="login-footer">
-      Analysis only • No automatic trading
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- APP -->
-
-<section id="app" class="app hidden">
-
-  <header class="topbar">
-
-    <div class="brand">
-
-      <div class="brand-logo">DA</div>
-
-      <div>
-        <div class="brand-title">Deriv Live Analyzer</div>
-        <div class="brand-sub">Manual analysis dashboard</div>
-      </div>
-
-    </div>
-
-    <div class="live">
-      <span class="live-dot"></span>
-      LIVE
-    </div>
-
-  </header>
-
-
-  <main class="container">
-
-    <div class="grid">
-
-      <!-- CONTROLS -->
-
-      <div class="card controls">
-
-        <div class="section-title">
-          ⚙️ Analysis Controls
+        <div class="field">
+            <label>Username</label>
+            <input
+                id="username"
+                type="text"
+                autocomplete="username"
+                placeholder="Enter username"
+            >
         </div>
 
-        <div class="control-grid">
-
-          <div class="control">
-            <label>Market</label>
-
-            <select id="market">
-              <option value="1HZ10V">Volatility 10 (1s)</option>
-              <option value="1HZ25V">Volatility 25 (1s)</option>
-              <option value="1HZ50V">Volatility 50 (1s)</option>
-              <option value="1HZ75V">Volatility 75 (1s)</option>
-              <option value="1HZ100V">Volatility 100 (1s)</option>
-              <option value="R_10">Volatility 10</option>
-              <option value="R_25">Volatility 25</option>
-              <option value="R_50">Volatility 50</option>
-              <option value="R_75">Volatility 75</option>
-              <option value="R_100">Volatility 100</option>
-            </select>
-          </div>
-
-          <div class="control">
-            <label>Family</label>
-
-            <select id="family">
-              <option value="digit">Digit Contracts</option>
-              <option value="direction">Directional / Price</option>
-            </select>
-          </div>
-
-          <div class="control">
-            <label>Contract</label>
-
-            <select id="contract"></select>
-          </div>
-
-          <div class="control">
-            <label>Tick Window</label>
-
-            <select id="window">
-              <option value="30">30 ticks</option>
-              <option value="100">100 ticks</option>
-              <option value="500" selected>500 ticks</option>
-            </select>
-          </div>
-
-          <div class="control hidden" id="barrierBox">
-            <label>Barrier</label>
-            <input id="barrier" placeholder="Enter barrier">
-          </div>
-
-          <div class="control">
-            <label>Feed</label>
-            <button id="startBtn" class="start-btn">
-              ▶ START ANALYSIS
-            </button>
-          </div>
-
+        <div class="field">
+            <label>Password</label>
+            <input
+                id="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Enter password"
+            >
         </div>
 
-      </div>
+        <label class="remember">
+            <input type="checkbox" id="remember">
+            Remember username
+        </label>
 
+        <button class="login-btn" onclick="login()">
+            LOGIN
+        </button>
 
-      <!-- METRICS -->
-
-      <div class="metrics">
-
-        <div class="metric">
-          <div class="metric-label">Ticks Loaded</div>
-          <div id="ticksLoaded" class="metric-value">0</div>
-        </div>
-
-        <div class="metric">
-          <div class="metric-label">Last Price</div>
-          <div id="lastPrice" class="metric-value">—</div>
-        </div>
-
-        <div class="metric">
-          <div class="metric-label">Last Digit</div>
-          <div id="lastDigit" class="metric-value">—</div>
-        </div>
-
-        <div class="metric">
-          <div class="metric-label">Quality</div>
-          <div id="quality" class="metric-value">—</div>
-        </div>
-
-        <div class="metric">
-          <div class="metric-label">Agreement</div>
-          <div id="agreement" class="metric-value">—</div>
-        </div>
-
-        <div class="metric">
-          <div class="metric-label">Edge</div>
-          <div id="edge" class="metric-value">—</div>
-        </div>
-
-      </div>
-
-
-      <!-- DIGIT BOARD -->
-
-      <div class="card digits-card">
-
-        <div class="section-title">
-          🔢 Live Digit Distribution
-        </div>
-
-        <div id="digits" class="digits"></div>
-
-      </div>
-
-
-      <!-- SIGNAL -->
-
-      <div class="card signal-card">
-
-        <div class="section-title">
-          🎯 Signal Engine
-        </div>
-
-        <div id="signalBox" class="signal wait">
-
-          <div id="signalTitle" class="signal-title">
-            WAIT
-          </div>
-
-          <div id="signalDetail" class="signal-detail">
-            Waiting for confirmed entry
-          </div>
-
-          <div id="score" class="score">
-            0
-          </div>
-
-          <div id="signalBadges" class="badges"></div>
-
-        </div>
-
-      </div>
-
-
-      <!-- WINDOWS -->
-
-      <div class="card windows">
-
-        <div class="section-title">
-          📊 Multi-Window Analysis
-        </div>
-
-        <div id="windows" class="window-grid"></div>
-
-      </div>
-
-
-      <!-- CONTRACTS -->
-
-      <div class="card contracts">
-
-        <div class="section-title">
-          📋 Contract Scanner
-        </div>
-
-        <div id="contracts" class="contract-list"></div>
-
-      </div>
-
-
-      <!-- MARKET READ -->
-
-      <div class="card market-read">
-
-        <div class="section-title">
-          🧠 Market Read
-        </div>
-
-        <div class="read-row">
-          <span>Dominant Digit</span>
-          <strong id="dominantDigit">—</strong>
-        </div>
-
-        <div class="read-row">
-          <span>Hot Digit</span>
-          <strong id="hotDigit">—</strong>
-        </div>
-
-        <div class="read-row">
-          <span>Cold Digit</span>
-          <strong id="coldDigit">—</strong>
-        </div>
-
-        <div class="read-row">
-          <span>Price Direction</span>
-          <strong id="direction">—</strong>
-        </div>
-
-        <div class="read-row">
-          <span>Market State</span>
-          <strong id="marketState">Waiting</strong>
-        </div>
-
-      </div>
-
-
-      <!-- RECENT -->
-
-      <div class="card recent">
-
-        <div class="section-title">
-          🕒 Recent Ticks
-        </div>
-
-        <div id="tickList" class="tick-list"></div>
-
-      </div>
-
-
-      <!-- ORDER -->
-
-      <div class="card order">
+        <div id="loginError" class="login-error"></div>
 
         <a
-          target="_blank"
-          href="https://wa.me/254701859605?text=Hello%20I%20want%20to%20place%20a%20%24100%20order."
+            class="whatsapp-order"
+            href="https://wa.me/254701859605"
+            target="_blank"
         >
-          💬 $100 ORDER NOW • WhatsApp +254 701 859 605
+            CONTACT ELISY 254 ON WHATSAPP
         </a>
 
-      </div>
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     APP
+========================================================= -->
+
+<div id="app">
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <div class="brand">
+
+            <img
+                src="lion-logo.png"
+                class="lion-logo"
+                alt="Lion logo"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="brand-text">
+                <h1>DERIV LIVE ENTRY</h1>
+                <p>POWERED BY ELISY 254</p>
+            </div>
+
+        </div>
+
+        <div id="connection" class="connection">
+
+            <span class="connection-dot"></span>
+
+            <span id="connectionText">
+                DISCONNECTED
+            </span>
+
+        </div>
 
     </div>
 
-    <div class="footer">
-      Analysis only. No automatic trading. • Deriv Live Analyzer
+</header>
+
+
+<main class="main">
+
+<!-- =========================================================
+     CONTROLS + ENTRY
+========================================================= -->
+
+<div class="top-grid">
+
+    <section class="panel">
+
+        <div class="panel-title">
+            LIVE MARKET CONTROL
+        </div>
+
+        <div class="controls">
+
+            <div class="control full">
+
+                <label>Market</label>
+
+                <select id="marketSelect">
+                    <option value="">
+                        Loading Deriv markets...
+                    </option>
+                </select>
+
+            </div>
+
+
+            <div class="control">
+
+                <label>Contract Family</label>
+
+                <select id="familySelect">
+
+                    <option value="digit">
+                        Digit
+                    </option>
+
+                    <option value="directional">
+                        Directional
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="control">
+
+                <label>Contract</label>
+
+                <select id="contractSelect"></select>
+
+            </div>
+
+
+            <div class="control" id="barrierControl">
+
+                <label>Target / Barrier</label>
+
+                <input
+                    id="barrierInput"
+                    type="number"
+                    min="0"
+                    max="9"
+                    step="1"
+                    value="5"
+                >
+
+            </div>
+
+
+            <div class="control">
+
+                <label>Required Analysis Score</label>
+
+                <select id="thresholdSelect">
+
+                    <option value="70">70%</option>
+                    <option value="75" selected>75%</option>
+                    <option value="80">80%</option>
+                    <option value="85">85%</option>
+                    <option value="90">90%</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="market-info">
+
+            <div>
+                <div id="marketName" class="market-name">
+                    No market selected
+                </div>
+
+                <div id="marketSymbol" class="market-symbol">
+                    Waiting for market discovery
+                </div>
+            </div>
+
+            <div class="market-count">
+                <div id="marketCount">0</div>
+                <div>LIVE MARKETS</div>
+            </div>
+
+        </div>
+
+
+        <div id="lockBox" class="lock-box">
+
+            <div class="lock-title">
+                MATCHES CONTRACT LOCKED
+            </div>
+
+            <div class="lock-text">
+                Enter the unlock code to use Matches.
+                If you do not have access, contact Elisy on WhatsApp.
+            </div>
+
+            <div class="lock-row">
+
+                <input
+                    id="unlockCode"
+                    type="password"
+                    inputmode="numeric"
+                    placeholder="Enter unlock code"
+                >
+
+                <button
+                    class="unlock-btn"
+                    onclick="unlockMatches()"
+                >
+                    UNLOCK
+                </button>
+
+            </div>
+
+            <div id="lockMessage" class="lock-message"></div>
+
+            <button
+                class="contact-btn"
+                onclick="contactElisy()"
+            >
+                CONTACT ELISY WHATSAPP
+            </button>
+
+        </div>
+
+
+        <div class="action-row">
+
+            <button
+                id="startBtn"
+                class="action-btn primary"
+                onclick="startAnalysis()"
+            >
+                START ANALYSIS
+            </button>
+
+            <button
+                id="stopBtn"
+                class="action-btn stop"
+                onclick="stopAnalysis()"
+                disabled
+            >
+                STOP
+            </button>
+
+        </div>
+
+    </section>
+
+
+<!-- =========================================================
+     ENTRY BOX
+========================================================= -->
+
+<section class="panel">
+
+    <div class="panel-title">
+        ENTRY DECISION
     </div>
 
-  </main>
+    <div class="entry-box">
+
+        <div id="entryStatus" class="entry-status wait">
+            WAITING
+        </div>
+
+        <div id="entryContract" class="entry-contract">
+            NO ENTRY
+        </div>
+
+        <div id="entryDetail" class="entry-detail">
+            Select a market and start analysis.
+        </div>
+
+        <div id="confidence" class="confidence">
+            --
+            <small>ANALYSIS SCORE</small>
+        </div>
+
+        <div id="timer" class="timer">
+            Confirmation timer:
+            <strong>--</strong>
+        </div>
+
+        <div id="reason" class="reason">
+            The system will wait for sufficient live data,
+            multi-window agreement and stable conditions.
+        </div>
+
+    </div>
 
 </section>
+
+</div>
+
+
+<!-- =========================================================
+     DIGIT DISTRIBUTION
+========================================================= -->
+
+<section class="panel section">
+
+    <div class="panel-title">
+        LIVE DIGIT DISTRIBUTION
+    </div>
+
+    <div id="digits" class="digits"></div>
+
+</section>
+
+
+<!-- =========================================================
+     MULTI WINDOW
+========================================================= -->
+
+<section class="panel section">
+
+    <div class="panel-title">
+        MULTI-WINDOW ANALYSIS
+    </div>
+
+    <div class="windows">
+
+        <div class="window-card">
+
+            <div class="window-title">
+                30 TICKS
+            </div>
+
+            <div id="w30Direction" class="window-direction">
+                WAIT
+            </div>
+
+            <div id="w30Score" class="window-score">
+                Insufficient data
+            </div>
+
+            <div class="window-agreement">
+                <div id="w30Bar"></div>
+            </div>
+
+        </div>
+
+
+        <div class="window-card">
+
+            <div class="window-title">
+                100 TICKS
+            </div>
+
+            <div id="w100Direction" class="window-direction">
+                WAIT
+            </div>
+
+            <div id="w100Score" class="window-score">
+                Insufficient data
+            </div>
+
+            <div class="window-agreement">
+                <div id="w100Bar"></div>
+            </div>
+
+        </div>
+
+
+        <div class="window-card">
+
+            <div class="window-title">
+                500 TICKS
+            </div>
+
+            <div id="w500Direction" class="window-direction">
+                WAIT
+            </div>
+
+            <div id="w500Score" class="window-score">
+                Insufficient data
+            </div>
+
+            <div class="window-agreement">
+                <div id="w500Bar"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTRACT SCANNER
+========================================================= -->
+
+<section class="panel section">
+
+    <div class="panel-title">
+        CONTRACT SCANNER
+    </div>
+
+    <div id="scanner" class="scanner"></div>
+
+</section>
+
+
+<!-- =========================================================
+     RECENT TICKS
+========================================================= -->
+
+<section class="panel section">
+
+    <div class="panel-title">
+        RECENT LIVE TICKS
+    </div>
+
+    <div id="ticks" class="ticks"></div>
+
+</section>
+
+
+<!-- =========================================================
+     RISK WARNING
+========================================================= -->
+
+<div class="risk">
+
+    <div class="risk-title">
+        RISK WARNING
+    </div>
+
+    <div class="risk-text">
+        DON'T PLACE TRADE BEFORE ANALYSIS
+        <br>
+        WAIT FOR GOOD ENTRY CONFIRMATION
+    </div>
+
+</div>
+
+</main>
+
+</div>
 
 
 <script>
 
-/* =========================
-   LOGIN
-========================= */
+/* =========================================================
+   CONFIGURATION
+========================================================= */
 
 const LOGIN_USERNAME = "Trade34";
 const LOGIN_PASSWORD = "Nairobi23";
 
-const loginPage = document.getElementById("loginPage");
-const app = document.getElementById("app");
-
-const loginForm = document.getElementById("loginForm");
-const loginError = document.getElementById("loginError");
-
-const usernameInput = document.getElementById("username");
-const passwordInput = document.getElementById("password");
-const rememberInput = document.getElementById("remember");
-
-const savedUsername =
-  localStorage.getItem("derivAnalyzerUsername");
-
-if(savedUsername){
-  usernameInput.value = savedUsername;
-  rememberInput.checked = true;
-}
-
-loginForm.addEventListener("submit", function(e){
-
-  e.preventDefault();
-
-  const username = usernameInput.value.trim();
-  const password = passwordInput.value;
-
-  if(
-    username === LOGIN_USERNAME &&
-    password === LOGIN_PASSWORD
-  ){
-
-    loginError.style.display = "none";
-
-    if(rememberInput.checked){
-      localStorage.setItem(
-        "derivAnalyzerUsername",
-        username
-      );
-    }else{
-      localStorage.removeItem(
-        "derivAnalyzerUsername"
-      );
-    }
-
-    loginPage.classList.add("hidden");
-    app.classList.remove("hidden");
-
-  }else{
-
-    loginError.style.display = "block";
-
-  }
-
-});
-
-
-document.getElementById("togglePassword")
-.addEventListener("click",function(){
-
-  passwordInput.type =
-    passwordInput.type === "password"
-      ? "text"
-      : "password";
-
-});
-
-
-/* =========================
-   DERIV CONNECTION
-========================= */
+const MATCHES_UNLOCK_CODE = "19809";
 
 const DERIV_WS =
-  "wss://api.derivws.com/trading/v1/options/ws/public";
+    "wss://api.derivws.com/trading/v1/options/ws/public";
 
-let socket = null;
-let running = false;
+const WHATSAPP =
+    "https://wa.me/254701859605";
+
+const MIN_ANALYSIS_TICKS = 500;
+
+const CONFIRMATION_SECONDS = 60;
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let ws = null;
+
+let activeSymbols = [];
+
+let marketMeta = {};
+
+let selectedSymbol = "";
 
 let ticks = [];
-let pipSize = null;
+
+let running = false;
+
+let reconnectTimer = null;
+
+let reconnectDelay = 3000;
+
+let confirmationTimer = null;
+
+let confirmationSeconds = CONFIRMATION_SECONDS;
+
+let candidateKey = "";
+
+let candidateSince = null;
+
+let matchesUnlocked = false;
+
+let audioContext = null;
 
 
-/* =========================
-   CONTRACTS
-========================= */
+/* =========================================================
+   LOGIN
+========================================================= */
 
-const digitContracts = [
-  "Matches",
-  "Differs",
-  "Over",
-  "Under",
-  "Even",
-  "Odd"
-];
+function login(){
 
-const directionContracts = [
-  "Rise",
-  "Fall",
-  "Higher",
-  "Lower"
-];
+    const username =
+        document.getElementById("username").value.trim();
 
-const familySelect = document.getElementById("family");
-const contractSelect = document.getElementById("contract");
-const barrierBox = document.getElementById("barrierBox");
+    const password =
+        document.getElementById("password").value;
 
-function updateContracts(){
+    const remember =
+        document.getElementById("remember").checked;
 
-  const list =
-    familySelect.value === "digit"
-      ? digitContracts
-      : directionContracts;
+    const error =
+        document.getElementById("loginError");
 
-  contractSelect.innerHTML = "";
+    if(
+        username === LOGIN_USERNAME &&
+        password === LOGIN_PASSWORD
+    ){
 
-  list.forEach(c => {
+        if(remember){
 
-    const option = document.createElement("option");
-    option.value = c;
-    option.textContent = c;
+            localStorage.setItem(
+                "deriv_saved_username",
+                username
+            );
 
-    contractSelect.appendChild(option);
+        }else{
 
-  });
+            localStorage.removeItem(
+                "deriv_saved_username"
+            );
 
-  barrierBox.classList.toggle(
-    "hidden",
-    !["Higher","Lower"].includes(
-      contractSelect.value
-    )
-  );
+        }
+
+        document.getElementById("loginPage").style.display =
+            "none";
+
+        document.getElementById("app").style.display =
+            "block";
+
+        initializeApp();
+
+    }else{
+
+        error.textContent =
+            "Incorrect username or password.";
+
+    }
 
 }
 
-familySelect.addEventListener(
-  "change",
-  updateContracts
-);
 
-contractSelect.addEventListener(
-  "change",
-  updateContracts
-);
+/* =========================================================
+   LOAD SAVED USERNAME
+========================================================= */
 
-updateContracts();
+const savedUsername =
+    localStorage.getItem("deriv_saved_username");
+
+if(savedUsername){
+
+    document.getElementById("username").value =
+        savedUsername;
+
+    document.getElementById("remember").checked =
+        true;
+
+}
 
 
-/* =========================
-   START / STOP
-========================= */
+/* =========================================================
+   ENTER KEY LOGIN
+========================================================= */
 
-const startBtn =
-  document.getElementById("startBtn");
+document.getElementById("password")
+.addEventListener("keydown",function(e){
 
-startBtn.addEventListener("click",function(){
-
-  if(running){
-    stopFeed();
-  }else{
-    startFeed();
-  }
+    if(e.key === "Enter"){
+        login();
+    }
 
 });
 
 
-function startFeed(){
+/* =========================================================
+   APP INITIALIZATION
+========================================================= */
 
-  running = true;
+function initializeApp(){
 
-  startBtn.textContent = "■ STOP ANALYSIS";
-  startBtn.classList.add("stop");
+    renderDigits();
 
-  ticks = [];
+    renderScanner();
 
-  connect();
+    updateContractOptions();
+
+    connectDeriv();
 
 }
 
 
-function stopFeed(){
+/* =========================================================
+   CONNECTION STATUS
+========================================================= */
 
-  running = false;
+function setConnection(status,text){
 
-  startBtn.textContent = "▶ START ANALYSIS";
-  startBtn.classList.remove("stop");
+    const box =
+        document.getElementById("connection");
 
-  if(socket){
+    const label =
+        document.getElementById("connectionText");
+
+    box.classList.remove(
+        "online",
+        "error"
+    );
+
+    if(status === "online"){
+        box.classList.add("online");
+    }
+
+    if(status === "error"){
+        box.classList.add("error");
+    }
+
+    label.textContent = text;
+
+}
+
+
+/* =========================================================
+   CONNECT DERIV
+========================================================= */
+
+function connectDeriv(){
+
+    if(ws){
+
+        try{
+            ws.close();
+        }catch(e){}
+
+    }
+
+    setConnection(
+        "connecting",
+        "CONNECTING"
+    );
 
     try{
-      socket.close();
-    }catch(e){}
 
-  }
+        ws = new WebSocket(DERIV_WS);
 
-  socket = null;
+    }catch(error){
 
-}
+        setConnection(
+            "error",
+            "CONNECTION ERROR"
+        );
 
+        scheduleReconnect();
 
-/* =========================
-   CONNECTION
-========================= */
-
-function connect(){
-
-  if(!running) return;
-
-  try{
-
-    socket =
-      new WebSocket(DERIV_WS);
-
-    socket.addEventListener(
-      "open",
-      onOpen
-    );
-
-    socket.addEventListener(
-      "message",
-      onMessage
-    );
-
-    socket.addEventListener(
-      "error",
-      onError
-    );
-
-    socket.addEventListener(
-      "close",
-      onClose
-    );
-
-  }catch(e){
-
-    console.error(e);
-
-  }
-
-}
-
-
-function onOpen(){
-
-  const market =
-    document.getElementById("market").value;
-
-  /* historical ticks */
-
-  socket.send(JSON.stringify({
-
-    ticks_history:market,
-    count:500,
-    end:"latest",
-    style:"ticks",
-    req_id:1
-
-  }));
-
-  /* live stream */
-
-  socket.send(JSON.stringify({
-
-    ticks:market,
-    subscribe:1,
-    req_id:2
-
-  }));
-
-}
-
-
-function onMessage(event){
-
-  let data;
-
-  try{
-    data = JSON.parse(event.data);
-  }catch(e){
-    return;
-  }
-
-  if(
-    data.history &&
-    Array.isArray(data.history.prices)
-  ){
-
-    if(data.history.pip_size != null){
-      pipSize = data.history.pip_size;
-    }
-
-    data.history.prices.forEach(
-      addPrice
-    );
-
-    renderAll();
-
-  }
-
-
-  if(
-    data.tick &&
-    data.tick.quote != null
-  ){
-
-    if(data.tick.pip_size != null){
-      pipSize = data.tick.pip_size;
-    }
-
-    addPrice(
-      data.tick.quote
-    );
-
-    renderAll();
-
-  }
-
-}
-
-
-function onError(e){
-
-  console.log("WebSocket error",e);
-
-}
-
-
-function onClose(){
-
-  if(
-    running &&
-    ticks.length > 0
-  ){
-
-    setTimeout(function(){
-
-      if(running) connect();
-
-    },2000);
-
-  }
-
-}
-
-
-/* =========================
-   PRICE / DIGIT
-========================= */
-
-function addPrice(price){
-
-  const numeric =
-    Number(price);
-
-  if(!Number.isFinite(numeric))
-    return;
-
-  ticks.push({
-    price:numeric,
-    time:new Date()
-  });
-
-  if(ticks.length > 1000){
-    ticks.shift();
-  }
-
-}
-
-
-function getDigit(price){
-
-  if(
-    pipSize != null &&
-    Number.isFinite(pipSize)
-  ){
-
-    const scaled =
-      Math.round(
-        Number(price) /
-        Math.pow(10,-pipSize)
-      );
-
-    return Math.abs(
-      scaled % 10
-    );
-
-  }
-
-  const s =
-    Number(price)
-      .toFixed(10)
-      .replace(/0+$/,"");
-
-  const parts =
-    s.split(".");
-
-  if(parts.length === 1)
-    return 0;
-
-  return Number(
-    parts[1].slice(-1)
-  );
-
-}
-
-
-/* =========================
-   ANALYSIS
-========================= */
-
-function analyzeWindow(size){
-
-  const data =
-    ticks.slice(-size);
-
-  const counts =
-    Array(10).fill(0);
-
-  data.forEach(t=>{
-    counts[getDigit(t.price)]++;
-  });
-
-  const total =
-    data.length || 1;
-
-  const probabilities =
-    counts.map(
-      n => n / total
-    );
-
-  const max =
-    Math.max(...probabilities);
-
-  const min =
-    Math.min(...probabilities);
-
-  const dominant =
-    probabilities.indexOf(max);
-
-  const cold =
-    probabilities.indexOf(min);
-
-  return {
-    data,
-    counts,
-    probabilities,
-    dominant,
-    cold,
-    max,
-    min,
-    total
-  };
-
-}
-
-
-function analyzeAll(){
-
-  return {
-    w30:analyzeWindow(30),
-    w100:analyzeWindow(100),
-    w500:analyzeWindow(500)
-  };
-
-}
-
-
-/* =========================
-   DIGIT CONTRACT LOGIC
-========================= */
-
-function contractProbability(
-  contract,
-  analysis
-){
-
-  const p =
-    analysis.probabilities;
-
-  if(contract === "Matches"){
-    return Math.max(...p);
-  }
-
-  if(contract === "Differs"){
-    return 1 - Math.max(...p);
-  }
-
-  if(contract === "Even"){
-    return (
-      p[0]+p[2]+p[4]+p[6]+p[8]
-    );
-  }
-
-  if(contract === "Odd"){
-    return (
-      p[1]+p[3]+p[5]+p[7]+p[9]
-    );
-  }
-
-  if(contract === "Over"){
-
-    let best = 0;
-
-    for(let barrier=0;barrier<=8;barrier++){
-
-      let value = 0;
-
-      for(
-        let d=barrier+1;
-        d<=9;
-        d++
-      ){
-        value += p[d];
-      }
-
-      best =
-        Math.max(best,value);
+        return;
 
     }
 
-    return best;
-  }
 
-  if(contract === "Under"){
+    ws.onopen = function(){
 
-    let best = 0;
+        reconnectDelay = 3000;
 
-    for(let barrier=1;barrier<=9;barrier++){
+        setConnection(
+            "online",
+            "CONNECTED"
+        );
 
-      let value = 0;
+        requestActiveSymbols();
 
-      for(
-        let d=0;
-        d<barrier;
-        d++
-      ){
-        value += p[d];
-      }
-
-      best =
-        Math.max(best,value);
-
-    }
-
-    return best;
-  }
-
-  return 0;
-
-}
-
-
-/* =========================
-   DIRECTION
-========================= */
-
-function directionAnalysis(){
-
-  const data =
-    ticks.slice(-100);
-
-  if(data.length < 2){
-
-    return {
-      rise:0,
-      fall:0,
-      direction:"—"
     };
 
-  }
 
-  let rise = 0;
-  let fall = 0;
+    ws.onmessage = function(event){
 
-  for(
-    let i=1;
-    i<data.length;
-    i++
-  ){
+        let data;
 
-    if(
-      data[i].price >
-      data[i-1].price
-    ){
-      rise++;
-    }
+        try{
 
-    if(
-      data[i].price <
-      data[i-1].price
-    ){
-      fall++;
-    }
+            data = JSON.parse(event.data);
 
-  }
+        }catch(error){
 
-  const total =
-    rise + fall || 1;
+            return;
 
-  return {
-    rise:rise/total,
-    fall:fall/total,
-    direction:
-      rise > fall
-        ? "RISE"
-        : "FALL"
-  };
+        }
 
-}
+        handleDerivMessage(data);
 
-
-/* =========================
-   SIGNAL ENGINE
-========================= */
-
-function buildSignal(){
-
-  const a =
-    analyzeAll();
-
-  const contract =
-    contractSelect.value;
-
-  const family =
-    familySelect.value;
-
-  const w30 = a.w30;
-  const w100 = a.w100;
-  const w500 = a.w500;
-
-  if(w500.total < 30){
-
-    return {
-      good:false,
-      score:0,
-      detail:"Waiting for more live ticks",
-      contract
     };
 
-  }
 
-  let probability = 0;
-  let target = "—";
+    ws.onerror = function(){
 
-  if(family === "digit"){
+        setConnection(
+            "error",
+            "CONNECTION ERROR"
+        );
 
-    probability =
-      contractProbability(
-        contract,
-        w500
-      );
+    };
 
-    if(contract === "Matches"){
-      target =
-        String(w500.dominant);
-    }
 
-    if(contract === "Differs"){
-      target =
-        String(w500.cold);
-    }
+    ws.onclose = function(){
 
-  }else{
+        setConnection(
+            "error",
+            "DISCONNECTED"
+        );
 
-    const d =
-      directionAnalysis();
+        if(running){
 
-    probability =
-      contract === "Rise" ||
-      contract === "Higher"
-        ? d.rise
-        : d.fall;
+            scheduleReconnect();
 
-    target =
-      d.direction;
+        }
 
-  }
-
-  const p30 =
-    contractProbability(
-      contract,
-      w30
-    );
-
-  const p100 =
-    contractProbability(
-      contract,
-      w100
-    );
-
-  const p500 = probability;
-
-  const agreement =
-    (
-      Math.abs(p30-p100) < .08 &&
-      Math.abs(p100-p500) < .08
-    )
-      ? 1
-      : .72;
-
-  const stability =
-    (
-      Math.abs(p30-p100) < .05 &&
-      Math.abs(p100-p500) < .05
-    )
-      ? 1
-      : .72;
-
-  const edge =
-    (
-      probability - 0.5
-    ) * 100;
-
-  let quality =
-    50 +
-    edge * 3 +
-    (agreement * 15) +
-    (stability * 10);
-
-  quality =
-    Math.max(
-      0,
-      Math.min(
-        100,
-        quality
-      )
-    );
-
-  let probabilityOK = false;
-
-  if(contract === "Matches")
-    probabilityOK =
-      probability >= .125;
-
-  else if(contract === "Differs")
-    probabilityOK =
-      probability >= .90;
-
-  else if(
-    contract === "Even" ||
-    contract === "Odd"
-  )
-    probabilityOK =
-      probability >= .525;
-
-  else
-    probabilityOK =
-      probability >= .55;
-
-  const good =
-    w500.total >= 200 &&
-    probabilityOK &&
-    edge >= 2 &&
-    agreement >= .66 &&
-    quality >= 65;
-
-  return {
-    good,
-    score:Math.round(quality),
-    probability,
-    edge,
-    agreement,
-    stability,
-    target,
-    contract,
-    detail:
-      good
-        ? "Confirmed entry conditions met"
-        : "Waiting for confirmed entry"
-  };
+    };
 
 }
 
 
-/* =========================
-   RENDER DIGITS
-========================= */
+/* =========================================================
+   RECONNECT
+========================================================= */
 
-function renderDigits(){
+function scheduleReconnect(){
 
-  const analysis =
-    analyzeWindow(
-      Number(
-        document.getElementById(
-          "window"
-        ).value
-      )
-    );
+    clearTimeout(reconnectTimer);
 
-  const container =
-    document.getElementById(
-      "digits"
-    );
+    reconnectTimer =
+        setTimeout(function(){
 
-  container.innerHTML = "";
+            connectDeriv();
 
-  analysis.probabilities
-    .forEach((p,d)=>{
+        },reconnectDelay);
 
-      const div =
-        document.createElement("div");
+    reconnectDelay =
+        Math.min(
+            reconnectDelay * 2,
+            30000
+        );
 
-      div.className = "digit";
+}
 
-      if(
-        p === analysis.max &&
-        analysis.total >= 30
-      ){
-        div.classList.add("hot");
-      }
 
-      if(
-        p === analysis.min &&
-        analysis.total >= 30
-      ){
-        div.classList.add("cold");
-      }
+/* =========================================================
+   ACTIVE SYMBOL DISCOVERY
+========================================================= */
 
-      div.innerHTML = `
-        <div class="digit-number">${d}</div>
-        <div class="digit-pct">
-          ${(p*100).toFixed(1)}%
-        </div>
-      `;
+function requestActiveSymbols(){
 
-      container.appendChild(div);
+    if(
+        !ws ||
+        ws.readyState !== WebSocket.OPEN
+    ){
+        return;
+    }
+
+    ws.send(JSON.stringify({
+
+        active_symbols:"brief"
+
+    }));
+
+}
+
+
+/* =========================================================
+   HANDLE DERIV MESSAGE
+========================================================= */
+
+function handleDerivMessage(data){
+
+    if(data.error){
+
+        console.error(
+            "Deriv error:",
+            data.error
+        );
+
+        return;
+
+    }
+
+
+    if(
+        data.active_symbols
+    ){
+
+        processActiveSymbols(
+            data.active_symbols
+        );
+
+        return;
+
+    }
+
+
+    if(
+        data.history
+    ){
+
+        processHistory(
+            data.history
+        );
+
+        return;
+
+    }
+
+
+    if(
+        data.tick
+    ){
+
+        processLiveTick(
+            data.tick
+        );
+
+        return;
+
+    }
+
+}
+
+
+/* =========================================================
+   PROCESS ACTIVE SYMBOLS
+========================================================= */
+
+function processActiveSymbols(symbols){
+
+    activeSymbols = symbols.filter(function(item){
+
+        const name =
+            String(
+                item.underlying_symbol_name ||
+                item.display_name ||
+                item.symbol ||
+                ""
+            );
+
+        const symbol =
+            String(
+                item.underlying_symbol ||
+                item.symbol ||
+                ""
+            );
+
+        const combined =
+            (name + " " + symbol)
+            .toLowerCase();
+
+        /*
+         * Dynamically keep Volatility and Jump markets.
+         * No hard-coded market list.
+         */
+
+        return (
+            combined.includes("volatility") ||
+            combined.includes("jump")
+        );
 
     });
 
-}
+
+    activeSymbols.sort(function(a,b){
+
+        const aName =
+            String(
+                a.underlying_symbol_name ||
+                a.display_name ||
+                a.symbol ||
+                ""
+            );
+
+        const bName =
+            String(
+                b.underlying_symbol_name ||
+                b.display_name ||
+                b.symbol ||
+                ""
+            );
+
+        return aName.localeCompare(bName);
+
+    });
 
 
-/* =========================
-   RENDER WINDOWS
-========================= */
+    marketMeta = {};
 
-function renderWindows(){
+    activeSymbols.forEach(function(item){
 
-  const a =
-    analyzeAll();
+        const symbol =
+            item.underlying_symbol ||
+            item.symbol;
 
-  const container =
+        marketMeta[symbol] = item;
+
+    });
+
+
+    populateMarketSelect();
+
+
     document.getElementById(
-      "windows"
-    );
+        "marketCount"
+    ).textContent =
+        activeSymbols.length;
 
-  container.innerHTML = "";
-
-  [
-    ["30",a.w30],
-    ["100",a.w100],
-    ["500",a.w500]
-  ].forEach(([name,w])=>{
-
-    const div =
-      document.createElement("div");
-
-    div.className = "window";
-
-    div.innerHTML = `
-      <div class="window-name">
-        ${name} TICKS
-      </div>
-
-      <div class="window-row">
-        <span>Dominant</span>
-        <strong>${w.total ? w.dominant : "—"}</strong>
-      </div>
-
-      <div class="window-row">
-        <span>Probability</span>
-        <strong>
-          ${w.total
-            ? (w.max*100).toFixed(1)+"%"
-            : "—"}
-        </strong>
-      </div>
-
-      <div class="bar">
-        <span style="width:${w.max*100}%"></span>
-      </div>
-
-      <div class="window-row">
-        <span>Cold</span>
-        <strong>${w.total ? w.cold : "—"}</strong>
-      </div>
-    `;
-
-    container.appendChild(div);
-
-  });
-
-}
-
-
-/* =========================
-   CONTRACT SCANNER
-========================= */
-
-function renderContracts(){
-
-  const analysis =
-    analyzeWindow(
-      Number(
-        document.getElementById(
-          "window"
-        ).value
-      )
-    );
-
-  const container =
-    document.getElementById(
-      "contracts"
-    );
-
-  container.innerHTML = "";
-
-  const contracts =
-    familySelect.value === "digit"
-      ? digitContracts
-      : directionContracts;
-
-  contracts.forEach(contract=>{
-
-    let probability;
 
     if(
-      contract === "Rise" ||
-      contract === "Fall" ||
-      contract === "Higher" ||
-      contract === "Lower"
+        !selectedSymbol &&
+        activeSymbols.length
     ){
 
-      const d =
-        directionAnalysis();
+        selectedSymbol =
+            activeSymbols[0].underlying_symbol ||
+            activeSymbols[0].symbol;
 
-      probability =
-        contract === "Rise" ||
-        contract === "Higher"
-          ? d.rise
-          : d.fall;
+        document.getElementById(
+            "marketSelect"
+        ).value =
+            selectedSymbol;
+
+        updateMarketInfo();
+
+    }
+
+}
+
+
+/* =========================================================
+   POPULATE MARKET SELECT
+========================================================= */
+
+function populateMarketSelect(){
+
+    const select =
+        document.getElementById("marketSelect");
+
+    select.innerHTML = "";
+
+    if(!activeSymbols.length){
+
+        const option =
+            document.createElement("option");
+
+        option.value = "";
+
+        option.textContent =
+            "No Volatility or Jump markets found";
+
+        select.appendChild(option);
+
+        return;
+
+    }
+
+
+    activeSymbols.forEach(function(item){
+
+        const symbol =
+            item.underlying_symbol ||
+            item.symbol;
+
+        const name =
+            item.underlying_symbol_name ||
+            item.display_name ||
+            symbol;
+
+        const option =
+            document.createElement("option");
+
+        option.value = symbol;
+
+        option.textContent =
+            name + " (" + symbol + ")";
+
+        select.appendChild(option);
+
+    });
+
+
+    select.value =
+        selectedSymbol;
+
+}
+
+
+/* =========================================================
+   MARKET CHANGE
+========================================================= */
+
+document.getElementById("marketSelect")
+.addEventListener("change",function(){
+
+    selectedSymbol = this.value;
+
+    updateMarketInfo();
+
+    if(running){
+
+        subscribeToMarket();
+
+    }
+
+});
+
+
+/* =========================================================
+   MARKET INFORMATION
+========================================================= */
+
+function updateMarketInfo(){
+
+    const item =
+        marketMeta[selectedSymbol];
+
+    if(!item){
+
+        document.getElementById(
+            "marketName"
+        ).textContent =
+            "No market selected";
+
+        document.getElementById(
+            "marketSymbol"
+        ).textContent =
+            "Waiting for market data";
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "marketName"
+    ).textContent =
+        item.underlying_symbol_name ||
+        item.display_name ||
+        selectedSymbol;
+
+
+    document.getElementById(
+        "marketSymbol"
+    ).textContent =
+        selectedSymbol;
+
+}
+
+
+/* =========================================================
+   FAMILY OPTIONS
+========================================================= */
+
+const digitContracts = [
+    "Matches",
+    "Differs",
+    "Over",
+    "Under",
+    "Even",
+    "Odd"
+];
+
+const directionalContracts = [
+    "Rise",
+    "Fall",
+    "Higher",
+    "Lower"
+];
+
+
+document.getElementById("familySelect")
+.addEventListener("change",function(){
+
+    updateContractOptions();
+
+});
+
+
+document.getElementById("contractSelect")
+.addEventListener("change",function(){
+
+    updateBarrierControl();
+
+    if(this.value === "Matches"){
+
+        if(!matchesUnlocked){
+
+            showMatchesLock();
+
+        }
+
+    }
+
+});
+
+
+function updateContractOptions(){
+
+    const family =
+        document.getElementById(
+            "familySelect"
+        ).value;
+
+    const contract =
+        document.getElementById(
+            "contractSelect"
+        );
+
+    contract.innerHTML = "";
+
+    const list =
+        family === "digit"
+        ? digitContracts
+        : directionalContracts;
+
+
+    list.forEach(function(name){
+
+        const option =
+            document.createElement("option");
+
+        option.value = name;
+
+        option.textContent = name;
+
+        contract.appendChild(option);
+
+    });
+
+
+    updateBarrierControl();
+
+}
+
+
+function updateBarrierControl(){
+
+    const family =
+        document.getElementById(
+            "familySelect"
+        ).value;
+
+    const contract =
+        document.getElementById(
+            "contractSelect"
+        ).value;
+
+    const control =
+        document.getElementById(
+            "barrierControl"
+        );
+
+    const input =
+        document.getElementById(
+            "barrierInput"
+        );
+
+
+    if(family === "digit"){
+
+        if(
+            contract === "Matches" ||
+            contract === "Differs"
+        ){
+
+            control.style.display =
+                "block";
+
+            input.min = 0;
+            input.max = 9;
+            input.value = 5;
+
+            return;
+
+        }
+
+
+        if(contract === "Over"){
+
+            control.style.display =
+                "block";
+
+            input.min = 0;
+            input.max = 8;
+
+            if(Number(input.value) > 8){
+                input.value = 5;
+            }
+
+            return;
+
+        }
+
+
+        if(contract === "Under"){
+
+            control.style.display =
+                "block";
+
+            input.min = 1;
+            input.max = 9;
+
+            if(Number(input.value) < 1){
+                input.value = 5;
+            }
+
+            return;
+
+        }
+
+
+        control.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    if(
+        contract === "Higher" ||
+        contract === "Lower"
+    ){
+
+        control.style.display =
+            "block";
+
+        input.min = "";
+        input.max = "";
+        input.step = "any";
+
+        input.value = "";
+
+        control.querySelector("label")
+        .textContent =
+            "Price Barrier";
 
     }else{
 
-      probability =
-        contractProbability(
-          contract,
-          analysis
+        control.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* =========================================================
+   MATCHES LOCK
+========================================================= */
+
+function showMatchesLock(){
+
+    document.getElementById(
+        "lockBox"
+    ).classList.add("active");
+
+    document.getElementById(
+        "lockMessage"
+    ).textContent = "";
+
+}
+
+
+function unlockMatches(){
+
+    const code =
+        document.getElementById(
+            "unlockCode"
+        ).value.trim();
+
+    const message =
+        document.getElementById(
+            "lockMessage"
+        );
+
+
+    if(code === MATCHES_UNLOCK_CODE){
+
+        matchesUnlocked = true;
+
+        document.getElementById(
+            "lockBox"
+        ).classList.remove("active");
+
+        message.textContent = "";
+
+        alert("Matches contract unlocked.");
+
+    }else{
+
+        message.textContent =
+            "Invalid unlock code.";
+
+    }
+
+}
+
+
+function contactElisy(){
+
+    window.open(
+        WHATSAPP +
+        "?text=" +
+        encodeURIComponent(
+            "Hello Elisy, I need access to the Matches contract."
+        ),
+        "_blank"
+    );
+
+}
+
+
+/* =========================================================
+   START ANALYSIS
+========================================================= */
+
+function startAnalysis(){
+
+    if(!selectedSymbol){
+
+        alert(
+            "Please wait for Deriv markets to load."
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * Audio is initialized from the user's button click.
+     * Nothing visible is shown on the dashboard.
+     */
+
+    try{
+
+        if(!audioContext){
+
+            audioContext =
+                new (
+                    window.AudioContext ||
+                    window.webkitAudioContext
+                )();
+
+        }
+
+        if(
+            audioContext.state === "suspended"
+        ){
+
+            audioContext.resume();
+
+        }
+
+    }catch(e){}
+
+
+    running = true;
+
+    document.getElementById(
+        "startBtn"
+    ).disabled = true;
+
+    document.getElementById(
+        "stopBtn"
+    ).disabled = false;
+
+
+    resetAnalysis();
+
+    subscribeToMarket();
+
+    setEntry(
+        "scanning",
+        "SCANNING",
+        "Collecting live market data...",
+        "--",
+        "The analyzer is waiting for enough ticks before considering an entry."
+    );
+
+}
+
+
+/* =========================================================
+   STOP ANALYSIS
+========================================================= */
+
+function stopAnalysis(){
+
+    running = false;
+
+    clearInterval(
+        confirmationTimer
+    );
+
+    confirmationTimer = null;
+
+    candidateKey = "";
+
+    candidateSince = null;
+
+    document.getElementById(
+        "startBtn"
+    ).disabled = false;
+
+    document.getElementById(
+        "stopBtn"
+    ).disabled = true;
+
+
+    setEntry(
+        "wait",
+        "STOPPED",
+        "Analysis stopped.",
+        "--",
+        "Start analysis again when you want to scan the selected market."
+    );
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+function resetAnalysis(){
+
+    ticks = [];
+
+    clearInterval(
+        confirmationTimer
+    );
+
+    confirmationTimer = null;
+
+    confirmationSeconds =
+        CONFIRMATION_SECONDS;
+
+    candidateKey = "";
+
+    candidateSince = null;
+
+    renderDigits();
+
+    renderRecentTicks();
+
+    updateWindows();
+
+}
+
+
+/* =========================================================
+   SUBSCRIBE MARKET
+========================================================= */
+
+function subscribeToMarket(){
+
+    if(
+        !ws ||
+        ws.readyState !== WebSocket.OPEN
+    ){
+
+        connectDeriv();
+
+        return;
+
+    }
+
+
+    /*
+     * Request 500 historical ticks.
+     */
+
+    ws.send(JSON.stringify({
+
+        ticks_history:selectedSymbol,
+
+        end:"latest",
+
+        count:500,
+
+        style:"ticks",
+
+        req_id:100
+
+    }));
+
+
+    /*
+     * Live tick stream.
+     */
+
+    ws.send(JSON.stringify({
+
+        ticks:selectedSymbol,
+
+        subscribe:1,
+
+        req_id:101
+
+    }));
+
+}
+
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+function processHistory(history){
+
+    if(
+        !history ||
+        !history.prices
+    ){
+        return;
+    }
+
+
+    const prices =
+        history.prices || [];
+
+    const times =
+        history.times || [];
+
+
+    ticks = [];
+
+    for(
+        let i=0;
+        i<prices.length;
+        i++
+    ){
+
+        ticks.push({
+
+            quote:Number(prices[i]),
+
+            epoch:Number(
+                times[i] || 0
+            )
+
+        });
+
+    }
+
+
+    if(ticks.length > 1000){
+
+        ticks =
+            ticks.slice(-1000);
+
+    }
+
+
+    renderRecentTicks();
+
+    renderDigits();
+
+    updateWindows();
+
+    if(running){
+
+        analyze();
+
+    }
+
+}
+
+
+/* =========================================================
+   LIVE TICK
+========================================================= */
+
+function processLiveTick(tick){
+
+    if(
+        !tick ||
+        tick.symbol !== selectedSymbol
+    ){
+        return;
+    }
+
+
+    const quote =
+        Number(tick.quote);
+
+    const epoch =
+        Number(tick.epoch);
+
+
+    if(!Number.isFinite(quote)){
+        return;
+    }
+
+
+    const last =
+        ticks[ticks.length - 1];
+
+
+    /*
+     * Avoid obvious duplicate tick insertion.
+     */
+
+    if(
+        last &&
+        last.epoch === epoch &&
+        last.quote === quote
+    ){
+        return;
+    }
+
+
+    ticks.push({
+
+        quote:quote,
+
+        epoch:epoch
+
+    });
+
+
+    if(ticks.length > 1000){
+
+        ticks.shift();
+
+    }
+
+
+    renderRecentTicks();
+
+    renderDigits();
+
+    updateWindows();
+
+    if(running){
+
+        analyze();
+
+    }
+
+}
+
+
+/* =========================================================
+   LAST DIGIT
+========================================================= */
+
+function getLastDigit(quote){
+
+    const value =
+        Math.abs(
+            Number(quote)
+        );
+
+    /*
+     * Convert the decimal representation
+     * into a string and obtain its final digit.
+     */
+
+    const text =
+        value.toFixed(10)
+        .replace(/0+$/,"");
+
+    const digits =
+        text.replace(
+            /[^0-9]/g,
+            ""
+        );
+
+    if(!digits.length){
+        return 0;
+    }
+
+    return Number(
+        digits.charAt(
+            digits.length - 1
+        )
+    );
+
+}
+
+
+/* =========================================================
+   DIGIT COUNTS
+========================================================= */
+
+function digitCounts(data){
+
+    const counts =
+        Array(10).fill(0);
+
+    data.forEach(function(tick){
+
+        const d =
+            getLastDigit(
+                tick.quote
+            );
+
+        if(
+            d >= 0 &&
+            d <= 9
+        ){
+
+            counts[d]++;
+
+        }
+
+    });
+
+    return counts;
+
+}
+
+
+/* =========================================================
+   PROBABILITY
+========================================================= */
+
+function digitProbability(
+    data,
+    digit
+){
+
+    if(!data.length){
+        return 0;
+    }
+
+    const counts =
+        digitCounts(data);
+
+    return counts[digit] /
+        data.length;
+
+}
+
+
+/* =========================================================
+   CONTRACT ANALYSIS
+========================================================= */
+
+function analyzeContract(
+    data,
+    contract,
+    barrier
+){
+
+    if(data.length < 30){
+
+        return {
+
+            score:0,
+
+            probability:0,
+
+            target:barrier,
+
+            direction:"WAIT",
+
+            valid:false
+
+        };
+
+    }
+
+
+    const counts =
+        digitCounts(data);
+
+    const total =
+        data.length;
+
+
+    let probability = 0;
+
+    let target = barrier;
+
+    let direction = contract;
+
+
+    if(contract === "Matches"){
+
+        probability =
+            counts[barrier] /
+            total;
+
+    }
+
+
+    else if(contract === "Differs"){
+
+        probability =
+            1 -
+            (
+                counts[barrier] /
+                total
+            );
+
+    }
+
+
+    else if(contract === "Over"){
+
+        let good = 0;
+
+        for(
+            let d=0;
+            d<=9;
+            d++
+        ){
+
+            if(d > barrier){
+                good += counts[d];
+            }
+
+        }
+
+        probability =
+            good / total;
+
+    }
+
+
+    else if(contract === "Under"){
+
+        let good = 0;
+
+        for(
+            let d=0;
+            d<=9;
+            d++
+        ){
+
+            if(d < barrier){
+                good += counts[d];
+            }
+
+        }
+
+        probability =
+            good / total;
+
+    }
+
+
+    else if(contract === "Even"){
+
+        let good = 0;
+
+        for(
+            let d=0;
+            d<=9;
+            d++
+        ){
+
+            if(d % 2 === 0){
+                good += counts[d];
+            }
+
+        }
+
+        probability =
+            good / total;
+
+    }
+
+
+    else if(contract === "Odd"){
+
+        let good = 0;
+
+        for(
+            let d=0;
+            d<=9;
+            d++
+        ){
+
+            if(d % 2 !== 0){
+                good += counts[d];
+            }
+
+        }
+
+        probability =
+            good / total;
+
+    }
+
+
+    else if(
+        contract === "Rise" ||
+        contract === "Fall"
+    ){
+
+        let rises = 0;
+        let falls = 0;
+
+        for(
+            let i=1;
+            i<data.length;
+            i++
+        ){
+
+            if(
+                data[i].quote >
+                data[i-1].quote
+            ){
+
+                rises++;
+
+            }else if(
+                data[i].quote <
+                data[i-1].quote
+            ){
+
+                falls++;
+
+            }
+
+        }
+
+
+        const movementTotal =
+            rises + falls;
+
+
+        if(!movementTotal){
+
+            probability = 0;
+
+        }else{
+
+            probability =
+                contract === "Rise"
+                ? rises / movementTotal
+                : falls / movementTotal;
+
+        }
+
+    }
+
+
+    else if(
+        contract === "Higher" ||
+        contract === "Lower"
+    ){
+
+        const last =
+            data[data.length - 1].quote;
+
+        const numericBarrier =
+            Number(barrier);
+
+        if(
+            !Number.isFinite(
+                numericBarrier
+            )
+        ){
+
+            return {
+
+                score:0,
+
+                probability:0,
+
+                target:barrier,
+
+                direction:"WAIT",
+
+                valid:false
+
+            };
+
+        }
+
+
+        /*
+         * Higher/Lower uses current price relative
+         * to the selected barrier. This is analysis only,
+         * not a guarantee of future movement.
+         */
+
+        if(contract === "Higher"){
+
+            probability =
+                last > numericBarrier
+                ? 0.55
+                : 0.45;
+
+        }else{
+
+            probability =
+                last < numericBarrier
+                ? 0.55
+                : 0.45;
+
+        }
+
+    }
+
+
+    /*
+     * Convert observed probability into an
+     * analysis score. This is deliberately conservative.
+     */
+
+    let baseline = 0.5;
+
+
+    if(contract === "Matches"){
+
+        baseline = 0.10;
+
+    }
+
+    else if(contract === "Differs"){
+
+        baseline = 0.90;
+
+    }
+
+    else if(contract === "Over"){
+
+        baseline =
+            (9 - barrier) / 10;
+
+    }
+
+    else if(contract === "Under"){
+
+        baseline =
+            barrier / 10;
+
+    }
+
+
+    const edge =
+        probability - baseline;
+
+
+    let score =
+        50 + (
+            edge * 300
+        );
+
+
+    /*
+     * Keep score in 0-99 range.
+     */
+
+    score =
+        Math.max(
+            0,
+            Math.min(
+                99,
+                score
+            )
+        );
+
+
+    return {
+
+        score:score,
+
+        probability:probability,
+
+        target:target,
+
+        direction:direction,
+
+        valid:true
+
+    };
+
+}
+
+
+/* =========================================================
+   MULTI-WINDOW
+========================================================= */
+
+function getWindow(size){
+
+    return ticks.slice(
+        Math.max(
+            0,
+            ticks.length - size
+        )
+    );
+
+}
+
+
+function updateWindows(){
+
+    updateWindow(
+        30,
+        "w30"
+    );
+
+    updateWindow(
+        100,
+        "w100"
+    );
+
+    updateWindow(
+        500,
+        "w500"
+    );
+
+}
+
+
+function updateWindow(
+    size,
+    id
+){
+
+    const data =
+        getWindow(size);
+
+    const direction =
+        document.getElementById(
+            "familySelect"
+        ).value === "digit"
+        ? getDigitLeader(data)
+        : getMovementLeader(data);
+
+
+    document.getElementById(
+        id + "Direction"
+    ).textContent =
+        direction.name;
+
+
+    document.getElementById(
+        id + "Score"
+    ).textContent =
+        data.length < size
+        ? data.length +
+          "/" +
+          size +
+          " ticks"
+        : Math.round(
+            direction.score
+        ) +
+          "% analysis strength";
+
+
+    document.getElementById(
+        id + "Bar"
+    ).style.width =
+        Math.min(
+            100,
+            direction.score
+        ) + "%";
+
+}
+
+
+/* =========================================================
+   DIGIT LEADER
+========================================================= */
+
+function getDigitLeader(data){
+
+    if(!data.length){
+
+        return {
+            name:"WAIT",
+            score:0
+        };
+
+    }
+
+
+    const counts =
+        digitCounts(data);
+
+    let best =
+        0;
+
+    let bestCount =
+        counts[0];
+
+
+    for(
+        let i=1;
+        i<10;
+        i++
+    ){
+
+        if(
+            counts[i] >
+            bestCount
+        ){
+
+            best = i;
+
+            bestCount =
+                counts[i];
+
+        }
+
+    }
+
+
+    const probability =
+        bestCount /
+        data.length;
+
+
+    const score =
+        Math.min(
+            99,
+            50 +
+            (
+                probability -
+                .10
+            ) * 300
+        );
+
+
+    return {
+
+        name:
+            "DIGIT " +
+            best,
+
+        score:Math.max(
+            0,
+            score
+        )
+
+    };
+
+}
+
+
+/* =========================================================
+   MOVEMENT LEADER
+========================================================= */
+
+function getMovementLeader(data){
+
+    if(data.length < 2){
+
+        return {
+
+            name:"WAIT",
+
+            score:0
+
+        };
+
+    }
+
+
+    let rise = 0;
+    let fall = 0;
+
+
+    for(
+        let i=1;
+        i<data.length;
+        i++
+    ){
+
+        if(
+            data[i].quote >
+            data[i-1].quote
+        ){
+
+            rise++;
+
+        }else if(
+            data[i].quote <
+            data[i-1].quote
+        ){
+
+            fall++;
+
+        }
+
+    }
+
+
+    const total =
+        rise + fall;
+
+
+    if(!total){
+
+        return {
+
+            name:"WAIT",
+
+            score:0
+
+        };
+
+    }
+
+
+    const riseP =
+        rise / total;
+
+    const fallP =
+        fall / total;
+
+
+    if(riseP >= fallP){
+
+        return {
+
+            name:"RISE",
+
+            score:
+                riseP * 100
+
+        };
+
+    }
+
+
+    return {
+
+        name:"FALL",
+
+        score:
+            fallP * 100
+
+    };
+
+}
+
+
+/* =========================================================
+   MAIN ANALYSIS
+========================================================= */
+
+function analyze(){
+
+    if(!running){
+        return;
+    }
+
+
+    if(
+        ticks.length <
+        MIN_ANALYSIS_TICKS
+    ){
+
+        const remaining =
+            MIN_ANALYSIS_TICKS -
+            ticks.length;
+
+
+        setEntry(
+            "scanning",
+            "SCANNING",
+            "Collecting enough live data...",
+            "--",
+            "Waiting for " +
+            remaining +
+            " more ticks before a strong multi-window decision can be considered."
+        );
+
+        updateScanner(
+            null
+        );
+
+        return;
+
+    }
+
+
+    const family =
+        document.getElementById(
+            "familySelect"
+        ).value;
+
+    const contract =
+        document.getElementById(
+            "contractSelect"
+        ).value;
+
+
+    if(
+        contract === "Matches" &&
+        !matchesUnlocked
+    ){
+
+        showMatchesLock();
+
+        setEntry(
+            "wait",
+            "LOCKED",
+            "Matches requires unlock.",
+            "--",
+            "Contact Elisy on WhatsApp if you need access to the Matches contract."
+        );
+
+        return;
+
+    }
+
+
+    let barrier =
+        Number(
+            document.getElementById(
+                "barrierInput"
+            ).value
+        );
+
+
+    if(
+        family === "digit" &&
+        (
+            contract === "Matches" ||
+            contract === "Differs" ||
+            contract === "Over" ||
+            contract === "Under"
+        )
+    ){
+
+        if(!Number.isFinite(barrier)){
+
+            setEntry(
+                "wait",
+                "WAITING",
+                "Enter a valid target/barrier.",
+                "--",
+                "A valid digit barrier is required."
+            );
+
+            return;
+
+        }
+
+    }
+
+
+    const data30 =
+        getWindow(30);
+
+    const data100 =
+        getWindow(100);
+
+    const data500 =
+        getWindow(500);
+
+
+    const a30 =
+        analyzeContract(
+            data30,
+            contract,
+            barrier
+        );
+
+    const a100 =
+        analyzeContract(
+            data100,
+            contract,
+            barrier
+        );
+
+    const a500 =
+        analyzeContract(
+            data500,
+            contract,
+            barrier
+        );
+
+
+    const score =
+        (
+            a30.score * .20 +
+            a100.score * .30 +
+            a500.score * .50
+        );
+
+
+    const probability =
+        (
+            a30.probability * .20 +
+            a100.probability * .30 +
+            a500.probability * .50
+        );
+
+
+    /*
+     * Multi-window agreement.
+     */
+
+    const agreements = [
+        a30,
+        a100,
+        a500
+    ].filter(function(a){
+
+        return a.valid;
+
+    });
+
+
+    let agreement = 0;
+
+    if(agreements.length){
+
+        const avg =
+            probability;
+
+        let totalDeviation = 0;
+
+        agreements.forEach(function(a){
+
+            totalDeviation +=
+                Math.abs(
+                    a.probability -
+                    avg
+                );
+
+        });
+
+        const deviation =
+            totalDeviation /
+            agreements.length;
+
+
+        agreement =
+            Math.max(
+                0,
+                100 -
+                deviation * 300
+            );
+
+    }
+
+
+    const threshold =
+        Number(
+            document.getElementById(
+                "thresholdSelect"
+            ).value
+        );
+
+
+    /*
+     * Strong entry requires:
+     *
+     * 1. 500 ticks
+     * 2. Minimum analysis score
+     * 3. Multi-window stability
+     * 4. No extreme disagreement
+     */
+
+    const strongEnough =
+        score >= threshold &&
+        agreement >= 70;
+
+
+    updateScanner({
+
+        contract:contract,
+
+        score:score,
+
+        probability:probability,
+
+        agreement:agreement,
+
+        a30:a30,
+
+        a100:a100,
+
+        a500:a500
+
+    });
+
+
+    if(strongEnough){
+
+        const key =
+            contract +
+            "|" +
+            barrier +
+            "|" +
+            Math.round(score / 5);
+
+
+        handleCandidate(
+            key,
+            contract,
+            barrier,
+            score,
+            probability,
+            agreement
+        );
+
+    }else{
+
+        candidateKey = "";
+
+        candidateSince = null;
+
+        clearInterval(
+            confirmationTimer
+        );
+
+        confirmationTimer = null;
+
+        confirmationSeconds =
+            CONFIRMATION_SECONDS;
+
+
+        const why =
+            buildWaitingReason(
+                score,
+                agreement,
+                threshold,
+                a30,
+                a100,
+                a500
+            );
+
+
+        setEntry(
+            "scanning",
+            "WAIT FOR CONFIRMATION",
+            contract +
+            (
+                family === "digit"
+                ? " • TARGET " +
+                  barrier
+                : ""
+            ),
+            Math.round(score) + "%",
+            why
         );
 
     }
 
-    const div =
-      document.createElement("div");
-
-    div.className =
-      "contract";
-
-    div.innerHTML = `
-      <strong>${contract}</strong>
-      <small>
-        ${(probability*100).toFixed(1)}%
-      </small>
-    `;
-
-    container.appendChild(div);
-
-  });
-
 }
 
 
-/* =========================
-   SIGNAL RENDER
-========================= */
-
-function renderSignal(){
-
-  const signal =
-    buildSignal();
-
-  const box =
-    document.getElementById(
-      "signalBox"
-    );
-
-  const title =
-    document.getElementById(
-      "signalTitle"
-    );
-
-  const detail =
-    document.getElementById(
-      "signalDetail"
-    );
-
-  const score =
-    document.getElementById(
-      "score"
-    );
-
-  const badges =
-    document.getElementById(
-      "signalBadges"
-    );
-
-  box.className =
-    "signal " +
-    (signal.good
-      ? "good"
-      : "wait");
-
-  title.textContent =
-    signal.good
-      ? "GOOD ENTRY"
-      : "WAIT";
-
-  detail.textContent =
-    signal.detail;
-
-  score.textContent =
-    signal.score;
-
-  badges.innerHTML = "";
-
-  if(signal.good){
-
-    const items = [
-      `${signal.contract}`,
-      `Target ${signal.target}`,
-      `Edge +${signal.edge.toFixed(1)}%`,
-      `Agreement ${Math.round(signal.agreement*100)}%`,
-      `Stability ${Math.round(signal.stability*100)}%`
-    ];
-
-    items.forEach(x=>{
-
-      const b =
-        document.createElement("div");
-
-      b.className =
-        "badge";
-
-      b.textContent = x;
-
-      badges.appendChild(b);
-
-    });
-
-  }
-
-}
-
-
-/* =========================
-   MARKET READ
-========================= */
-
-function renderMarketRead(){
-
-  const a =
-    analyzeWindow(
-      Number(
-        document.getElementById(
-          "window"
-        ).value
-      )
-    );
-
-  const direction =
-    directionAnalysis();
-
-  document.getElementById(
-    "dominantDigit"
-  ).textContent =
-    a.total
-      ? a.dominant
-      : "—";
-
-  document.getElementById(
-    "hotDigit"
-  ).textContent =
-    a.total
-      ? a.dominant
-      : "—";
-
-  document.getElementById(
-    "coldDigit"
-  ).textContent =
-    a.total
-      ? a.cold
-      : "—";
-
-  document.getElementById(
-    "direction"
-  ).textContent =
-    direction.direction;
-
-  document.getElementById(
-    "marketState"
-  ).textContent =
-    a.total >= 200
-      ? "Analysing"
-      : "Collecting data";
-
-}
-
-
-/* =========================
-   RECENT TICKS
-========================= */
-
-function renderRecent(){
-
-  const container =
-    document.getElementById(
-      "tickList"
-    );
-
-  container.innerHTML = "";
-
-  ticks
-    .slice(-15)
-    .reverse()
-    .forEach(t=>{
-
-      const d =
-        getDigit(t.price);
-
-      const div =
-        document.createElement("div");
-
-      div.className =
-        "tick";
-
-      div.innerHTML = `
-        <span>
-          ${t.time.toLocaleTimeString()}
-        </span>
-
-        <strong>
-          ${Number(t.price).toFixed(5)}
-        </strong>
-
-        <span>
-          Digit ${d}
-        </span>
-      `;
-
-      container.appendChild(div);
-
-    });
-
-}
-
-
-/* =========================
-   METRICS
-========================= */
-
-function renderMetrics(){
-
-  const last =
-    ticks[ticks.length-1];
-
-  const signal =
-    buildSignal();
-
-  document.getElementById(
-    "ticksLoaded"
-  ).textContent =
-    ticks.length;
-
-  document.getElementById(
-    "lastPrice"
-  ).textContent =
-    last
-      ? Number(last.price).toFixed(5)
-      : "—";
-
-  document.getElementById(
-    "lastDigit"
-  ).textContent =
-    last
-      ? getDigit(last.price)
-      : "—";
-
-  document.getElementById(
-    "quality"
-  ).textContent =
-    ticks.length
-      ? signal.score + "%"
-      : "—";
-
-  document.getElementById(
-    "agreement"
-  ).textContent =
-    signal.agreement
-      ? Math.round(
-          signal.agreement*100
-        ) + "%"
-      : "—";
-
-  const edgeEl =
-    document.getElementById(
-      "edge"
-    );
-
-  edgeEl.textContent =
-    signal.edge != null
-      ? (signal.edge >= 0 ? "+" : "") +
-        signal.edge.toFixed(1) +
-        "%"
-      : "—";
-
-  edgeEl.className =
-    "metric-value " +
-    (
-      signal.edge >= 0
-        ? "green"
-        : "red"
-    );
-
-}
-
-
-/* =========================
-   MASTER RENDER
-========================= */
-
-function renderAll(){
-
-  renderDigits();
-  renderWindows();
-  renderContracts();
-  renderSignal();
-  renderMarketRead();
-  renderRecent();
-  renderMetrics();
-
-}
-
-
-/* =========================
-   MARKET CHANGE
-========================= */
-
-document.getElementById(
-  "market"
-).addEventListener(
-  "change",
-  function(){
-
-    if(running){
-
-      stopFeed();
-      startFeed();
+/* =========================================================
+   WAITING REASON
+========================================================= */
+
+function buildWaitingReason(
+    score,
+    agreement,
+    threshold,
+    a30,
+    a100,
+    a500
+){
+
+    const reasons = [];
+
+
+    if(score < threshold){
+
+        reasons.push(
+            "analysis score is below the selected threshold"
+        );
 
     }
 
-  }
-);
+
+    if(agreement < 70){
+
+        reasons.push(
+            "30/100/500 tick windows are not stable enough"
+        );
+
+    }
 
 
-/* =========================
-   WINDOW CHANGE
-========================= */
+    if(
+        Math.abs(
+            a30.probability -
+            a500.probability
+        ) > .10
+    ){
+
+        reasons.push(
+            "short-term and long-term data disagree"
+        );
+
+    }
+
+
+    if(!reasons.length){
+
+        reasons.push(
+            "waiting for stronger confirmation"
+        );
+
+    }
+
+
+    return (
+        "NO GOOD ENTRY YET: " +
+        reasons.join("; ") +
+        "."
+    );
+
+}
+
+
+/* =========================================================
+   CANDIDATE CONFIRMATION
+========================================================= */
+
+function handleCandidate(
+    key,
+    contract,
+    barrier,
+    score,
+    probability,
+    agreement
+){
+
+    if(candidateKey !== key){
+
+        candidateKey = key;
+
+        candidateSince =
+            Date.now();
+
+        confirmationSeconds =
+            CONFIRMATION_SECONDS;
+
+        clearInterval(
+            confirmationTimer
+        );
+
+        confirmationTimer =
+            setInterval(
+                confirmationTick,
+                1000
+            );
+
+    }
+
+
+    const elapsed =
+        Math.floor(
+            (
+                Date.now() -
+                candidateSince
+            ) / 1000
+        );
+
+
+    confirmationSeconds =
+        Math.max(
+            0,
+            CONFIRMATION_SECONDS -
+            elapsed
+        );
+
+
+    if(
+        confirmationSeconds <= 0
+    ){
+
+        clearInterval(
+            confirmationTimer
+        );
+
+        confirmationTimer = null;
+
+        triggerGoodEntry(
+            contract,
+            barrier,
+            score,
+            probability,
+            agreement
+        );
+
+        return;
+
+    }
+
+
+    setEntry(
+        "scanning",
+        "CONFIRMING",
+        contract +
+        (
+            (
+                contract === "Matches" ||
+                contract === "Differs" ||
+                contract === "Over" ||
+                contract === "Under"
+            )
+            ? " • TARGET " + barrier
+            : ""
+        ),
+        Math.round(score) + "%",
+        "Conditions are currently strong. The system is keeping the candidate under confirmation instead of immediately calling it a GOOD ENTRY."
+    );
+
+
+    document.getElementById(
+        "timer"
+    ).innerHTML =
+        "Confirmation timer: <strong>" +
+        confirmationSeconds +
+        "s</strong>";
+
+}
+
+
+function confirmationTick(){
+
+    if(!running){
+
+        clearInterval(
+            confirmationTimer
+        );
+
+        return;
+
+    }
+
+
+    confirmationSeconds--;
+
+    if(
+        confirmationSeconds <= 0
+    ){
+
+        confirmationSeconds = 0;
+
+        clearInterval(
+            confirmationTimer
+        );
+
+        /*
+         * Re-run the complete analysis.
+         * It must still be strong at the end
+         * of the confirmation period.
+         */
+
+        analyze();
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "timer"
+    ).innerHTML =
+        "Confirmation timer: <strong>" +
+        confirmationSeconds +
+        "s</strong>";
+
+}
+
+
+/* =========================================================
+   GOOD ENTRY
+========================================================= */
+
+function triggerGoodEntry(
+    contract,
+    barrier,
+    score,
+    probability,
+    agreement
+){
+
+    /*
+     * One final verification.
+     */
+
+    const current =
+        analyzeContract(
+            getWindow(500),
+            contract,
+            barrier
+        );
+
+
+    const threshold =
+        Number(
+            document.getElementById(
+                "thresholdSelect"
+            ).value
+        );
+
+
+    if(
+        !current.valid ||
+        current.score < threshold
+    ){
+
+        candidateKey = "";
+
+        candidateSince = null;
+
+        confirmationSeconds =
+            CONFIRMATION_SECONDS;
+
+        setEntry(
+            "scanning",
+            "CONFIRMATION FAILED",
+            "NO ENTRY",
+            Math.round(
+                current.score
+            ) + "%",
+            "The conditions weakened during final verification. No entry was released."
+        );
+
+        return;
+
+    }
+
+
+    setEntry(
+        "good",
+        "GOOD ENTRY",
+        contract +
+        (
+            (
+                contract === "Matches" ||
+                contract === "Differs" ||
+                contract === "Over" ||
+                contract === "Under"
+            )
+            ? " • TARGET " + barrier
+            : ""
+        ),
+        Math.round(score) + "%",
+        buildGoodReason(
+            contract,
+            barrier,
+            score,
+            probability,
+            agreement
+        )
+    );
+
+
+    document.getElementById(
+        "timer"
+    ).innerHTML =
+        "Confirmation complete";
+
+
+    playEntrySound();
+
+
+    /*
+     * Keep the current candidate alive only until
+     * market conditions change.
+     */
+
+    candidateSince =
+        Date.now();
+
+}
+
+
+/* =========================================================
+   GOOD ENTRY REASON
+========================================================= */
+
+function buildGoodReason(
+    contract,
+    barrier,
+    score,
+    probability,
+    agreement
+){
+
+    const observed =
+        Math.round(
+            probability * 100
+        );
+
+    const stable =
+        Math.round(
+            agreement
+        );
+
+
+    if(
+        contract === "Matches"
+    ){
+
+        return (
+            "GOOD ENTRY released after confirmation. " +
+            "Target digit " +
+            barrier +
+            " showed approximately " +
+            observed +
+            "% observed frequency in the weighted analysis, " +
+            "with " +
+            stable +
+            "% multi-window stability. " +
+            "This is an analysis signal, not a guarantee."
+        );
+
+    }
+
+
+    if(
+        contract === "Differs"
+    ){
+
+        return (
+            "GOOD ENTRY released after confirmation. " +
+            "Target digit " +
+            barrier +
+            " remained relatively uncommon, " +
+            "giving approximately " +
+            observed +
+            "% observed probability for Differs, " +
+            "with " +
+            stable +
+            "% multi-window stability. " +
+            "This is an analysis signal, not a guarantee."
+        );
+
+    }
+
+
+    if(
+        contract === "Over" ||
+        contract === "Under"
+    ){
+
+        return (
+            "GOOD ENTRY released after confirmation. " +
+            contract +
+            " barrier " +
+            barrier +
+            " remained supported across the 30, 100 and 500 tick windows. " +
+            "Observed probability was approximately " +
+            observed +
+            "% with " +
+            stable +
+            "% stability. " +
+            "This is an analysis signal, not a guarantee."
+        );
+
+    }
+
+
+    return (
+        "GOOD ENTRY released after confirmation. " +
+        contract +
+        " remained supported across the 30, 100 and 500 tick windows. " +
+        "Observed probability was approximately " +
+        observed +
+        "% with " +
+        stable +
+        "% multi-window stability. " +
+        "This is an analysis signal, not a guarantee."
+    );
+
+}
+
+
+/* =========================================================
+   ENTRY UI
+========================================================= */
+
+function setEntry(
+    statusClass,
+    status,
+    contract,
+    confidence,
+    reason
+){
+
+    const statusEl =
+        document.getElementById(
+            "entryStatus"
+        );
+
+    statusEl.className =
+        "entry-status " +
+        statusClass;
+
+    statusEl.textContent =
+        status;
+
+
+    document.getElementById(
+        "entryContract"
+    ).textContent =
+        contract;
+
+
+    document.getElementById(
+        "entryDetail"
+    ).textContent =
+        selectedSymbol
+        ? (
+            marketMeta[selectedSymbol]
+            ?.underlying_symbol_name ||
+            marketMeta[selectedSymbol]
+            ?.display_name ||
+            selectedSymbol
+        )
+        : "";
+
+
+    document.getElementById(
+        "confidence"
+    ).innerHTML =
+        confidence +
+        "<small>ANALYSIS SCORE</small>";
+
+
+    document.getElementById(
+        "reason"
+    ).textContent =
+        reason;
+
+}
+
+
+/* =========================================================
+   SCANNER
+========================================================= */
+
+function renderScanner(){
+
+    const scanner =
+        document.getElementById(
+            "scanner"
+        );
+
+    const contracts = [
+        "Matches",
+        "Differs",
+        "Over",
+        "Under",
+        "Even",
+        "Odd",
+        "Rise",
+        "Fall"
+    ];
+
+
+    scanner.innerHTML = "";
+
+
+    contracts.forEach(function(name){
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "scan-item";
+
+        item.id =
+            "scan-" +
+            name.toLowerCase();
+
+
+        item.innerHTML =
+
+            '<div class="scan-left">' +
+
+                '<span class="scan-dot"></span>' +
+
+                '<span class="scan-name">' +
+                    name +
+                '</span>' +
+
+            '</div>' +
+
+            '<span class="scan-value">' +
+                "WAIT" +
+            '</span>';
+
+
+        scanner.appendChild(
+            item
+        );
+
+    });
+
+}
+
+
+function updateScanner(result){
+
+    const items =
+        document.querySelectorAll(
+            ".scan-item"
+        );
+
+
+    items.forEach(function(item){
+
+        item.classList.remove(
+            "good",
+            "bad"
+        );
+
+        const value =
+            item.querySelector(
+                ".scan-value"
+            );
+
+        value.textContent =
+            "WAIT";
+
+    });
+
+
+    if(!result){
+        return;
+    }
+
+
+    const id =
+        "scan-" +
+        result.contract.toLowerCase();
+
+
+    const item =
+        document.getElementById(
+            id
+        );
+
+
+    if(!item){
+        return;
+    }
+
+
+    if(
+        result.score >=
+        Number(
+            document.getElementById(
+                "thresholdSelect"
+            ).value
+        ) &&
+        result.agreement >= 70
+    ){
+
+        item.classList.add(
+            "good"
+        );
+
+        item.querySelector(
+            ".scan-value"
+        ).textContent =
+            Math.round(
+                result.score
+            ) +
+            "% READY";
+
+    }else{
+
+        item.classList.add(
+            "bad"
+        );
+
+        item.querySelector(
+            ".scan-value"
+        ).textContent =
+            Math.round(
+                result.score
+            ) +
+            "% WAIT";
+
+    }
+
+}
+
+
+/* =========================================================
+   DIGIT UI
+========================================================= */
+
+function renderDigits(){
+
+    const container =
+        document.getElementById(
+            "digits"
+        );
+
+    container.innerHTML = "";
+
+
+    for(
+        let i=0;
+        i<10;
+        i++
+    ){
+
+        const box =
+            document.createElement("div");
+
+        box.className =
+            "digit";
+
+        box.innerHTML =
+
+            '<div class="digit-number">' +
+                i +
+            '</div>' +
+
+            '<div class="digit-percent">' +
+                "0.0%" +
+            '</div>' +
+
+            '<div class="digit-bar"></div>';
+
+
+        container.appendChild(
+            box
+        );
+
+    }
+
+}
+
+
+function updateDigits(){
+
+    if(!ticks.length){
+
+        renderDigits();
+
+        return;
+
+    }
+
+
+    const data =
+        getWindow(
+            Math.min(
+                500,
+                ticks.length
+            )
+        );
+
+
+    const counts =
+        digitCounts(data);
+
+
+    const total =
+        data.length;
+
+
+    const boxes =
+        document.querySelectorAll(
+            ".digit"
+        );
+
+
+    boxes.forEach(function(box,index){
+
+        const percentage =
+            total
+            ? (
+                counts[index] /
+                total
+            ) * 100
+            : 0;
+
+
+        box.querySelector(
+            ".digit-percent"
+        ).textContent =
+            percentage.toFixed(1) +
+            "%";
+
+
+        box.querySelector(
+            ".digit-bar"
+        ).style.width =
+            Math.min(
+                100,
+                percentage * 5
+            ) + "%";
+
+    });
+
+}
+
+
+/* =========================================================
+   RECENT TICKS
+========================================================= */
+
+function renderRecentTicks(){
+
+    const container =
+        document.getElementById(
+            "ticks"
+        );
+
+    container.innerHTML = "";
+
+
+    const recent =
+        ticks.slice(-50).reverse();
+
+
+    recent.forEach(function(tick){
+
+        const box =
+            document.createElement("div");
+
+        box.className =
+            "tick";
+
+
+        box.textContent =
+            getLastDigit(
+                tick.quote
+            );
+
+
+        container.appendChild(
+            box
+        );
+
+    });
+
+}
+
+
+function renderDigits(){
+
+    const container =
+        document.getElementById(
+            "digits"
+        );
+
+    container.innerHTML = "";
+
+
+    for(
+        let i=0;
+        i<10;
+        i++
+    ){
+
+        const box =
+            document.createElement("div");
+
+        box.className =
+            "digit";
+
+        box.innerHTML =
+
+            '<div class="digit-number">' +
+                i +
+            '</div>' +
+
+            '<div class="digit-percent">0.0%</div>' +
+
+            '<div class="digit-bar"></div>';
+
+        container.appendChild(
+            box
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   UPDATE VISUALS
+========================================================= */
+
+function updateVisuals(){
+
+    updateDigits();
+
+    renderRecentTicks();
+
+    updateWindows();
+
+}
+
+
+/* =========================================================
+   PATCH RENDER FUNCTIONS
+========================================================= */
+
+function renderRecentTicks(){
+
+    const container =
+        document.getElementById(
+            "ticks"
+        );
+
+    container.innerHTML = "";
+
+
+    const recent =
+        ticks.slice(-50).reverse();
+
+
+    recent.forEach(function(tick){
+
+        const box =
+            document.createElement("div");
+
+        box.className =
+            "tick";
+
+        box.textContent =
+            getLastDigit(
+                tick.quote
+            );
+
+        container.appendChild(
+            box
+        );
+
+    });
+
+}
+
+
+function updateDigits(){
+
+    const boxes =
+        document.querySelectorAll(
+            ".digit"
+        );
+
+    if(!boxes.length){
+        return;
+    }
+
+
+    const data =
+        getWindow(
+            Math.min(
+                500,
+                ticks.length
+            )
+        );
+
+
+    if(!data.length){
+
+        boxes.forEach(function(box){
+
+            box.querySelector(
+                ".digit-percent"
+            ).textContent =
+                "0.0%";
+
+            box.querySelector(
+                ".digit-bar"
+            ).style.width =
+                "0%";
+
+        });
+
+        return;
+
+    }
+
+
+    const counts =
+        digitCounts(data);
+
+
+    boxes.forEach(function(box,index){
+
+        const p =
+            (
+                counts[index] /
+                data.length
+            ) * 100;
+
+
+        box.querySelector(
+            ".digit-percent"
+        ).textContent =
+            p.toFixed(1) +
+            "%";
+
+
+        box.querySelector(
+            ".digit-bar"
+        ).style.width =
+            Math.min(
+                100,
+                p * 5
+            ) + "%";
+
+    });
+
+}
+
+
+/* =========================================================
+   SOUND
+========================================================= */
+
+function playEntrySound(){
+
+    try{
+
+        if(!audioContext){
+
+            return;
+
+        }
+
+
+        if(
+            audioContext.state ===
+            "suspended"
+        ){
+
+            audioContext.resume();
+
+        }
+
+
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+
+        oscillator.type =
+            "sine";
+
+
+        oscillator.frequency.setValueAtTime(
+            660,
+            audioContext.currentTime
+        );
+
+
+        oscillator.frequency.exponentialRampToValueAtTime(
+            880,
+            audioContext.currentTime + .18
+        );
+
+
+        gain.gain.setValueAtTime(
+            .0001,
+            audioContext.currentTime
+        );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+            .16,
+            audioContext.currentTime + .03
+        );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+            .0001,
+            audioContext.currentTime + .5
+        );
+
+
+        oscillator.connect(gain);
+
+        gain.connect(
+            audioContext.destination
+        );
+
+
+        oscillator.start();
+
+        oscillator.stop(
+            audioContext.currentTime + .5
+        );
+
+    }catch(error){
+
+        console.log(
+            "Sound unavailable"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   PERIODIC VISUAL UPDATE
+========================================================= */
+
+setInterval(function(){
+
+    if(
+        document.getElementById(
+            "app"
+        ).style.display === "block"
+    ){
+
+        updateDigits();
+
+        renderRecentTicks();
+
+    }
+
+},1000);
+
+
+/* =========================================================
+   MARKET SELECT INITIALIZATION
+========================================================= */
 
 document.getElementById(
-  "window"
+    "marketSelect"
 ).addEventListener(
-  "change",
-  renderAll
+    "change",
+    function(){
+
+        selectedSymbol =
+            this.value;
+
+        updateMarketInfo();
+
+        if(running){
+
+            ticks = [];
+
+            renderRecentTicks();
+
+            renderDigits();
+
+            subscribeToMarket();
+
+        }
+
+    }
 );
 
 
-/* =========================
-   BARRIER VISIBILITY
-========================= */
+/* =========================================================
+   FAMILY CHANGE RESET
+========================================================= */
 
 document.getElementById(
-  "barrier"
+    "familySelect"
 ).addEventListener(
-  "input",
-  renderAll
+    "change",
+    function(){
+
+        updateContractOptions();
+
+        candidateKey = "";
+
+        candidateSince = null;
+
+        clearInterval(
+            confirmationTimer
+        );
+
+        confirmationTimer = null;
+
+        confirmationSeconds =
+            CONFIRMATION_SECONDS;
+
+        if(running){
+
+            analyze();
+
+        }
+
+    }
 );
 
 
-/* INITIAL UI */
+/* =========================================================
+   CONTRACT CHANGE RESET
+========================================================= */
 
-renderAll();
+document.getElementById(
+    "contractSelect"
+).addEventListener(
+    "change",
+    function(){
+
+        updateBarrierControl();
+
+        candidateKey = "";
+
+        candidateSince = null;
+
+        clearInterval(
+            confirmationTimer
+        );
+
+        confirmationTimer = null;
+
+        confirmationSeconds =
+            CONFIRMATION_SECONDS;
+
+
+        if(
+            this.value === "Matches" &&
+            !matchesUnlocked
+        ){
+
+            showMatchesLock();
+
+        }else{
+
+            document.getElementById(
+                "lockBox"
+            ).classList.remove(
+                "active"
+            );
+
+        }
+
+
+        if(running){
+
+            analyze();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   THRESHOLD CHANGE
+========================================================= */
+
+document.getElementById(
+    "thresholdSelect"
+).addEventListener(
+    "change",
+    function(){
+
+        candidateKey = "";
+
+        candidateSince = null;
+
+        clearInterval(
+            confirmationTimer
+        );
+
+        confirmationTimer = null;
+
+        confirmationSeconds =
+            CONFIRMATION_SECONDS;
+
+        if(running){
+
+            analyze();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   BARRIER CHANGE
+========================================================= */
+
+document.getElementById(
+    "barrierInput"
+).addEventListener(
+    "input",
+    function(){
+
+        candidateKey = "";
+
+        candidateSince = null;
+
+        clearInterval(
+            confirmationTimer
+        );
+
+        confirmationTimer = null;
+
+        confirmationSeconds =
+            CONFIRMATION_SECONDS;
+
+        if(running){
+
+            analyze();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   KEEP WINDOWS UPDATED
+========================================================= */
+
+function updateWindows(){
+
+    const family =
+        document.getElementById(
+            "familySelect"
+        ).value;
+
+
+    if(family === "digit"){
+
+        updateDigitWindow(
+            30,
+            "w30"
+        );
+
+        updateDigitWindow(
+            100,
+            "w100"
+        );
+
+        updateDigitWindow(
+            500,
+            "w500"
+        );
+
+    }else{
+
+        updateMovementWindow(
+            30,
+            "w30"
+        );
+
+        updateMovementWindow(
+            100,
+            "w100"
+        );
+
+        updateMovementWindow(
+            500,
+            "w500"
+        );
+
+    }
+
+}
+
+
+function updateDigitWindow(
+    size,
+    id
+){
+
+    const data =
+        getWindow(size);
+
+
+    if(!data.length){
+
+        document.getElementById(
+            id + "Direction"
+        ).textContent =
+            "WAIT";
+
+        document.getElementById(
+            id + "Score"
+        ).textContent =
+            "Insufficient data";
+
+        document.getElementById(
+            id + "Bar"
+        ).style.width =
+            "0%";
+
+        return;
+
+    }
+
+
+    const leader =
+        getDigitLeader(data);
+
+
+    document.getElementById(
+        id + "Direction"
+    ).textContent =
+        leader.name;
+
+
+    document.getElementById(
+        id + "Score"
+    ).textContent =
+        Math.round(
+            leader.score
+        ) +
+        "% analysis strength";
+
+
+    document.getElementById(
+        id + "Bar"
+    ).style.width =
+        Math.min(
+            100,
+            leader.score
+        ) +
+        "%";
+
+}
+
+
+function updateMovementWindow(
+    size,
+    id
+){
+
+    const data =
+        getWindow(size);
+
+
+    if(data.length < 2){
+
+        document.getElementById(
+            id + "Direction"
+        ).textContent =
+            "WAIT";
+
+        document.getElementById(
+            id + "Score"
+        ).textContent =
+            "Insufficient data";
+
+        document.getElementById(
+            id + "Bar"
+        ).style.width =
+            "0%";
+
+        return;
+
+    }
+
+
+    const leader =
+        getMovementLeader(data);
+
+
+    document.getElementById(
+        id + "Direction"
+    ).textContent =
+        leader.name;
+
+
+    document.getElementById(
+        id + "Score"
+    ).textContent =
+        Math.round(
+            leader.score
+        ) +
+        "% analysis strength";
+
+
+    document.getElementById(
+        id + "Bar"
+    ).style.width =
+        Math.min(
+            100,
+            leader.score
+        ) +
+        "%";
+
+}
+
+
+/* =========================================================
+   INITIAL UI
+========================================================= */
+
+renderDigits();
+
+renderScanner();
+
+updateContractOptions();
 
 </script>
 
