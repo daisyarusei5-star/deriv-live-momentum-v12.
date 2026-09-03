@@ -15,6 +15,117 @@ body{
     font-family:Arial,Helvetica,sans-serif;
 }
 
+/* =========================================================
+   LOGIN SCREEN - ADDED ONLY
+   ========================================================= */
+
+#loginScreen{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    background:
+        radial-gradient(circle at top,#0b2235 0%,#02050a 55%);
+}
+
+.login-box{
+    width:100%;
+    max-width:400px;
+    background:linear-gradient(135deg,#07111d,#0c1828);
+    border:1px solid #1b3045;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 0 35px rgba(0,150,255,.12);
+    text-align:center;
+}
+
+.login-logo{
+    width:95px;
+    height:95px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid #21d4ff;
+    background:#000;
+    margin-bottom:15px;
+}
+
+.login-title{
+    margin:0;
+    font-size:25px;
+    letter-spacing:1px;
+}
+
+.login-powered{
+    margin:7px 0 22px;
+    color:#22d3ee;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.login-field{
+    text-align:left;
+    margin-bottom:13px;
+}
+
+.login-field label{
+    display:block;
+    color:#7dd3fc;
+    font-size:11px;
+    margin-bottom:6px;
+    text-transform:uppercase;
+}
+
+.login-field input{
+    width:100%;
+    background:#020810;
+    color:#fff;
+    border:1px solid #24394e;
+    border-radius:10px;
+    padding:13px;
+    outline:none;
+    font-size:14px;
+}
+
+.login-field input:focus{
+    border-color:#22d3ee;
+}
+
+.login-button{
+    width:100%;
+    background:#16a34a;
+    color:#fff;
+    border:0;
+    border-radius:10px;
+    padding:13px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:5px;
+}
+
+.login-button:active{
+    transform:scale(.98);
+}
+
+.login-error{
+    min-height:18px;
+    margin-top:12px;
+    color:#f87171;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.login-note{
+    margin-top:18px;
+    color:#64748b;
+    font-size:10px;
+    line-height:1.5;
+}
+
+#dashboard{
+    display:none;
+}
+
 .app{
     max-width:1100px;
     margin:auto;
@@ -119,6 +230,17 @@ button{
 .stop{
     background:#dc2626;
     color:white;
+}
+
+/* LOGOUT BUTTON */
+
+.logout{
+    margin-left:auto;
+    margin-top:10px;
+    background:#334155;
+    color:white;
+    font-size:11px;
+    padding:8px 12px;
 }
 
 .section-title{
@@ -310,6 +432,7 @@ canvas{
 }
 
 @media(max-width:700px){
+
     .controls{
         grid-template-columns:1fr 1fr;
     }
@@ -325,172 +448,669 @@ canvas{
     .status{
         display:none;
     }
+
+    .header{
+        flex-wrap:wrap;
+    }
+
+    .brand h1{
+        font-size:20px;
+    }
+
+    .logo{
+        width:65px;
+        height:65px;
+    }
+
 }
 </style>
 </head>
 
 <body>
 
+<!-- =========================================================
+     LOGIN SCREEN
+     ========================================================= -->
+
+<div id="loginScreen">
+
+    <div class="login-box">
+
+        <img
+            src="lion-logo.png"
+            class="login-logo"
+            alt="Lion"
+        >
+
+        <h1 class="login-title">
+            DERIV LIVE ENTRY
+        </h1>
+
+        <div class="login-powered">
+            POWERED BY ELISY 254
+        </div>
+
+        <div class="login-field">
+
+            <label>Username</label>
+
+            <input
+                type="text"
+                id="loginUsername"
+                placeholder="Enter username"
+                autocomplete="username"
+            >
+
+        </div>
+
+        <div class="login-field">
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Enter password"
+                autocomplete="current-password"
+            >
+
+        </div>
+
+        <button
+            id="loginButton"
+            class="login-button">
+            LOGIN
+        </button>
+
+        <div
+            id="loginError"
+            class="login-error">
+        </div>
+
+        <div class="login-note">
+            ANALYSIS ONLY • MANUAL ENTRY • LIVE MARKET DATA
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     DASHBOARD
+     ========================================================= -->
+
+<div id="dashboard">
+
 <div class="app">
 
 <header class="header">
-    <img src="lion-logo.png" class="logo" alt="Lion">
+
+    <img
+        src="lion-logo.png"
+        class="logo"
+        alt="Lion"
+    >
 
     <div class="brand">
-        <h1>DERIV LIVE ENTRY</h1>
-        <p>POWERED BY ELISY 254</p>
+
+        <h1>
+            DERIV LIVE ENTRY
+        </h1>
+
+        <p>
+            POWERED BY ELISY 254
+        </p>
+
     </div>
 
     <div class="status">
-        <span class="dot" id="statusDot"></span>
-        <span id="connectionStatus">OFFLINE</span>
+
+        <span
+            class="dot"
+            id="statusDot">
+        </span>
+
+        <span id="connectionStatus">
+            OFFLINE
+        </span>
+
     </div>
+
 </header>
 
+
+<!-- LOGOUT -->
+
+<div style="text-align:right">
+
+    <button
+        id="logoutButton"
+        class="logout">
+        LOG OUT
+    </button>
+
+</div>
+
+
 <div class="panel">
+
     <div class="controls">
 
         <div>
+
             <label>Market</label>
+
             <select id="market">
-                <option>Discovering markets...</option>
+
+                <option>
+                    Discovering markets...
+                </option>
+
             </select>
+
         </div>
 
+
         <div>
+
             <label>Contract</label>
+
             <select id="contract">
-                <option value="Matches">Matches</option>
-                <option value="Differs">Differs</option>
-                <option value="Over">Over</option>
-                <option value="Under">Under</option>
-                <option value="Even">Even</option>
-                <option value="Odd">Odd</option>
-                <option value="Rise">Rise</option>
-                <option value="Fall">Fall</option>
+
+                <option value="Matches">
+                    Matches
+                </option>
+
+                <option value="Differs">
+                    Differs
+                </option>
+
+                <option value="Over">
+                    Over
+                </option>
+
+                <option value="Under">
+                    Under
+                </option>
+
+                <option value="Even">
+                    Even
+                </option>
+
+                <option value="Odd">
+                    Odd
+                </option>
+
+                <option value="Rise">
+                    Rise
+                </option>
+
+                <option value="Fall">
+                    Fall
+                </option>
+
             </select>
+
         </div>
 
+
         <div>
+
             <label>Minimum Confidence</label>
+
             <select id="threshold">
-                <option value="70">70%</option>
-                <option value="75" selected>75%</option>
-                <option value="80">80%</option>
-                <option value="85">85%</option>
-                <option value="90">90%</option>
+
+                <option value="70">
+                    70%
+                </option>
+
+                <option value="75" selected>
+                    75%
+                </option>
+
+                <option value="80">
+                    80%
+                </option>
+
+                <option value="85">
+                    85%
+                </option>
+
+                <option value="90">
+                    90%
+                </option>
+
             </select>
+
         </div>
+
 
         <div style="display:flex;align-items:end">
-            <button id="startBtn" class="start">START</button>
+
+            <button
+                id="startBtn"
+                class="start">
+                START
+            </button>
+
         </div>
 
     </div>
 
-    <div id="matchesLock" class="lock">
-        <h3>MATCHES MODULE LOCKED</h3>
-        <div>Purchase activation to unlock Matches analysis.</div>
+
+    <div
+        id="matchesLock"
+        class="lock">
+
+        <h3>
+            MATCHES MODULE LOCKED
+        </h3>
+
+        <div>
+            Purchase activation to unlock Matches analysis.
+        </div>
 
         <a
-          class="buy"
-          href="https://wa.me/254701859605?text=Hello%2C%20I%20want%20to%20buy%20the%20MATCHES%20module."
-          target="_blank">
-          BUY MATCHES
+            class="buy"
+            href="https://wa.me/254701859605?text=Hello%2C%20I%20want%20to%20buy%20the%20MATCHES%20module."
+            target="_blank">
+
+            BUY MATCHES
+
         </a>
 
+
         <div style="margin-top:10px">
-            <input id="unlockCode" placeholder="Enter activation code">
-            <button id="unlockButton" style="margin-top:7px;background:#f97316;color:#fff">
+
+            <input
+                id="unlockCode"
+                placeholder="Enter activation code"
+            >
+
+            <button
+                id="unlockButton"
+                style="margin-top:7px;background:#f97316;color:#fff">
+
                 UNLOCK MATCHES
+
             </button>
+
         </div>
+
     </div>
+
 </div>
+
 
 <div class="panel">
-    <div class="section-title">LIVE DIGIT DISTRIBUTION</div>
 
-    <div class="digits" id="digits"></div>
+    <div class="section-title">
+        LIVE DIGIT DISTRIBUTION
+    </div>
+
+    <div
+        class="digits"
+        id="digits">
+    </div>
+
 
     <div class="movement-info">
-        <span>REAL MARKET MOVEMENT</span>
-        <span id="tickCount">0 TICKS</span>
+
+        <span>
+            REAL MARKET MOVEMENT
+        </span>
+
+        <span id="tickCount">
+            0 TICKS
+        </span>
+
     </div>
+
 
     <div class="movement">
+
         <canvas id="chart"></canvas>
+
     </div>
 
+
     <div class="movement-info">
-        <span id="marketName">No market selected</span>
-        <span id="lastQuote">--</span>
+
+        <span id="marketName">
+            No market selected
+        </span>
+
+        <span id="lastQuote">
+            --
+        </span>
+
     </div>
+
 </div>
+
 
 <div class="panel entry">
 
-    <div class="section-title">ENTRY POINT</div>
-
-    <div id="entryState" class="entry-state">
-        WAITING FOR STRONG CONFIRMATION
+    <div class="section-title">
+        ENTRY POINT
     </div>
+
+
+    <div
+        id="entryState"
+        class="entry-state">
+
+        WAITING FOR STRONG CONFIRMATION
+
+    </div>
+
 
     <div class="predicted">
-        <small>PREDICTED DIGIT</small>
-        <strong id="predictedDigit">--</strong>
+
+        <small>
+            PREDICTED DIGIT
+        </small>
+
+        <strong id="predictedDigit">
+            --
+        </strong>
+
     </div>
+
 
     <div class="metrics">
-        <div class="metric">
-            <small>ENTRY</small>
-            <strong id="entryType">WAIT</strong>
-        </div>
 
         <div class="metric">
-            <small>CONFIDENCE</small>
-            <strong id="confidence">--%</strong>
+
+            <small>
+                ENTRY
+            </small>
+
+            <strong id="entryType">
+                WAIT
+            </strong>
+
         </div>
 
-        <div class="metric">
-            <small>AGREEMENT</small>
-            <strong id="agreement">--</strong>
-        </div>
 
         <div class="metric">
-            <small>DATA</small>
-            <strong id="dataQuality">--</strong>
+
+            <small>
+                CONFIDENCE
+            </small>
+
+            <strong id="confidence">
+                --%
+            </strong>
+
         </div>
+
+
+        <div class="metric">
+
+            <small>
+                AGREEMENT
+            </small>
+
+            <strong id="agreement">
+                --
+            </strong>
+
+        </div>
+
+
+        <div class="metric">
+
+            <small>
+                DATA
+            </small>
+
+            <strong id="dataQuality">
+                --
+            </strong>
+
+        </div>
+
     </div>
 
-    <div class="countdown" id="countdown">--</div>
 
-    <div id="reason" style="color:#94a3b8;font-size:12px">
+    <div
+        class="countdown"
+        id="countdown">
+
+        --
+
+    </div>
+
+
+    <div
+        id="reason"
+        style="color:#94a3b8;font-size:12px">
+
         Scanner is waiting for enough real market data.
+
     </div>
 
 </div>
+
 
 <div class="panel">
-    <div class="section-title">SCANNER LOG</div>
-    <div class="log" id="log"></div>
+
+    <div class="section-title">
+        SCANNER LOG
+    </div>
+
+    <div
+        class="log"
+        id="log">
+    </div>
+
 </div>
+
 
 <div class="panel warning">
+
     RISK WARNING<br>
+
     DON'T PLACE TRADE BEFORE ANALYSIS<br>
+
     WAIT FOR GOOD ENTRY CONFIRMATION
+
+</div>
+
+
 </div>
 
 </div>
+
 
 <script>
+
+/* =========================================================
+   LOGIN SYSTEM - ADDED ONLY
+   ========================================================= */
+
+const LOGIN_USERNAME = "Trade34";
+const LOGIN_PASSWORD = "Nairobi23";
+
+const LOGIN_STORAGE_KEY =
+    "deriv_live_entry_logged_in";
+
+
+const loginScreen =
+    document.getElementById("loginScreen");
+
+const dashboard =
+    document.getElementById("dashboard");
+
+const loginUsername =
+    document.getElementById("loginUsername");
+
+const loginPassword =
+    document.getElementById("loginPassword");
+
+const loginButton =
+    document.getElementById("loginButton");
+
+const loginError =
+    document.getElementById("loginError");
+
+const logoutButton =
+    document.getElementById("logoutButton");
+
+
+function showDashboard(){
+
+    loginScreen.style.display =
+        "none";
+
+    dashboard.style.display =
+        "block";
+
+}
+
+
+function showLogin(){
+
+    loginScreen.style.display =
+        "flex";
+
+    dashboard.style.display =
+        "none";
+
+    loginUsername.value = "";
+    loginPassword.value = "";
+
+    loginError.textContent = "";
+
+}
+
+
+function checkSavedLogin(){
+
+    const saved =
+        localStorage.getItem(
+            LOGIN_STORAGE_KEY
+        );
+
+    if(saved === "true"){
+
+        showDashboard();
+
+    }else{
+
+        showLogin();
+
+    }
+
+}
+
+
+function performLogin(){
+
+    const username =
+        loginUsername.value.trim();
+
+    const password =
+        loginPassword.value;
+
+    if(
+        username === LOGIN_USERNAME &&
+        password === LOGIN_PASSWORD
+    ){
+
+        localStorage.setItem(
+            LOGIN_STORAGE_KEY,
+            "true"
+        );
+
+        loginError.textContent = "";
+
+        showDashboard();
+
+        /*
+          Start the existing analyzer
+          only after successful login.
+        */
+
+        log(
+            "Login successful."
+        );
+
+        return;
+
+    }
+
+    loginError.textContent =
+        "INVALID USERNAME OR PASSWORD";
+
+}
+
+
+loginButton.onclick =
+    performLogin;
+
+
+loginPassword.addEventListener(
+    "keydown",
+    event => {
+
+        if(event.key === "Enter"){
+
+            performLogin();
+
+        }
+
+    }
+);
+
+
+loginUsername.addEventListener(
+    "keydown",
+    event => {
+
+        if(event.key === "Enter"){
+
+            performLogin();
+
+        }
+
+    }
+);
+
+
+logoutButton.onclick = () => {
+
+    /*
+       Stop the scanner before logout.
+    */
+
+    if(typeof stopScanner === "function"){
+
+        try{
+            stopScanner();
+        }catch(e){}
+
+    }
+
+    localStorage.removeItem(
+        LOGIN_STORAGE_KEY
+    );
+
+    showLogin();
+
+};
+
+
+checkSavedLogin();
+
 
 /* =========================================================
    DERIV CONFIGURATION
    ========================================================= */
 
-const DERIV_APP_ID = "34heQ2dKwBx8bfQnGzodr";
+const DERIV_APP_ID = "YOUR_DERIV_APP_ID";
 
 /*
  IMPORTANT:
@@ -515,16 +1135,26 @@ let countdownTimer = null;
 let entryActive = false;
 let matchesUnlocked = false;
 
-const marketEl = document.getElementById("market");
-const contractEl = document.getElementById("contract");
-const thresholdEl = document.getElementById("threshold");
+const marketEl =
+    document.getElementById("market");
 
-const startBtn = document.getElementById("startBtn");
-const statusDot = document.getElementById("statusDot");
+const contractEl =
+    document.getElementById("contract");
+
+const thresholdEl =
+    document.getElementById("threshold");
+
+const startBtn =
+    document.getElementById("startBtn");
+
+const statusDot =
+    document.getElementById("statusDot");
+
 const connectionStatus =
     document.getElementById("connectionStatus");
 
-const digitsEl = document.getElementById("digits");
+const digitsEl =
+    document.getElementById("digits");
 
 const tickCount =
     document.getElementById("tickCount");
@@ -575,11 +1205,14 @@ const ctx =
 
 for(let i=0;i<10;i++){
 
-    const d = document.createElement("div");
+    const d =
+        document.createElement("div");
 
-    d.className = "digit";
+    d.className =
+        "digit";
 
-    d.id = "digit-" + i;
+    d.id =
+        "digit-" + i;
 
     d.innerHTML = `
         <strong>${i}</strong>
@@ -587,6 +1220,7 @@ for(let i=0;i<10;i++){
     `;
 
     digitsEl.appendChild(d);
+
 }
 
 
@@ -604,6 +1238,7 @@ function log(message){
 
     logEl.scrollTop =
         logEl.scrollHeight;
+
 }
 
 
@@ -620,6 +1255,7 @@ function setStatus(connected){
 
     connectionStatus.textContent =
         connected ? "LIVE" : "OFFLINE";
+
 }
 
 
@@ -648,11 +1284,15 @@ function startScanner(){
 
     running = true;
 
-    startBtn.textContent = "STOP";
+    startBtn.textContent =
+        "STOP";
 
-    startBtn.className = "stop";
+    startBtn.className =
+        "stop";
 
-    log("Scanner starting...");
+    log(
+        "Scanner starting..."
+    );
 
     connect();
 
@@ -663,9 +1303,11 @@ function stopScanner(){
 
     running = false;
 
-    startBtn.textContent = "START";
+    startBtn.textContent =
+        "START";
 
-    startBtn.className = "start";
+    startBtn.className =
+        "start";
 
     clearCountdown();
 
@@ -678,8 +1320,13 @@ function stopScanner(){
             if(subscriptionId){
 
                 ws.send(JSON.stringify({
-                    forget: subscriptionId,
-                    req_id: requestId++
+
+                    forget:
+                        subscriptionId,
+
+                    req_id:
+                        requestId++
+
                 }));
 
             }
@@ -687,7 +1334,9 @@ function stopScanner(){
         }catch(e){}
 
         try{
+
             ws.close();
+
         }catch(e){}
 
     }
@@ -707,7 +1356,9 @@ function stopScanner(){
     countdown.textContent =
         "--";
 
-    log("Scanner stopped.");
+    log(
+        "Scanner stopped."
+    );
 
 }
 
@@ -728,46 +1379,59 @@ function connect(){
 
     }
 
-    log("Connecting to Deriv public market feed...");
+    log(
+        "Connecting to Deriv public market feed..."
+    );
 
-    ws = new WebSocket(WS_URL);
+    ws =
+        new WebSocket(WS_URL);
 
     ws.onopen = () => {
 
         setStatus(true);
 
-        log("Connected to Deriv public market feed.");
+        log(
+            "Connected to Deriv public market feed."
+        );
 
         discoverMarkets();
 
     };
 
-    ws.onmessage = event => {
 
-        let data;
+    ws.onmessage =
+        event => {
 
-        try{
+            let data;
 
-            data =
-                JSON.parse(event.data);
+            try{
 
-        }catch(e){
+                data =
+                    JSON.parse(
+                        event.data
+                    );
 
-            return;
+            }catch(e){
 
-        }
+                return;
 
-        handleMessage(data);
+            }
 
-    };
+            handleMessage(data);
+
+        };
+
 
     ws.onerror = () => {
 
-        log("Deriv connection error.");
+        log(
+            "Deriv connection error."
+        );
 
         setStatus(false);
 
     };
+
 
     ws.onclose = () => {
 
@@ -777,7 +1441,9 @@ function connect(){
 
         if(running){
 
-            log("Connection closed. Reconnecting safely...");
+            log(
+                "Connection closed. Reconnecting safely..."
+            );
 
             setTimeout(() => {
 
@@ -799,17 +1465,23 @@ function connect(){
 
 function discoverMarkets(){
 
-    if(!ws ||
-       ws.readyState !== WebSocket.OPEN)
+    if(
+        !ws ||
+        ws.readyState !== WebSocket.OPEN
+    )
         return;
 
-    log("Discovering live Volatility and Jump markets...");
+    log(
+        "Discovering live Volatility and Jump markets..."
+    );
 
     ws.send(JSON.stringify({
 
-        active_symbols:"brief",
+        active_symbols:
+            "brief",
 
-        req_id:requestId++
+        req_id:
+            requestId++
 
     }));
 
@@ -826,14 +1498,20 @@ function handleMessage(data){
 
         log(
             "Deriv error: " +
-            (data.error.message || "Unknown error")
+            (
+                data.error.message ||
+                "Unknown error"
+            )
         );
 
         return;
 
     }
 
-    if(data.msg_type === "active_symbols"){
+    if(
+        data.msg_type ===
+        "active_symbols"
+    ){
 
         handleMarkets(data);
 
@@ -841,7 +1519,10 @@ function handleMessage(data){
 
     }
 
-    if(data.msg_type === "history"){
+    if(
+        data.msg_type ===
+        "history"
+    ){
 
         handleHistory(data);
 
@@ -849,7 +1530,10 @@ function handleMessage(data){
 
     }
 
-    if(data.msg_type === "tick"){
+    if(
+        data.msg_type ===
+        "tick"
+    ){
 
         handleTick(data);
 
@@ -857,16 +1541,10 @@ function handleMessage(data){
 
     }
 
-    if(data.msg_type === "tick" &&
-       data.subscription){
-
-        subscriptionId =
-            data.subscription.id;
-
-    }
-
-    if(data.subscription &&
-       data.msg_type === "tick"){
+    if(
+        data.subscription &&
+        data.msg_type === "tick"
+    ){
 
         subscriptionId =
             data.subscription.id;
@@ -883,7 +1561,9 @@ function handleMessage(data){
 function handleMarkets(data){
 
     const list =
-        Array.isArray(data.active_symbols)
+        Array.isArray(
+            data.active_symbols
+        )
         ? data.active_symbols
         : [];
 
@@ -912,15 +1592,33 @@ function handleMarkets(data){
                 ).toLowerCase();
 
             return (
-                name.includes("volatility") ||
-                name.includes("jump") ||
-                type.includes("volatility") ||
-                type.includes("jump") ||
-                symbol.toLowerCase().includes("r_") ||
-                symbol.toLowerCase().includes("jd")
+
+                name.includes(
+                    "volatility"
+                ) ||
+
+                name.includes(
+                    "jump"
+                ) ||
+
+                type.includes(
+                    "volatility"
+                ) ||
+
+                type.includes(
+                    "jump"
+                ) ||
+
+                symbol.toLowerCase()
+                    .includes("r_") ||
+
+                symbol.toLowerCase()
+                    .includes("jd")
+
             );
 
         });
+
 
     markets.sort((a,b) => {
 
@@ -937,11 +1635,15 @@ function handleMarkets(data){
             b.underlying_symbol;
 
         return String(an)
-            .localeCompare(String(bn));
+            .localeCompare(
+                String(bn)
+            );
 
     });
 
+
     marketEl.innerHTML = "";
+
 
     markets.forEach(m => {
 
@@ -956,25 +1658,35 @@ function handleMarkets(data){
             symbol;
 
         const option =
-            document.createElement("option");
+            document.createElement(
+                "option"
+            );
 
-        option.value = symbol;
+        option.value =
+            symbol;
 
-        option.textContent = name;
+        option.textContent =
+            name;
 
-        marketEl.appendChild(option);
+        marketEl.appendChild(
+            option
+        );
 
     });
+
 
     log(
         `Market discovery complete: ${markets.length} Volatility/Jump markets found.`
     );
 
+
     if(markets.length){
 
         selectedSymbol =
-            markets[0].underlying_symbol ||
-            markets[0].symbol;
+            markets[0]
+                .underlying_symbol ||
+            markets[0]
+                .symbol;
 
         marketEl.value =
             selectedSymbol;
@@ -1037,8 +1749,10 @@ marketEl.addEventListener(
 
 function subscribeMarket(symbol){
 
-    if(!ws ||
-       ws.readyState !== WebSocket.OPEN)
+    if(
+        !ws ||
+        ws.readyState !== WebSocket.OPEN
+    )
         return;
 
     clearCountdown();
@@ -1062,51 +1776,52 @@ function subscribeMarket(symbol){
         "..."
     );
 
-    /*
-       IMPORTANT:
-       One history request.
-       No unnecessary live subscription on history.
-    */
 
     ws.send(JSON.stringify({
 
-        ticks_history:symbol,
+        ticks_history:
+            symbol,
 
-        end:"latest",
+        end:
+            "latest",
 
-        count:500,
+        count:
+            500,
 
-        style:"ticks",
+        style:
+            "ticks",
 
-        req_id:requestId++
+        req_id:
+            requestId++
 
     }));
 
-    /*
-       Small delay prevents overlapping requests.
-    */
 
     setTimeout(() => {
 
         if(!running) return;
 
-        if(!ws ||
-           ws.readyState !== WebSocket.OPEN)
+        if(
+            !ws ||
+            ws.readyState !==
+            WebSocket.OPEN
+        )
             return;
 
-        /*
-           Only ONE live tick subscription.
-        */
 
         ws.send(JSON.stringify({
 
-            ticks:symbol,
+            ticks:
+                symbol,
 
-            subscribe:1,
+            subscribe:
+                1,
 
-            req_id:requestId++
+            req_id:
+                requestId++
 
         }));
+
 
         log(
             "Live tick stream started."
@@ -1123,7 +1838,8 @@ function subscribeMarket(symbol){
 
 function handleHistory(data){
 
-    if(!data.history) return;
+    if(!data.history)
+        return;
 
     const prices =
         data.history.prices || [];
@@ -1131,30 +1847,48 @@ function handleHistory(data){
     const times =
         data.history.times || [];
 
+
     ticks = [];
 
-    for(let i=0;i<prices.length;i++){
+
+    for(
+        let i=0;
+        i<prices.length;
+        i++
+    ){
 
         ticks.push({
 
-            quote:Number(prices[i]),
+            quote:
+                Number(prices[i]),
 
-            epoch:Number(times[i] || 0)
+            epoch:
+                Number(
+                    times[i] || 0
+                )
 
         });
 
     }
 
+
     const pipSize =
         Number(
+
             data.pip_size ||
+
             markets.find(
                 m =>
-                (m.underlying_symbol ||
-                 m.symbol) === selectedSymbol
+                (
+                    m.underlying_symbol ||
+                    m.symbol
+                ) === selectedSymbol
             )?.pip_size ||
+
             2
+
         );
+
 
     ticks =
         ticks.map(t => {
@@ -1173,14 +1907,20 @@ function handleHistory(data){
 
         });
 
+
     priceHistory =
-        ticks.map(t => t.quote);
+        ticks.map(
+            t => t.quote
+        );
+
 
     updateDisplay();
+
 
     log(
         `${ticks.length} historical ticks loaded.`
     );
+
 
     analyze();
 
@@ -1193,30 +1933,45 @@ function handleHistory(data){
 
 function handleTick(data){
 
-    if(!data.tick) return;
+    if(!data.tick)
+        return;
+
 
     if(
         data.tick.symbol &&
         selectedSymbol &&
-        data.tick.symbol !== selectedSymbol
+        data.tick.symbol !==
+        selectedSymbol
     ){
 
         return;
 
     }
 
+
     const quote =
-        Number(data.tick.quote);
+        Number(
+            data.tick.quote
+        );
+
 
     if(!Number.isFinite(quote))
         return;
 
+
     const pipSize =
         Number(
+
             data.tick.pip_size ||
-            getPipSize(selectedSymbol) ||
+
+            getPipSize(
+                selectedSymbol
+            ) ||
+
             2
+
         );
+
 
     const digit =
         getLastDigit(
@@ -1224,8 +1979,10 @@ function handleTick(data){
             pipSize
         );
 
+
     if(digit === null)
         return;
+
 
     ticks.push({
 
@@ -1241,13 +1998,21 @@ function handleTick(data){
 
     });
 
+
     if(ticks.length > 500)
         ticks.shift();
 
-    priceHistory.push(quote);
 
-    if(priceHistory.length > 300)
+    priceHistory.push(
+        quote
+    );
+
+
+    if(
+        priceHistory.length > 300
+    )
         priceHistory.shift();
+
 
     lastQuote.textContent =
         quote.toFixed(
@@ -1257,8 +2022,10 @@ function handleTick(data){
             )
         );
 
+
     tickCount.textContent =
         `${ticks.length} TICKS`;
+
 
     updateDisplay();
 
@@ -1276,9 +2043,12 @@ function getPipSize(symbol){
     const m =
         markets.find(
             x =>
-            (x.underlying_symbol ||
-             x.symbol) === symbol
+            (
+                x.underlying_symbol ||
+                x.symbol
+            ) === symbol
         );
+
 
     return Number(
         m?.pip_size || 2
@@ -1296,15 +2066,23 @@ function getMarketName(symbol){
     const m =
         markets.find(
             x =>
-            (x.underlying_symbol ||
-             x.symbol) === symbol
+            (
+                x.underlying_symbol ||
+                x.symbol
+            ) === symbol
         );
 
+
     return (
+
         m?.underlying_symbol_name ||
+
         m?.display_name ||
+
         m?.name ||
+
         symbol
+
     );
 
 }
@@ -1322,11 +2100,14 @@ function getLastDigit(
     const n =
         Number(quote);
 
+
     if(!Number.isFinite(n))
         return null;
 
+
     const p =
         Number(pipSize);
+
 
     if(
         Number.isInteger(p) &&
@@ -1337,26 +2118,42 @@ function getLastDigit(
         const scaled =
             Math.round(
                 Math.abs(n) *
-                Math.pow(10,p)
+                Math.pow(
+                    10,
+                    p
+                )
             );
+
 
         return scaled % 10;
 
     }
 
+
     const text =
         Math.abs(n)
         .toFixed(10)
-        .replace(/0+$/,"");
+        .replace(
+            /0+$/,
+            ""
+        );
+
 
     const digits =
-        text.replace(".","");
+        text.replace(
+            ".",
+            ""
+        );
+
 
     if(!digits)
         return null;
 
+
     return Number(
-        digits[digits.length-1]
+        digits[
+            digits.length - 1
+        ]
     );
 
 }
@@ -1371,10 +2168,13 @@ function getDistribution(data){
     const counts =
         Array(10).fill(0);
 
+
     data.forEach(t => {
 
         if(
-            Number.isInteger(t.digit) &&
+            Number.isInteger(
+                t.digit
+            ) &&
             t.digit >= 0 &&
             t.digit <= 9
         ){
@@ -1385,17 +2185,23 @@ function getDistribution(data){
 
     });
 
+
     const total =
         counts.reduce(
             (a,b) => a+b,
             0
         );
 
+
     if(!total)
-        return counts.map(() => 0);
+        return counts.map(
+            () => 0
+        );
+
 
     return counts.map(
-        c => c / total * 100
+        c =>
+        c / total * 100
     );
 
 }
@@ -1408,7 +2214,10 @@ function getDistribution(data){
 function updateDisplay(){
 
     const dist =
-        getDistribution(ticks);
+        getDistribution(
+            ticks
+        );
+
 
     const sorted =
         dist
@@ -1423,6 +2232,7 @@ function updateDisplay(){
             b.value-a.value
         );
 
+
     const high =
         sorted[0]?.index;
 
@@ -1435,33 +2245,56 @@ function updateDisplay(){
     const secondLow =
         sorted[8]?.index;
 
-    for(let i=0;i<10;i++){
+
+    for(
+        let i=0;
+        i<10;
+        i++
+    ){
 
         const el =
             document.getElementById(
                 "digit-"+i
             );
 
+
         el.className =
             "digit";
 
-        if(i === high)
-            el.classList.add("high");
 
-        else if(i === secondHigh)
-            el.classList.add("second-high");
+        if(i === high)
+            el.classList.add(
+                "high"
+            );
+
+        else if(
+            i === secondHigh
+        )
+            el.classList.add(
+                "second-high"
+            );
 
         else if(i === low)
-            el.classList.add("low");
+            el.classList.add(
+                "low"
+            );
 
-        else if(i === secondLow)
-            el.classList.add("second-low");
+        else if(
+            i === secondLow
+        )
+            el.classList.add(
+                "second-low"
+            );
 
-        el.querySelector("span")
-            .textContent =
-            dist[i].toFixed(1)+"%";
+
+        el.querySelector(
+            "span"
+        ).textContent =
+            dist[i].toFixed(1)
+            +"%";
 
     }
+
 
     drawChart();
 
@@ -1476,6 +2309,7 @@ function analyze(){
 
     if(!running)
         return;
+
 
     /*
        Never force an entry.
@@ -1492,6 +2326,7 @@ function analyze(){
 
     }
 
+
     const w30 =
         ticks.slice(-30);
 
@@ -1500,6 +2335,7 @@ function analyze(){
 
     const w500 =
         ticks.slice(-500);
+
 
     const d30 =
         getDistribution(w30);
@@ -1510,10 +2346,16 @@ function analyze(){
     const d500 =
         getDistribution(w500);
 
+
     const candidates =
         [];
 
-    for(let d=0;d<10;d++){
+
+    for(
+        let d=0;
+        d<10;
+        d++
+    ){
 
         const p30 =
             d30[d];
@@ -1524,24 +2366,26 @@ function analyze(){
         const p500 =
             d500[d];
 
-        /*
-           Require direction of evidence
-           to agree rather than simply
-           choosing the most common digit.
-        */
 
         const average =
             p30*0.25 +
             p100*0.30 +
             p500*0.45;
 
+
         const spread =
             Math.max(
-                p30,p100,p500
+                p30,
+                p100,
+                p500
             ) -
+
             Math.min(
-                p30,p100,p500
+                p30,
+                p100,
+                p500
             );
+
 
         const agreement =
             (
@@ -1550,35 +2394,39 @@ function analyze(){
                 (p500 >= 10 ? 1 : 0)
             );
 
+
         const stability =
             Math.max(
                 0,
                 100 - spread*5
             );
 
-        /*
-           Digit baseline is 10%.
-           We require meaningful edge.
-        */
 
         const edge =
             average - 10;
 
+
         const score =
             Math.round(
+
                 average*0.50 +
+
                 stability*0.20 +
+
                 Math.max(
                     0,
                     edge*8
                 )*0.30
+
             );
+
 
         candidates.push({
 
             digit:d,
 
-            probability:average,
+            probability:
+                average,
 
             spread,
 
@@ -1590,16 +2438,19 @@ function analyze(){
 
     }
 
+
     candidates.sort(
         (a,b) =>
         b.score-a.score
     );
+
 
     const best =
         candidates[0];
 
     const second =
         candidates[1];
+
 
     const confidence =
         Math.min(
@@ -1610,29 +2461,24 @@ function analyze(){
             )
         );
 
+
     const required =
         Number(
             thresholdEl.value
         );
 
+
     const separation =
         best.score -
         second.score;
 
-    /*
-       VERY STRICT:
-       - confidence threshold
-       - sufficient probability edge
-       - separation from second candidate
-       - stability
-       - enough data
-    */
 
     const valid =
         confidence >= required &&
         best.probability >= 13 &&
         best.stability >= 65 &&
         separation >= 5;
+
 
     if(!valid){
 
@@ -1643,6 +2489,7 @@ function analyze(){
         return;
 
     }
+
 
     createEntry(
         best,
@@ -1664,8 +2511,10 @@ function createEntry(
     if(entryActive)
         return;
 
+
     const contract =
         contractEl.value;
+
 
     if(
         contract === "Matches" &&
@@ -1680,30 +2529,40 @@ function createEntry(
 
     }
 
+
     entryActive = true;
+
 
     predictedDigit.textContent =
         best.digit;
 
+
     confidence.textContent =
         confidenceValue+"%";
+
 
     agreement.textContent =
         "30/100/500";
 
+
     dataQuality.textContent =
         "500";
+
 
     entryType.textContent =
         "NEXT TICK";
 
+
     entryState.textContent =
         "STRONG ENTRY CONFIRMED";
+
 
     reason.textContent =
         `Digit ${best.digit} has ${best.probability.toFixed(1)}% weighted distribution with stable multi-window confirmation.`;
 
+
     startCountdown(60);
+
 
     log(
         `ENTRY CONFIRMED: predicted digit ${best.digit}, confidence ${confidenceValue}%.`
@@ -1722,26 +2581,34 @@ function showWait(message){
 
     entryActive = false;
 
+
     predictedDigit.textContent =
         "--";
+
 
     entryType.textContent =
         "WAIT";
 
+
     confidence.textContent =
         "--%";
+
 
     agreement.textContent =
         "--";
 
+
     dataQuality.textContent =
         ticks.length;
+
 
     countdown.textContent =
         "--";
 
+
     entryState.textContent =
         "NO ENTRY — WAIT";
+
 
     reason.textContent =
         message;
@@ -1759,26 +2626,34 @@ function resetEntry(){
 
     entryActive = false;
 
+
     predictedDigit.textContent =
         "--";
+
 
     entryType.textContent =
         "WAIT";
 
+
     confidence.textContent =
         "--%";
+
 
     agreement.textContent =
         "--";
 
+
     dataQuality.textContent =
         "0";
+
 
     countdown.textContent =
         "--";
 
+
     entryState.textContent =
         "WAITING FOR STRONG CONFIRMATION";
+
 
     reason.textContent =
         "Scanner is waiting for enough real market data.";
@@ -1794,19 +2669,24 @@ function startCountdown(seconds){
 
     clearCountdown();
 
+
     let left =
         seconds;
 
+
     countdown.textContent =
         left+"s";
+
 
     countdownTimer =
         setInterval(() => {
 
             left--;
 
+
             countdown.textContent =
                 left+"s";
+
 
             if(left <= 0){
 
@@ -1814,17 +2694,22 @@ function startCountdown(seconds){
 
                 entryActive = false;
 
+
                 predictedDigit.textContent =
                     "--";
+
 
                 entryType.textContent =
                     "WAIT";
 
+
                 entryState.textContent =
                     "SIGNAL EXPIRED — RE-SCAN REQUIRED";
 
+
                 reason.textContent =
                     "The previous signal expired. No automatic trade is performed.";
+
 
                 log(
                     "Signal expired. Re-scanning."
@@ -1899,7 +2784,11 @@ function updateLock(){
             "matchesLock"
         );
 
-    if(contractEl.value === "Matches"){
+
+    if(
+        contractEl.value ===
+        "Matches"
+    ){
 
         if(matchesUnlocked){
 
@@ -1932,18 +2821,24 @@ document.getElementById(
             "unlockCode"
         ).value.trim();
 
-    if(code === MATCHES_CODE){
+
+    if(
+        code === MATCHES_CODE
+    ){
 
         matchesUnlocked = true;
+
 
         document.getElementById(
             "matchesLock"
         ).style.display =
             "none";
 
+
         log(
             "MATCHES module unlocked."
         );
+
 
         resetEntry();
 
@@ -1969,11 +2864,16 @@ function drawChart(){
     const rect =
         canvas.getBoundingClientRect();
 
+
     canvas.width =
-        rect.width * devicePixelRatio;
+        rect.width *
+        devicePixelRatio;
+
 
     canvas.height =
-        rect.height * devicePixelRatio;
+        rect.height *
+        devicePixelRatio;
+
 
     ctx.setTransform(
         devicePixelRatio,
@@ -1984,11 +2884,14 @@ function drawChart(){
         0
     );
 
+
     const width =
         rect.width;
 
+
     const height =
         rect.height;
+
 
     ctx.clearRect(
         0,
@@ -1997,54 +2900,84 @@ function drawChart(){
         height
     );
 
+
     if(priceHistory.length < 2)
         return;
 
+
     let min =
-        Math.min(...priceHistory);
+        Math.min(
+            ...priceHistory
+        );
+
 
     let max =
-        Math.max(...priceHistory);
+        Math.max(
+            ...priceHistory
+        );
+
 
     if(max === min){
 
         max += 0.0001;
+
         min -= 0.0001;
 
     }
 
+
     ctx.beginPath();
+
 
     priceHistory.forEach(
         (value,index) => {
 
             const x =
                 index /
-                (priceHistory.length-1) *
+                (
+                    priceHistory.length-1
+                ) *
                 width;
+
 
             const y =
                 height -
+
                 (
                     (value-min) /
                     (max-min)
                 ) *
+
                 (height-10) -
+
                 5;
 
+
             if(index === 0)
-                ctx.moveTo(x,y);
+
+                ctx.moveTo(
+                    x,
+                    y
+                );
+
             else
-                ctx.lineTo(x,y);
+
+                ctx.lineTo(
+                    x,
+                    y
+                );
 
         }
     );
 
+
     ctx.strokeStyle =
         "#22c55e";
 
+
     ctx.lineWidth =
         2;
+
 
     ctx.stroke();
 
