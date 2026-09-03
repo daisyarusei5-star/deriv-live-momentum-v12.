@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>DERIV LIVE ENTRY - POWERED BY ELISY 254</title>
 
 <style>
-
 *{
     box-sizing:border-box;
 }
@@ -15,856 +14,611 @@
 html,body{
     margin:0;
     padding:0;
+    min-height:100%;
     background:#020617;
-    color:#e5e7eb;
+    color:#fff;
     font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-    min-height:100vh;
+    overflow-x:hidden;
 }
 
-/* =========================================
-   LOGIN
-========================================= */
+button,
+select,
+input{
+    font:inherit;
+}
 
-.login-page{
+button{
+    cursor:pointer;
+}
+
+/* LOGIN */
+
+.login-screen{
     min-height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
     padding:20px;
     background:
-        radial-gradient(circle at top,#10233c 0,#020617 55%);
+        radial-gradient(circle at top,#10213d 0,#020617 48%,#000 100%);
 }
 
-.login-box{
+.login-card{
     width:100%;
-    max-width:400px;
-    background:#07101d;
-    border:1px solid #1e293b;
-    border-radius:18px;
+    max-width:420px;
+    background:rgba(8,15,30,.96);
+    border:1px solid #1e3a5f;
+    border-radius:20px;
     padding:28px;
-    box-shadow:0 20px 60px rgba(0,0,0,.5);
+    box-shadow:0 0 45px rgba(0,0,0,.65);
+    text-align:center;
 }
 
 .login-logo{
-    text-align:center;
-    margin-bottom:20px;
-}
-
-.login-logo img{
-    width:110px;
-    height:110px;
+    width:115px;
+    height:115px;
     object-fit:contain;
     border-radius:50%;
+    margin-bottom:10px;
+    filter:drop-shadow(0 0 18px rgba(255,255,255,.12));
 }
 
 .login-title{
-    text-align:center;
-    font-size:23px;
-    font-weight:900;
+    font-size:25px;
+    font-weight:1000;
     letter-spacing:1px;
 }
 
 .login-powered{
-    text-align:center;
-    color:#22c55e;
-    font-size:12px;
-    font-weight:bold;
-    margin-top:6px;
+    color:#38bdf8;
+    font-size:13px;
+    font-weight:900;
+    margin-top:7px;
 }
 
-.input-group{
-    margin-top:18px;
-}
-
-.input-group label{
-    display:block;
-    margin-bottom:7px;
-    color:#94a3b8;
-    font-size:12px;
-}
-
-.input-group input{
+.login-card input{
     width:100%;
-    padding:13px;
-    border-radius:9px;
-    border:1px solid #263449;
+    margin-top:13px;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid #263b59;
     background:#020617;
     color:#fff;
     outline:none;
 }
 
-.input-group input:focus{
-    border-color:#22c55e;
-}
-
-.remember{
-    margin-top:12px;
-    display:flex;
-    gap:8px;
-    align-items:center;
-    color:#94a3b8;
-    font-size:12px;
+.login-card input:focus{
+    border-color:#38bdf8;
 }
 
 .login-button{
     width:100%;
-    margin-top:20px;
+    margin-top:15px;
     padding:14px;
-    border:none;
+    border:0;
     border-radius:10px;
-    background:#16a34a;
+    background:#2563eb;
     color:#fff;
-    font-weight:900;
-    cursor:pointer;
-}
-
-.login-button:hover{
-    background:#22c55e;
+    font-weight:1000;
 }
 
 .login-error{
-    min-height:18px;
-    margin-top:12px;
-    text-align:center;
     color:#ef4444;
-    font-size:12px;
+    font-size:13px;
+    font-weight:800;
+    margin-top:12px;
 }
 
-.whatsapp{
-    display:block;
-    text-align:center;
-    margin-top:18px;
-    color:#22c55e;
-    text-decoration:none;
-    font-size:12px;
-}
+/* DASHBOARD */
 
-/* =========================================
-   DASHBOARD
-========================================= */
-
-#dashboard{
+.dashboard{
     display:none;
     min-height:100vh;
+    background:
+        radial-gradient(circle at top,#0c1b31 0,#020617 42%,#000 100%);
 }
 
-header{
+.header{
     position:sticky;
     top:0;
-    z-index:50;
-
+    z-index:20;
     background:rgba(2,6,23,.96);
-    border-bottom:1px solid #172033;
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid #17243a;
+    padding:12px 14px;
 }
 
 .header-inner{
-    max-width:1400px;
+    max-width:1250px;
     margin:auto;
-    padding:15px 20px;
-
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    gap:20px;
+    gap:13px;
 }
 
-.brand{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-.brand img{
-    width:65px;
-    height:65px;
+.header-logo{
+    width:68px;
+    height:68px;
     object-fit:contain;
     border-radius:50%;
+    filter:drop-shadow(0 0 14px rgba(255,255,255,.10));
 }
 
-.brand-title{
-    font-size:20px;
-    font-weight:900;
+.header-title{
+    font-size:21px;
+    font-weight:1000;
     letter-spacing:1px;
 }
 
-.brand-powered{
-    margin-top:5px;
-    color:#22c55e;
-    font-size:11px;
-    font-weight:bold;
-    letter-spacing:1px;
+.header-powered{
+    color:#38bdf8;
+    font-size:12px;
+    font-weight:1000;
+    margin-top:4px;
 }
 
-.connection{
+.header-status{
+    margin-left:auto;
     display:flex;
     align-items:center;
-    gap:8px;
-
-    padding:9px 12px;
-    border-radius:8px;
-
-    background:#07101d;
-    border:1px solid #1e293b;
-
-    font-size:10px;
-    font-weight:bold;
+    gap:7px;
+    font-size:11px;
+    font-weight:900;
 }
 
-.connection-dot{
+.status-dot{
     width:9px;
     height:9px;
     border-radius:50%;
     background:#ef4444;
 }
 
-.connection.online .connection-dot{
+.status-dot.connected{
     background:#22c55e;
-    box-shadow:0 0 10px #22c55e;
+    box-shadow:0 0 12px #22c55e;
 }
-
-/* =========================================
-   MAIN
-========================================= */
 
 .container{
-    max-width:1400px;
+    width:100%;
+    max-width:1250px;
     margin:auto;
-    padding:20px;
+    padding:15px;
 }
 
-.grid{
+/* CONTROLS */
+
+.control-panel{
+    background:#07101f;
+    border:1px solid #16263e;
+    border-radius:15px;
+    padding:15px;
+    margin-bottom:15px;
+}
+
+.control-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
-
-.panel{
-    background:#07101d;
-    border:1px solid #172033;
-    border-radius:14px;
-    padding:18px;
-    margin-bottom:20px;
-}
-
-.panel-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-}
-
-.panel-header h2{
-    margin:0;
-    font-size:16px;
-    letter-spacing:.8px;
-}
-
-.panel-subtitle{
-    margin:5px 0 0;
-    color:#64748b;
-    font-size:10px;
-}
-
-.field{
-    margin-top:16px;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
 }
 
 .field label{
     display:block;
     color:#94a3b8;
     font-size:11px;
+    font-weight:900;
     margin-bottom:7px;
+    text-transform:uppercase;
 }
 
 .field select{
     width:100%;
-    padding:12px;
-
     background:#020617;
     color:#fff;
-
-    border:1px solid #263449;
-    border-radius:8px;
+    border:1px solid #263b59;
+    border-radius:9px;
+    padding:13px 10px;
     outline:none;
 }
 
 .field select:focus{
-    border-color:#22c55e;
+    border-color:#38bdf8;
 }
 
-.market-info{
-    margin-top:15px;
-    padding:12px;
-    background:#020617;
-    border:1px solid #172033;
-    border-radius:9px;
-}
+/* LOCK */
 
-.market-info-row{
-    display:flex;
-    justify-content:space-between;
-    padding:5px 0;
-    font-size:11px;
-}
-
-.market-info-row span:first-child{
-    color:#64748b;
-}
-
-.market-info-row span:last-child{
-    color:#e2e8f0;
-}
-
-/* =========================================
-   ENTRY DECISION
-========================================= */
-
-.entry-box{
-    margin-top:16px;
+.lock-box{
+    margin-top:14px;
     padding:18px;
-
-    background:#020617;
-    border:1px solid #1e293b;
-    border-radius:12px;
-
+    background:
+        linear-gradient(135deg,#160b0b,#24100f);
+    border:1px solid #7f1d1d;
+    border-radius:13px;
     text-align:center;
 }
 
-.entry-status{
-    font-size:24px;
-    font-weight:900;
+.lock-title{
+    color:#f87171;
+    font-size:17px;
+    font-weight:1000;
+}
+
+.lock-text{
+    color:#cbd5e1;
+    font-size:12px;
+    margin-top:6px;
+}
+
+.unlock-row{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+}
+
+.unlock-row input{
+    flex:1;
+    min-width:0;
+    background:#020617;
+    border:1px solid #475569;
+    border-radius:9px;
+    color:#fff;
+    padding:12px;
+    outline:none;
+}
+
+.unlock-button{
+    border:0;
+    border-radius:9px;
+    padding:12px 15px;
+    background:#dc2626;
+    color:#fff;
+    font-weight:1000;
+}
+
+/* BUY MATCHES */
+
+.buy-matches-button{
+    display:block;
+    width:100%;
+    margin-top:12px;
+    padding:14px;
+    text-align:center;
+    background:#16a34a;
+    color:#fff;
+    font-weight:1000;
+    border-radius:10px;
+    text-decoration:none;
+    border:1px solid #22c55e;
+    box-shadow:0 0 15px rgba(34,197,94,.20);
+}
+
+.buy-matches-button:active{
+    transform:scale(.98);
+}
+
+/* ENTRY */
+
+.entry-box{
+    background:#07101f;
+    border:1px solid #1e3a5f;
+    border-radius:17px;
+    padding:18px;
+    margin-bottom:15px;
+    text-align:center;
+}
+
+.entry-heading{
+    color:#94a3b8;
+    font-size:11px;
+    font-weight:1000;
     letter-spacing:1px;
+}
+
+.entry-status{
+    margin-top:8px;
+    font-size:30px;
+    font-weight:1000;
+}
+
+.entry-status.good{
+    color:#22c55e;
+    text-shadow:0 0 18px rgba(34,197,94,.35);
 }
 
 .entry-status.wait{
     color:#f59e0b;
 }
 
-.entry-status.good{
-    color:#22c55e;
-}
-
-.entry-status.danger{
+.entry-status.bad{
     color:#ef4444;
 }
 
-.entry-contract{
-    margin-top:12px;
-    font-size:18px;
-    font-weight:900;
-}
-
-.entry-target{
-    margin-top:8px;
-    font-size:34px;
-    font-weight:900;
-    color:#60a5fa;
-}
-
-.entry-confidence{
-    margin-top:10px;
-    color:#94a3b8;
-    font-size:12px;
-}
-
-.entry-reason{
+.entry-details{
     margin-top:15px;
-    padding:12px;
-
-    background:#07101d;
-    border-radius:8px;
-
-    color:#94a3b8;
-    font-size:11px;
-    line-height:1.6;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
 }
+
+.detail{
+    background:#020617;
+    border:1px solid #17243a;
+    border-radius:10px;
+    padding:12px 8px;
+}
+
+.detail-label{
+    color:#64748b;
+    font-size:9px;
+    font-weight:900;
+}
+
+.detail-value{
+    margin-top:5px;
+    font-size:16px;
+    font-weight:1000;
+}
+
+/* COUNTDOWN */
 
 .timer{
     margin-top:15px;
-    font-size:22px;
-    font-weight:900;
-    color:#f59e0b;
+    font-size:24px;
+    font-weight:1000;
+    color:#38bdf8;
 }
 
-/* =========================================
-   LIVE DIGIT DISTRIBUTION
-========================================= */
-
-.digit-status{
-    display:flex;
-    justify-content:space-between;
-
-    margin-top:18px;
-    padding:9px 12px;
-
-    background:#020617;
-    border:1px solid #172033;
-    border-radius:10px;
-
-    font-size:10px;
-    color:#64748b;
+.timer.expired{
+    color:#ef4444;
 }
 
-#digitMarketName{
-    color:#22c55e;
-    font-weight:bold;
+/* DIGITS */
+
+.section{
+    background:#07101f;
+    border:1px solid #16263e;
+    border-radius:15px;
+    padding:15px;
+    margin-bottom:15px;
 }
 
-.digit-circles{
+.section-title{
+    font-size:13px;
+    font-weight:1000;
+    letter-spacing:1px;
+    color:#cbd5e1;
+    margin-bottom:14px;
+}
+
+.digit-grid{
     display:grid;
     grid-template-columns:repeat(10,1fr);
-    gap:12px;
-
-    margin-top:24px;
-    padding:10px 0;
+    gap:8px;
 }
 
 .digit-item{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:7px;
+    text-align:center;
 }
 
 .digit-circle{
-    position:relative;
-
-    width:60px;
-    height:60px;
-
+    width:52px;
+    height:52px;
+    margin:auto;
     border-radius:50%;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
-    background:#0b1220;
-
     border:2px solid #334155;
-
-    color:#cbd5e1;
-
-    font-size:14px;
-    font-weight:900;
-
-    transition:
-        transform .25s ease,
-        border-color .25s ease,
-        box-shadow .25s ease,
-        background .25s ease;
+    background:#0f172a;
+    color:#fff;
+    font-weight:1000;
+    font-size:15px;
+    transition:.25s;
 }
 
-.digit-number{
-    position:absolute;
-
-    top:-9px;
-    left:50%;
-    transform:translateX(-50%);
-
-    width:22px;
-    height:22px;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:#020617;
-    border:1px solid #334155;
-
-    font-size:9px;
-    color:#cbd5e1;
-}
-
-.digit-percent{
-    font-size:13px;
-}
-
-.digit-count{
-    font-size:9px;
-    color:#64748b;
-}
-
-/* HIGH */
-
-.digit-circle.high{
+.digit-circle.hot{
     border-color:#22c55e;
-    background:rgba(34,197,94,.12);
-    color:#4ade80;
-
-    box-shadow:
-        0 0 15px rgba(34,197,94,.45),
-        inset 0 0 15px rgba(34,197,94,.08);
-
-    animation:highPulse 1s infinite;
+    background:rgba(34,197,94,.18);
+    box-shadow:0 0 17px rgba(34,197,94,.3);
+    animation:pulse 1.2s infinite;
 }
 
-/* SECOND HIGH */
-
-.digit-circle.second-high{
+.digit-circle.second{
     border-color:#3b82f6;
-    background:rgba(59,130,246,.12);
-    color:#60a5fa;
-
-    box-shadow:0 0 12px rgba(59,130,246,.35);
+    background:rgba(59,130,246,.16);
 }
-
-/* SECOND LOW */
 
 .digit-circle.second-low{
     border-color:#eab308;
-    background:rgba(234,179,8,.10);
-    color:#fde047;
-
-    box-shadow:0 0 12px rgba(234,179,8,.3);
+    background:rgba(234,179,8,.15);
 }
 
-/* LOW */
-
-.digit-circle.low{
+.digit-circle.cold{
     border-color:#ef4444;
-    background:rgba(239,68,68,.10);
-    color:#f87171;
-
-    box-shadow:0 0 12px rgba(239,68,68,.3);
-
-    animation:lowPulse 1.3s infinite;
+    background:rgba(239,68,68,.16);
 }
 
-@keyframes highPulse{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.09);
-    }
-
-}
-
-@keyframes lowPulse{
-
-    0%,100%{
-        opacity:1;
-    }
-
-    50%{
-        opacity:.55;
-    }
-
-}
-
-.digit-circle.moving{
-    animation:movement .35s ease;
-}
-
-@keyframes movement{
-
-    0%{
-        transform:scale(.85);
-    }
-
-    50%{
-        transform:scale(1.14);
-    }
-
-    100%{
-        transform:scale(1);
-    }
-
-}
-
-/* =========================================
-   LEGEND
-========================================= */
-
-.legend{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
-
-    padding-top:15px;
-    margin-top:15px;
-
-    border-top:1px solid #172033;
-}
-
-.legend-item{
-    display:flex;
-    align-items:center;
-    gap:6px;
-
-    font-size:9px;
-    color:#64748b;
-}
-
-.legend-dot{
-    width:11px;
-    height:11px;
-    border-radius:50%;
-}
-
-.green{
-    background:#22c55e;
-}
-
-.blue{
-    background:#3b82f6;
-}
-
-.yellow{
-    background:#eab308;
-}
-
-.red{
-    background:#ef4444;
-}
-
-.momentum-message{
-    text-align:center;
-
-    margin-top:16px;
-    padding:12px;
-
-    background:#020617;
-    border:1px solid #172033;
-    border-radius:8px;
-
-    color:#64748b;
+.digit-percent{
+    margin-top:5px;
+    color:#94a3b8;
     font-size:10px;
+    font-weight:900;
 }
 
-/* =========================================
-   WINDOWS
-========================================= */
+.digit-count{
+    color:#475569;
+    font-size:9px;
+    margin-top:2px;
+}
 
-.windows{
+@keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.07)}
+}
+
+/* WINDOWS */
+
+.window-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:10px;
 }
 
-.window{
-    padding:15px;
+.window-card{
     background:#020617;
-    border:1px solid #172033;
+    border:1px solid #17243a;
     border-radius:10px;
-    text-align:center;
+    padding:13px;
 }
 
-.window-title{
+.window-name{
+    font-size:11px;
     color:#64748b;
-    font-size:10px;
+    font-weight:1000;
+}
+
+.window-result{
+    margin-top:6px;
+    font-size:18px;
+    font-weight:1000;
 }
 
 .window-score{
-    margin-top:8px;
-    font-size:22px;
+    margin-top:4px;
+    color:#38bdf8;
+    font-size:11px;
     font-weight:900;
 }
 
-.window-detail{
-    margin-top:5px;
-    color:#94a3b8;
-    font-size:10px;
+/* SCANNER */
+
+.scanner{
+    max-height:300px;
+    overflow:auto;
+    background:#010409;
+    border-radius:10px;
+    border:1px solid #17243a;
+    padding:10px;
+    font-family:monospace;
+    font-size:11px;
+    color:#22c55e;
 }
 
-/* =========================================
-   TICKS
-========================================= */
+.scanner-line{
+    padding:4px 0;
+    border-bottom:1px solid rgba(34,197,94,.06);
+}
 
-.ticks{
-    max-height:300px;
-    overflow-y:auto;
+/* TICKS */
+
+.tick-list{
+    max-height:240px;
+    overflow:auto;
 }
 
 .tick-row{
     display:flex;
     justify-content:space-between;
-
-    padding:9px;
-
+    gap:10px;
+    padding:7px 5px;
     border-bottom:1px solid #101827;
-
-    font-size:10px;
-}
-
-.tick-price{
-    color:#e2e8f0;
+    font-family:monospace;
+    font-size:11px;
 }
 
 .tick-digit{
-    color:#22c55e;
-    font-weight:bold;
+    font-weight:1000;
+    color:#38bdf8;
 }
 
-/* =========================================
-   SCANNER
-========================================= */
+/* WARNING */
 
-.scanner{
-    max-height:350px;
-    overflow-y:auto;
+.warning{
+    text-align:center;
+    padding:20px 10px 35px;
+    color:#f87171;
 }
 
-.scan-row{
-    display:grid;
-    grid-template-columns:1.4fr .8fr .8fr .8fr;
-    gap:8px;
-
-    padding:10px;
-
-    border-bottom:1px solid #101827;
-
-    font-size:10px;
+.warning-title{
+    font-size:14px;
+    font-weight:1000;
+    letter-spacing:1px;
 }
 
-.scan-good{
-    color:#22c55e;
-}
-
-.scan-wait{
-    color:#f59e0b;
-}
-
-/* =========================================
-   RISK
-========================================= */
-
-.risk{
-    border:1px solid #7f1d1d;
-    background:#180b0b;
-}
-
-.risk h2{
-    color:#ef4444;
-    margin:0;
-    font-size:15px;
-}
-
-.risk p{
-    margin:8px 0 0;
-    color:#fca5a5;
+.warning-text{
+    margin-top:6px;
     font-size:11px;
-    line-height:1.7;
+    font-weight:900;
+    color:#94a3b8;
 }
 
-/* =========================================
-   MATCHES
-========================================= */
+/* RESPONSIVE */
 
-.lock-box{
-    display:none;
-    margin-top:15px;
-    padding:14px;
-
-    background:#180b0b;
-    border:1px solid #7f1d1d;
-
-    border-radius:9px;
-}
-
-.lock-box input{
-    width:100%;
-    margin-top:10px;
-
-    padding:11px;
-
-    background:#020617;
-    border:1px solid #334155;
-    border-radius:8px;
-
-    color:#fff;
-}
-
-.unlock-button{
-    width:100%;
-    margin-top:10px;
-    padding:11px;
-
-    background:#16a34a;
-    border:0;
-    border-radius:8px;
-
-    color:white;
-    font-weight:bold;
-}
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media(max-width:900px){
-
-    .grid{
+@media(max-width:800px){
+    .control-grid{
         grid-template-columns:1fr;
     }
 
-    .digit-circles{
-        grid-template-columns:repeat(5,1fr);
-        gap:18px 8px;
+    .entry-details{
+        grid-template-columns:repeat(2,1fr);
     }
 
+    .digit-grid{
+        grid-template-columns:repeat(5,1fr);
+        row-gap:14px;
+    }
+
+    .window-grid{
+        grid-template-columns:1fr;
+    }
+
+    .header-title{
+        font-size:16px;
+    }
+
+    .header-logo{
+        width:55px;
+        height:55px;
+    }
 }
 
-@media(max-width:500px){
-
+@media(max-width:420px){
     .container{
-        padding:12px;
-    }
-
-    .header-inner{
-        padding:12px;
-    }
-
-    .brand img{
-        width:50px;
-        height:50px;
-    }
-
-    .brand-title{
-        font-size:15px;
+        padding:9px;
     }
 
     .digit-circle{
-        width:53px;
-        height:53px;
+        width:48px;
+        height:48px;
     }
 
-    .windows{
-        grid-template-columns:1fr;
+    .unlock-row{
+        flex-direction:column;
     }
 
+    .header-status{
+        display:none;
+    }
 }
-
 </style>
 </head>
 
 <body>
 
+<!-- LOGIN -->
 
-<!-- =========================================
-     LOGIN
-========================================= -->
+<div class="login-screen" id="loginScreen">
 
-<div id="loginPage" class="login-page">
+    <div class="login-card">
 
-    <div class="login-box">
-
-        <div class="login-logo">
-            <img
-                src="lion-logo.png"
-                alt="Lion Logo"
-                onerror="this.style.display='none'"
-            >
-        </div>
+        <img
+            src="lion-logo.png"
+            class="login-logo"
+            alt="Lion Logo"
+            onerror="this.style.display='none'"
+        >
 
         <div class="login-title">
             DERIV LIVE ENTRY
@@ -874,33 +628,19 @@ header{
             POWERED BY ELISY 254
         </div>
 
-        <div class="input-group">
-            <label>USERNAME</label>
-            <input
-                id="username"
-                type="text"
-                autocomplete="username"
-                placeholder="Enter username"
-            >
-        </div>
+        <input
+            id="username"
+            type="text"
+            placeholder="Username"
+            autocomplete="username"
+        >
 
-        <div class="input-group">
-            <label>PASSWORD</label>
-            <input
-                id="password"
-                type="password"
-                autocomplete="current-password"
-                placeholder="Enter password"
-            >
-        </div>
-
-        <label class="remember">
-            <input
-                id="remember"
-                type="checkbox"
-            >
-            Remember username
-        </label>
+        <input
+            id="password"
+            type="password"
+            placeholder="Password"
+            autocomplete="current-password"
+        >
 
         <button
             class="login-button"
@@ -910,772 +650,689 @@ header{
         </button>
 
         <div
-            id="loginError"
             class="login-error"
+            id="loginError"
         ></div>
-
-        <a
-            class="whatsapp"
-            href="https://wa.me/254701859605"
-            target="_blank"
-        >
-            CONTACT ELISY 254
-        </a>
 
     </div>
 
 </div>
 
 
-<!-- =========================================
-     DASHBOARD
-========================================= -->
+<!-- DASHBOARD -->
 
-<div id="dashboard">
+<div
+    class="dashboard"
+    id="dashboard"
+>
 
-<header>
+    <!-- HEADER -->
 
-    <div class="header-inner">
+    <header class="header">
 
-        <div class="brand">
+        <div class="header-inner">
 
             <img
                 src="lion-logo.png"
-                alt="Lion"
+                class="header-logo"
+                alt="Lion Logo"
                 onerror="this.style.display='none'"
             >
 
             <div>
 
-                <div class="brand-title">
+                <div class="header-title">
                     DERIV LIVE ENTRY
                 </div>
 
-                <div class="brand-powered">
+                <div class="header-powered">
                     POWERED BY ELISY 254
                 </div>
 
             </div>
 
-        </div>
+            <div class="header-status">
 
+                <span
+                    class="status-dot"
+                    id="statusDot"
+                ></span>
 
-        <div
-            id="connection"
-            class="connection"
-        >
+                <span id="connectionText">
+                    DISCONNECTED
+                </span>
 
-            <span class="connection-dot"></span>
-
-            <span id="connectionText">
-                DISCONNECTED
-            </span>
-
-        </div>
-
-    </div>
-
-</header>
-
-
-<main class="container">
-
-
-<!-- =========================================
-     CONTROL + ENTRY
-========================================= -->
-
-<div class="grid">
-
-
-<section class="panel">
-
-    <div class="panel-header">
-
-        <div>
-
-            <h2>
-                LIVE MARKET CONTROL
-            </h2>
-
-            <p class="panel-subtitle">
-                LIVE DATA • AUTOMATIC ANALYSIS
-            </p>
+            </div>
 
         </div>
 
-    </div>
+    </header>
 
 
-    <div class="field">
+    <main class="container">
 
-        <label>
-            MARKET
-        </label>
+        <!-- CONTROLS -->
 
-        <select id="marketSelect">
+        <section class="control-panel">
 
-            <option value="">
-                WAITING FOR DERIV MARKETS...
-            </option>
+            <div class="control-grid">
 
-        </select>
+                <div class="field">
 
-    </div>
+                    <label>
+                        Market
+                    </label>
 
+                    <select id="marketSelect">
 
-    <div class="field">
+                        <option value="">
+                            CONNECTING TO DERIV...
+                        </option>
 
-        <label>
-            CONTRACT TYPE
-        </label>
+                    </select>
 
-        <select id="contractSelect">
-
-            <option value="Matches">
-                Matches
-            </option>
-
-            <option value="Differs">
-                Differs
-            </option>
-
-            <option value="Over">
-                Over
-            </option>
-
-            <option value="Under">
-                Under
-            </option>
-
-            <option value="Even">
-                Even
-            </option>
-
-            <option value="Odd">
-                Odd
-            </option>
-
-            <option value="Rise">
-                Rise
-            </option>
-
-            <option value="Fall">
-                Fall
-            </option>
-
-        </select>
-
-    </div>
+                </div>
 
 
-    <div class="field">
+                <div class="field">
 
-        <label>
-            REQUIRED ANALYSIS SCORE
-        </label>
+                    <label>
+                        Contract Type
+                    </label>
 
-        <select id="threshold">
+                    <select id="contractSelect">
 
-            <option value="70">
-                70%
-            </option>
+                        <option value="Matches">
+                            Matches
+                        </option>
 
-            <option value="75" selected>
-                75%
-            </option>
+                        <option value="Differs">
+                            Differs
+                        </option>
 
-            <option value="80">
-                80%
-            </option>
+                        <option value="Over">
+                            Over
+                        </option>
 
-            <option value="85">
-                85%
-            </option>
+                        <option value="Under">
+                            Under
+                        </option>
 
-            <option value="90">
-                90%
-            </option>
+                        <option value="Even">
+                            Even
+                        </option>
 
-        </select>
+                        <option value="Odd">
+                            Odd
+                        </option>
 
-    </div>
+                        <option value="Rise">
+                            Rise
+                        </option>
 
+                        <option value="Fall">
+                            Fall
+                        </option>
 
-    <div class="market-info">
+                    </select>
 
-        <div class="market-info-row">
-            <span>LIVE SYMBOL</span>
-            <span id="symbolInfo">---</span>
-        </div>
-
-        <div class="market-info-row">
-            <span>TICKS COLLECTED</span>
-            <span id="totalTicks">0</span>
-        </div>
-
-        <div class="market-info-row">
-            <span>ANALYSIS STATUS</span>
-            <span id="analysisStatus">WAITING</span>
-        </div>
-
-    </div>
+                </div>
 
 
-    <div
-        id="matchesLock"
-        class="lock-box"
-    >
+                <div class="field">
 
-        <strong>
-            MATCHES CONTRACT LOCKED
-        </strong>
+                    <label>
+                        Required Analysis Score
+                    </label>
 
-        <input
-            id="unlockCode"
-            type="password"
-            placeholder="Enter activation code"
-        >
+                    <select id="thresholdSelect">
 
-        <button
-            class="unlock-button"
-            id="unlockButton"
-        >
-            UNLOCK MATCHES
-        </button>
+                        <option value="70">
+                            70
+                        </option>
 
-        <a
-            class="whatsapp"
-            href="https://wa.me/254701859605"
-            target="_blank"
-        >
-            CONTACT ELISY 254
-        </a>
+                        <option value="75" selected>
+                            75
+                        </option>
 
-    </div>
+                        <option value="80">
+                            80
+                        </option>
 
-</section>
+                        <option value="85">
+                            85
+                        </option>
+
+                        <option value="90">
+                            90
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
 
 
-<section class="panel">
+            <!-- MATCHES LOCK
+                 DO NOT CHANGE THIS LOCK LOGIC -->
 
-    <div class="panel-header">
+            <div
+                class="lock-box"
+                id="matchesLock"
+            >
 
-        <div>
+                <div class="lock-title">
+                    MATCHES IS LOCKED
+                </div>
 
-            <h2>
+                <div class="lock-text">
+                    BUY MATCHES MODULE TO GET ACTIVATION
+                </div>
+
+                <a
+                    href="https://wa.me/254701859605?text=Hello%2C%20I%20want%20to%20buy%20the%20MATCHES%20module."
+                    target="_blank"
+                    class="buy-matches-button"
+                >
+                    BUY MATCHES
+                </a>
+
+                <div class="lock-text">
+                    Already purchased? Enter your activation code below.
+                </div>
+
+                <div class="unlock-row">
+
+                    <input
+                        type="password"
+                        id="unlockCode"
+                        placeholder="Activation code"
+                    >
+
+                    <button
+                        class="unlock-button"
+                        id="unlockButton"
+                    >
+                        UNLOCK
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL ENTRY -->
+
+        <section class="entry-box">
+
+            <div class="entry-heading">
                 FINAL ENTRY DECISION
-            </h2>
+            </div>
 
-            <p class="panel-subtitle">
-                NO FORCED SIGNALS
-            </p>
+            <div
+                class="entry-status wait"
+                id="entryStatus"
+            >
+                WAIT
+            </div>
 
-        </div>
+            <div class="entry-details">
 
-    </div>
+                <div class="detail">
 
+                    <div class="detail-label">
+                        MARKET
+                    </div>
 
-    <div class="entry-box">
+                    <div
+                        class="detail-value"
+                        id="entryMarket"
+                    >
+                        —
+                    </div>
 
-        <div
-            id="entryStatus"
-            class="entry-status wait"
-        >
-            WAIT
-        </div>
-
-        <div
-            id="entryContract"
-            class="entry-contract"
-        >
-            NO ENTRY
-        </div>
-
-        <div
-            id="entryTarget"
-            class="entry-target"
-        >
-            ---
-        </div>
-
-        <div
-            id="entryConfidence"
-            class="entry-confidence"
-        >
-            Waiting for enough live data
-        </div>
-
-        <div
-            id="entryTimer"
-            class="timer"
-        >
-            --
-        </div>
-
-        <div
-            id="entryReason"
-            class="entry-reason"
-        >
-            Select a market. The analyzer will collect live ticks first.
-            It will NOT create an entry when the market conditions are weak.
-        </div>
-
-    </div>
-
-</section>
-
-</div>
+                </div>
 
 
-<!-- =========================================
-     DIGIT DISTRIBUTION
-========================================= -->
+                <div class="detail">
 
-<section class="panel">
+                    <div class="detail-label">
+                        CONTRACT
+                    </div>
 
-    <div class="panel-header">
+                    <div
+                        class="detail-value"
+                        id="entryContract"
+                    >
+                        —
+                    </div>
 
-        <div>
+                </div>
 
-            <h2>
+
+                <div class="detail">
+
+                    <div class="detail-label">
+                        ENTRY
+                    </div>
+
+                    <div
+                        class="detail-value"
+                        id="entryTarget"
+                    >
+                        —
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-label">
+                        SCORE
+                    </div>
+
+                    <div
+                        class="detail-value"
+                        id="entryScore"
+                    >
+                        —
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="timer"
+                id="timer"
+            >
+                ANALYSIS WAITING
+            </div>
+
+            <div
+                id="entryReason"
+                style="
+                    margin-top:10px;
+                    color:#94a3b8;
+                    font-size:11px;
+                    line-height:1.5;
+                "
+            >
+                Select a market and wait for live analysis.
+            </div>
+
+        </section>
+
+
+        <!-- LIVE DIGITS -->
+
+        <section class="section">
+
+            <div class="section-title">
                 LIVE DIGIT DISTRIBUTION
-            </h2>
+            </div>
 
-            <p class="panel-subtitle">
-                LIVE MOMENTUM • AUTOMATIC RANKING • DIGITS 0–9
-            </p>
+            <div
+                class="digit-grid"
+                id="digitGrid"
+            ></div>
 
-        </div>
-
-        <div class="live-indicator">
-            <span class="live-dot"></span>
-            LIVE
-        </div>
-
-    </div>
+        </section>
 
 
-    <div class="digit-status">
+        <!-- MULTI WINDOW -->
 
-        <span id="digitMarketName">
-            WAITING FOR MARKET
-        </span>
+        <section class="section">
 
-        <span id="digitTickCount">
-            0 TICKS
-        </span>
-
-    </div>
-
-
-    <div
-        id="digitCircles"
-        class="digit-circles"
-    ></div>
-
-
-    <div class="legend">
-
-        <div class="legend-item">
-            <span class="legend-dot green"></span>
-            HIGH MOMENTUM
-        </div>
-
-        <div class="legend-item">
-            <span class="legend-dot blue"></span>
-            SECOND HIGH
-        </div>
-
-        <div class="legend-item">
-            <span class="legend-dot yellow"></span>
-            SECOND LOW
-        </div>
-
-        <div class="legend-item">
-            <span class="legend-dot red"></span>
-            LOW MOMENTUM
-        </div>
-
-    </div>
-
-
-    <div
-        id="momentumMessage"
-        class="momentum-message"
-    >
-        SELECT A MARKET TO START LIVE ANALYSIS
-    </div>
-
-</section>
-
-
-<!-- =========================================
-     30 / 100 / 500
-========================================= -->
-
-<section class="panel">
-
-    <div class="panel-header">
-
-        <div>
-
-            <h2>
+            <div class="section-title">
                 MULTI-WINDOW CONFIRMATION
-            </h2>
+            </div>
 
-            <p class="panel-subtitle">
-                30 / 100 / 500 TICK AGREEMENT
-            </p>
+            <div class="window-grid">
 
-        </div>
+                <div class="window-card">
 
-    </div>
+                    <div class="window-name">
+                        30 TICKS
+                    </div>
+
+                    <div
+                        class="window-result"
+                        id="window30"
+                    >
+                        WAIT
+                    </div>
+
+                    <div
+                        class="window-score"
+                        id="score30"
+                    >
+                        —
+                    </div>
+
+                </div>
 
 
-    <div class="windows">
+                <div class="window-card">
 
-        <div class="window">
+                    <div class="window-name">
+                        100 TICKS
+                    </div>
 
-            <div class="window-title">
-                30 TICKS
+                    <div
+                        class="window-result"
+                        id="window100"
+                    >
+                        WAIT
+                    </div>
+
+                    <div
+                        class="window-score"
+                        id="score100"
+                    >
+                        —
+                    </div>
+
+                </div>
+
+
+                <div class="window-card">
+
+                    <div class="window-name">
+                        500 TICKS
+                    </div>
+
+                    <div
+                        class="window-result"
+                        id="window500"
+                    >
+                        WAIT
+                    </div>
+
+                    <div
+                        class="window-score"
+                        id="score500"
+                    >
+                        —
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SCANNER -->
+
+        <section class="section">
+
+            <div class="section-title">
+                LIVE MARKET SCANNER
             </div>
 
             <div
-                id="score30"
-                class="window-score"
+                class="scanner"
+                id="scanner"
             >
-                --
+                <div class="scanner-line">
+                    Scanner starting...
+                </div>
             </div>
 
-            <div
-                id="detail30"
-                class="window-detail"
-            >
-                WAITING
-            </div>
-
-        </div>
+        </section>
 
 
-        <div class="window">
+        <!-- TICKS -->
 
-            <div class="window-title">
-                100 TICKS
-            </div>
+        <section class="section">
 
-            <div
-                id="score100"
-                class="window-score"
-            >
-                --
-            </div>
-
-            <div
-                id="detail100"
-                class="window-detail"
-            >
-                WAITING
-            </div>
-
-        </div>
-
-
-        <div class="window">
-
-            <div class="window-title">
-                500 TICKS
-            </div>
-
-            <div
-                id="score500"
-                class="window-score"
-            >
-                --
-            </div>
-
-            <div
-                id="detail500"
-                class="window-detail"
-            >
-                WAITING
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================
-     CONTRACT SCANNER
-========================================= -->
-
-<section class="panel">
-
-    <div class="panel-header">
-
-        <div>
-
-            <h2>
-                CONTRACT SCANNER
-            </h2>
-
-            <p class="panel-subtitle">
-                CANDIDATES ARE TESTED — NO FORCED ENTRY
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div
-        id="scanner"
-        class="scanner"
-    >
-
-        <div class="scan-row">
-
-            <span>CONTRACT</span>
-            <span>SCORE</span>
-            <span>TARGET</span>
-            <span>STATUS</span>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================
-     RECENT TICKS
-========================================= -->
-
-<section class="panel">
-
-    <div class="panel-header">
-
-        <div>
-
-            <h2>
+            <div class="section-title">
                 RECENT LIVE TICKS
-            </h2>
+            </div>
 
-            <p class="panel-subtitle">
-                ACTUAL DERIV MARKET DATA
-            </p>
+            <div
+                class="tick-list"
+                id="tickList"
+            >
+                Waiting for market data...
+            </div>
+
+        </section>
+
+
+        <!-- WARNING -->
+
+        <div class="warning">
+
+            <div class="warning-title">
+                RISK WARNING
+            </div>
+
+            <div class="warning-text">
+                DON'T PLACE TRADE BEFORE ANALYSIS
+            </div>
+
+            <div class="warning-text">
+                WAIT FOR GOOD ENTRY CONFIRMATION
+            </div>
+
+            <div
+                class="warning-text"
+                style="margin-top:10px;color:#64748b"
+            >
+                ANALYSIS ONLY • MANUAL ENTRY • LIVE MARKET DATA
+            </div>
 
         </div>
 
-    </div>
-
-
-    <div
-        id="recentTicks"
-        class="ticks"
-    ></div>
-
-</section>
-
-
-<!-- =========================================
-     RISK
-========================================= -->
-
-<section class="panel risk">
-
-    <h2>
-        RISK WARNING
-    </h2>
-
-    <p>
-        DON'T PLACE TRADE BEFORE ANALYSIS.
-        WAIT FOR GOOD ENTRY CONFIRMATION.
-        THIS DASHBOARD DOES NOT GUARANTEE RESULTS.
-        A HIGH ANALYSIS SCORE IS NOT A GUARANTEE OF A WIN.
-        IF THE LIVE MARKET DOES NOT MEET ALL CONDITIONS,
-        THE SYSTEM WILL SHOW WAIT / NO ENTRY.
-        ANALYSIS ONLY — MANUAL ENTRY.
-    </p>
-
-</section>
-
-
-</main>
+    </main>
 
 </div>
 
 
 <script>
 
-/* =========================================
-   CONFIGURATION
-========================================= */
-
-const DERIV_WS =
-    "wss://api.derivws.com/trading/v1/options/ws/public";
-
-const LOGIN_USERNAME =
-    "Trade34";
-
-const LOGIN_PASSWORD =
-    "Nairobi23";
-
-const MATCHES_CODE =
-    "19809";
-
-
-/* =========================================
-   STATE
-========================================= */
-
-let socket = null;
-
-let selectedSymbol = "";
-
-let marketMeta = {};
-
-let ticks = [];
-
-let markets = [];
-
-let reconnectTimer = null;
-
-let reconnectDelay = 3000;
-
-let intentionallyChangingMarket = false;
-
-let running = false;
-
-let analysisTimer = null;
-
-let confirmation = {
-
-    key:null,
-
-    started:0,
-
-    expires:0,
-
-    active:false
-
-};
-
-let matchesUnlocked = false;
-
-let previousMomentum = {};
-
-
-/* =========================================
+/* =========================================================
    LOGIN
-========================================= */
+========================================================= */
 
-const loginPage =
-    document.getElementById("loginPage");
+const LOGIN_USERNAME = "Trade34";
+const LOGIN_PASSWORD = "Nairobi23";
+
+const loginScreen =
+    document.getElementById("loginScreen");
 
 const dashboard =
     document.getElementById("dashboard");
 
-const username =
-    document.getElementById("username");
-
-const password =
-    document.getElementById("password");
-
-const remember =
-    document.getElementById("remember");
+const loginButton =
+    document.getElementById("loginButton");
 
 const loginError =
     document.getElementById("loginError");
 
 
-const savedUsername =
+loginButton.addEventListener(
+    "click",
+    () => {
+
+        const username =
+            document.getElementById(
+                "username"
+            ).value.trim();
+
+        const password =
+            document.getElementById(
+                "password"
+            ).value;
+
+        if(
+            username === LOGIN_USERNAME &&
+            password === LOGIN_PASSWORD
+        ){
+
+            localStorage.setItem(
+                "deriv_live_entry_login",
+                "1"
+            );
+
+            localStorage.setItem(
+                "deriv_live_entry_username",
+                username
+            );
+
+            loginScreen.style.display =
+                "none";
+
+            dashboard.style.display =
+                "block";
+
+            startApplication();
+
+        }else{
+
+            loginError.textContent =
+                "INVALID USERNAME OR PASSWORD";
+
+        }
+
+    }
+);
+
+
+if(
     localStorage.getItem(
-        "deriv_live_username"
-    );
+        "deriv_live_entry_login"
+    ) === "1"
+){
 
-if(savedUsername){
+    loginScreen.style.display =
+        "none";
 
-    username.value =
-        savedUsername;
+    dashboard.style.display =
+        "block";
 
-    remember.checked =
-        true;
+    startApplication();
+
+}
+
+
+/* =========================================================
+   MATCHES LOCK
+   EXACTLY PRESERVED
+========================================================= */
+
+const MATCHES_CODE = "19809";
+
+let matchesUnlocked = false;
+
+
+function updateLock(){
+
+    const contract =
+        document.getElementById(
+            "contractSelect"
+        ).value;
+
+    const lock =
+        document.getElementById(
+            "matchesLock"
+        );
+
+    if(contract === "Matches"){
+
+        lock.style.display =
+            matchesUnlocked
+                ? "none"
+                : "block";
+
+    }else{
+
+        lock.style.display =
+            "none";
+
+    }
 
 }
 
 
 document
-.getElementById("loginButton")
+.getElementById(
+    "unlockButton"
+)
 .addEventListener(
     "click",
-    login
-);
+    () => {
 
+        const code =
+            document.getElementById(
+                "unlockCode"
+            ).value;
 
-password
-.addEventListener(
-    "keydown",
-    e => {
+        if(code === MATCHES_CODE){
 
-        if(e.key === "Enter"){
-            login();
-        }
+            matchesUnlocked = true;
 
-    }
-);
+            document.getElementById(
+                "matchesLock"
+            ).style.display =
+                "none";
 
+            resetAnalysis();
 
-function login(){
+            analyze();
 
-    if(
-        username.value.trim() ===
-        LOGIN_USERNAME &&
-        password.value ===
-        LOGIN_PASSWORD
-    ){
+        }else{
 
-        if(remember.checked){
-
-            localStorage.setItem(
-                "deriv_live_username",
-                username.value.trim()
-            );
-
-        }
-        else{
-
-            localStorage.removeItem(
-                "deriv_live_username"
+            alert(
+                "INVALID ACTIVATION CODE"
             );
 
         }
 
-        loginPage.style.display =
-            "none";
-
-        dashboard.style.display =
-            "block";
-
-        startSystem();
-
     }
-    else{
-
-        loginError.textContent =
-            "INVALID USERNAME OR PASSWORD";
-
-    }
-
-}
+);
 
 
-/* =========================================
+/* =========================================================
+   DERIV
+========================================================= */
+
+const DERIV_WS =
+    "wss://api.derivws.com/trading/v1/options/ws/public";
+
+let ws = null;
+
+let reconnectTimer = null;
+
+let reconnectDelay = 3000;
+
+let requestId = 1;
+
+let markets = {};
+
+let selectedSymbol = "";
+
+let ticks = [];
+
+let analysisTimer = null;
+
+let candidateKey = "";
+
+let candidateExpiresAt = 0;
+
+let appStarted = false;
+
+
+/* =========================================================
    DOM
-========================================= */
+========================================================= */
 
 const marketSelect =
     document.getElementById(
@@ -1687,120 +1344,150 @@ const contractSelect =
         "contractSelect"
     );
 
-const threshold =
+const thresholdSelect =
     document.getElementById(
-        "threshold"
+        "thresholdSelect"
+    );
+
+const statusDot =
+    document.getElementById(
+        "statusDot"
+    );
+
+const connectionText =
+    document.getElementById(
+        "connectionText"
     );
 
 
-/* =========================================
-   START
-========================================= */
+/* =========================================================
+   DIGIT CIRCLES
+========================================================= */
 
-function startSystem(){
+function createDigitCircles(){
 
-    running = true;
+    const grid =
+        document.getElementById(
+            "digitGrid"
+        );
 
-    createDigitCircles();
+    grid.innerHTML = "";
 
-    connectDeriv();
+    for(let i=0;i<10;i++){
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "digit-item";
+
+        item.innerHTML = `
+            <div
+                class="digit-circle"
+                id="digit-${i}"
+            >
+                ${i}
+            </div>
+
+            <div
+                class="digit-percent"
+                id="percent-${i}"
+            >
+                0.0%
+            </div>
+
+            <div
+                class="digit-count"
+                id="count-${i}"
+            >
+                0
+            </div>
+        `;
+
+        grid.appendChild(item);
+
+    }
+
+}
+
+createDigitCircles();
+
+
+/* =========================================================
+   CONNECTION
+========================================================= */
+
+function setConnection(
+    connected,
+    text
+){
+
+    statusDot.classList.toggle(
+        "connected",
+        connected
+    );
+
+    connectionText.textContent =
+        text;
 
 }
 
 
-/* =========================================
-   CONNECTION
-========================================= */
-
 function connectDeriv(){
 
-    if(!running){
-        return;
-    }
-
-    if(
-        socket &&
-        (
-            socket.readyState ===
-            WebSocket.OPEN ||
-            socket.readyState ===
-            WebSocket.CONNECTING
-        )
-    ){
-        return;
-    }
-
-
-    updateConnection(
-        false,
-        "CONNECTING"
+    clearTimeout(
+        reconnectTimer
     );
 
+    if(ws){
 
-    try{
-
-        socket =
-            new WebSocket(
-                DERIV_WS
-            );
-
-    }
-    catch(error){
-
-        scheduleReconnect();
-
-        return;
+        try{
+            ws.close();
+        }catch(e){}
 
     }
 
+    setConnection(
+        false,
+        "CONNECTING..."
+    );
 
-    socket.onopen = () => {
+    ws =
+        new WebSocket(
+            DERIV_WS
+        );
+
+
+    ws.onopen = () => {
 
         reconnectDelay = 3000;
 
-        updateConnection(
+        setConnection(
             true,
             "CONNECTED"
         );
 
+        scannerLog(
+            "Connected to Deriv public market feed."
+        );
 
-        socket.send(
+        ws.send(
             JSON.stringify({
                 active_symbols:"brief",
-                req_id:1
+                req_id:requestId++
             })
         );
 
     };
 
 
-    socket.onmessage = event => {
-
-        let data;
-
-        try{
-
-            data =
-                JSON.parse(
-                    event.data
-                );
-
-        }
-        catch(error){
-
-            return;
-
-        }
+    ws.onmessage =
+        handleDerivMessage;
 
 
-        handleMessage(data);
+    ws.onerror = () => {
 
-    };
-
-
-    socket.onerror = () => {
-
-        updateConnection(
+        setConnection(
             false,
             "ERROR"
         );
@@ -1808,113 +1495,79 @@ function connectDeriv(){
     };
 
 
-    socket.onclose = () => {
+    ws.onclose = () => {
 
-        updateConnection(
+        setConnection(
             false,
             "DISCONNECTED"
         );
 
-        socket = null;
+        scannerLog(
+            "Deriv connection closed. Reconnecting..."
+        );
 
-        if(running){
+        reconnectTimer =
+            setTimeout(
+                connectDeriv,
+                reconnectDelay
+            );
 
-            scheduleReconnect();
-
-        }
+        reconnectDelay =
+            Math.min(
+                reconnectDelay * 2,
+                30000
+            );
 
     };
 
 }
 
 
-/* =========================================
-   RECONNECT
-========================================= */
+/* =========================================================
+   DERIV MESSAGE
+========================================================= */
 
-function scheduleReconnect(){
+function handleDerivMessage(event){
 
-    if(reconnectTimer){
+    let data;
+
+    try{
+
+        data =
+            JSON.parse(
+                event.data
+            );
+
+    }catch(e){
+
         return;
-    }
-
-    reconnectTimer =
-        setTimeout(
-            () => {
-
-                reconnectTimer = null;
-
-                connectDeriv();
-
-            },
-            reconnectDelay
-        );
-
-
-    reconnectDelay =
-        Math.min(
-            reconnectDelay * 2,
-            30000
-        );
-
-}
-
-
-/* =========================================
-   CONNECTION UI
-========================================= */
-
-function updateConnection(
-    online,
-    text
-){
-
-    const box =
-        document.getElementById(
-            "connection"
-        );
-
-    const label =
-        document.getElementById(
-            "connectionText"
-        );
-
-
-    label.textContent =
-        text;
-
-
-    if(online){
-
-        box.classList.add(
-            "online"
-        );
-
-    }
-    else{
-
-        box.classList.remove(
-            "online"
-        );
 
     }
 
-}
 
+    if(data.error){
 
-/* =========================================
-   MESSAGE HANDLER
-========================================= */
+        scannerLog(
+            "Deriv error: " +
+            (
+                data.error.message ||
+                "Unknown error"
+            )
+        );
 
-function handleMessage(data){
+        return;
+
+    }
+
 
     if(
         data.msg_type ===
         "active_symbols"
     ){
 
-        processMarkets(
-            data.active_symbols || []
+        handleMarkets(
+            data.active_symbols ||
+            []
         );
 
         return;
@@ -1927,7 +1580,7 @@ function handleMessage(data){
         "history"
     ){
 
-        processHistory(
+        handleHistory(
             data
         );
 
@@ -1941,7 +1594,7 @@ function handleMessage(data){
         "tick"
     ){
 
-        processTick(
+        handleTick(
             data.tick
         );
 
@@ -1952,91 +1605,78 @@ function handleMessage(data){
 }
 
 
-/* =========================================
+/* =========================================================
    MARKET DISCOVERY
-========================================= */
+========================================================= */
 
-function processMarkets(list){
+function handleMarkets(
+    list
+){
 
-    markets =
-        list
-        .map(item => {
+    markets = {};
 
-            const symbol =
-                item.underlying_symbol ??
-                item.symbol ??
-                "";
+    const filtered =
+        list.filter(
+            item => {
 
-            const name =
-                item.underlying_symbol_name ??
-                item.display_name ??
-                item.name ??
-                symbol;
+                const name =
+                    String(
+                        item.underlying_symbol_name ??
+                        item.display_name ??
+                        ""
+                    ).toLowerCase();
 
-            const type =
-                item.underlying_symbol_type ??
-                item.market ??
-                "";
+                const symbol =
+                    String(
+                        item.underlying_symbol ??
+                        item.symbol ??
+                        ""
+                    );
 
-            const pip =
-                Number(
-                    item.pip_size ??
-                    item.pip ??
-                    0
+                const type =
+                    String(
+                        item.underlying_symbol_type ??
+                        item.symbol_type ??
+                        ""
+                    ).toLowerCase();
+
+                const combined =
+                    name + " " +
+                    symbol.toLowerCase() +
+                    " " +
+                    type;
+
+                return (
+                    combined.includes("volatility") ||
+                    combined.includes("jump")
                 );
 
-
-            return {
-
-                symbol,
-                name,
-                type,
-                pip_size:pip
-
-            };
-
-        })
-        .filter(item => {
-
-            const text =
-                (
-                    item.name +
-                    " " +
-                    item.symbol +
-                    " " +
-                    item.type
-                )
-                .toLowerCase();
-
-
-            return(
-                text.includes("volatility") ||
-                text.includes("jump")
-            );
-
-        })
-        .filter(item =>
-            item.symbol
+            }
         );
 
 
-    markets.sort(
-        (a,b) =>
-            a.name.localeCompare(
-                b.name
-            )
-    );
+    filtered.sort(
+        (a,b) => {
 
+            const an =
+                String(
+                    a.underlying_symbol_name ??
+                    a.display_name ??
+                    a.underlying_symbol ??
+                    a.symbol ??
+                    ""
+                );
 
-    marketMeta = {};
+            const bn =
+                String(
+                    b.underlying_symbol_name ??
+                    b.display_name ??
+                    b.underlying_symbol ??
+                    b.symbol ??
+                    ""
+                );
 
-
-    markets.forEach(
-        market => {
-
-            marketMeta[
-                market.symbol
-            ] = market;
+            return an.localeCompare(bn);
 
         }
     );
@@ -2045,29 +1685,45 @@ function processMarkets(list){
     marketSelect.innerHTML = "";
 
 
-    if(markets.length === 0){
+    filtered.forEach(
+        item => {
 
-        const option =
-            document.createElement(
-                "option"
-            );
+            const symbol =
+                item.underlying_symbol ??
+                item.symbol;
 
-        option.value = "";
+            const name =
+                item.underlying_symbol_name ??
+                item.display_name ??
+                symbol;
 
-        option.textContent =
-            "NO VOLATILITY / JUMP MARKETS FOUND";
+            if(!symbol){
+                return;
+            }
 
-        marketSelect.appendChild(
-            option
-        );
+            markets[symbol] = {
 
-        return;
+                symbol,
 
-    }
+                name,
 
+                pip_size:
+                    Number(
+                        item.pip_size ??
+                        item.pip ??
+                        0
+                    ),
 
-    markets.forEach(
-        market => {
+                market:
+                    item.market ?? "",
+
+                type:
+                    item.underlying_symbol_type ??
+                    item.symbol_type ??
+                    ""
+
+            };
+
 
             const option =
                 document.createElement(
@@ -2075,10 +1731,10 @@ function processMarkets(list){
                 );
 
             option.value =
-                market.symbol;
+                symbol;
 
             option.textContent =
-                market.name;
+                name;
 
             marketSelect.appendChild(
                 option
@@ -2088,146 +1744,115 @@ function processMarkets(list){
     );
 
 
-    if(!selectedSymbol){
+    if(filtered.length === 0){
+
+        marketSelect.innerHTML =
+            `<option value="">
+                NO VOLATILITY/JUMP MARKETS FOUND
+            </option>`;
+
+        scannerLog(
+            "No Volatility or Jump symbols returned by Deriv."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        !selectedSymbol ||
+        !markets[selectedSymbol]
+    ){
 
         selectedSymbol =
-            markets[0].symbol;
+            filtered[0]
+            .underlying_symbol ??
+            filtered[0].symbol;
 
         marketSelect.value =
             selectedSymbol;
 
-        subscribeMarket();
-
     }
+
+
+    subscribeMarket(
+        selectedSymbol
+    );
+
+    scannerLog(
+        "Market discovery complete: " +
+        filtered.length +
+        " Volatility/Jump markets found."
+    );
 
 }
 
 
-/* =========================================
-   MARKET CHANGE
-========================================= */
+/* =========================================================
+   SUBSCRIBE MARKET
+========================================================= */
 
-marketSelect.addEventListener(
-    "change",
-    () => {
+function subscribeMarket(
+    symbol
+){
 
-        selectedSymbol =
-            marketSelect.value;
+    if(!ws ||
+       ws.readyState !== WebSocket.OPEN ||
+       !symbol
+    ){
 
-        subscribeMarket();
-
-    }
-);
-
-
-contractSelect.addEventListener(
-    "change",
-    () => {
-
-        resetAnalysis();
-
-        updateLock();
-
-        analyze();
-
-    }
-);
-
-
-threshold.addEventListener(
-    "change",
-    () => {
-
-        resetAnalysis();
-
-        analyze();
-
-    }
-);
-
-
-/* =========================================
-   SUBSCRIBE
-========================================= */
-
-function subscribeMarket(){
-
-    if(!selectedSymbol){
         return;
+
     }
 
+
+    selectedSymbol =
+        symbol;
 
     resetAnalysis();
 
 
-    const meta =
-        marketMeta[
-            selectedSymbol
-        ];
+    ws.send(
+        JSON.stringify({
+            ticks_history:symbol,
+            end:"latest",
+            count:500,
+            style:"ticks",
+            subscribe:0,
+            req_id:requestId++
+        })
+    );
 
 
-    document.getElementById(
-        "digitMarketName"
-    ).textContent =
-        meta?.name ||
-        selectedSymbol;
+    ws.send(
+        JSON.stringify({
+            ticks:symbol,
+            subscribe:1,
+            req_id:requestId++
+        })
+    );
 
 
-    document.getElementById(
-        "symbolInfo"
-    ).textContent =
-        selectedSymbol;
-
-
-    document.getElementById(
-        "analysisStatus"
-    ).textContent =
-        "COLLECTING 500 TICKS";
-
-
-    ticks = [];
-
-
-    if(
-        socket &&
-        socket.readyState ===
-        WebSocket.OPEN
-    ){
-
-        socket.send(
-            JSON.stringify({
-
-                ticks_history:
-                    selectedSymbol,
-
-                end:"latest",
-
-                count:500,
-
-                style:"ticks",
-
-                subscribe:1,
-
-                req_id:100
-
-            })
-        );
-
-    }
-    else{
-
-        connectDeriv();
-
-    }
+    scannerLog(
+        "Scanning " +
+        (
+            markets[symbol]?.name ||
+            symbol
+        ) +
+        "..."
+    );
 
 }
 
 
-/* =========================================
+/* =========================================================
    HISTORY
-========================================= */
+========================================================= */
 
-function processHistory(data){
+function handleHistory(
+    data
+){
 
     if(!data.history){
         return;
@@ -2235,67 +1860,40 @@ function processHistory(data){
 
 
     const prices =
-        data.history.prices || [];
+        data.history.prices ||
+        [];
 
     const times =
-        data.history.times || [];
+        data.history.times ||
+        [];
 
 
     const pipSize =
         Number(
+            data.pip_size ??
             data.history.pip_size ??
-            marketMeta[
-                selectedSymbol
-            ]?.pip_size ??
+            markets[selectedSymbol]?.pip_size ??
             0
         );
 
 
-    ticks = [];
+    ticks =
+        prices.map(
+            (price,index) => ({
 
+                quote:Number(price),
 
-    for(
-        let i=0;
-        i<prices.length;
-        i++
-    ){
-
-        const quote =
-            Number(
-                prices[i]
-            );
-
-
-        if(
-            !Number.isFinite(
-                quote
-            )
-        ){
-            continue;
-        }
-
-
-        ticks.push({
-
-            quote,
-
-            epoch:
-                Number(
-                    times[i] || 0
+                epoch:Number(
+                    times[index] || 0
                 ),
 
-            pip_size:
-                pipSize
+                pip_size:pipSize
 
-        });
-
-    }
+            })
+        );
 
 
-    if(
-        ticks.length >
-        500
-    ){
+    if(ticks.length > 500){
 
         ticks =
             ticks.slice(-500);
@@ -2308,68 +1906,54 @@ function processHistory(data){
 }
 
 
-/* =========================================
+/* =========================================================
    LIVE TICK
-========================================= */
+========================================================= */
 
-function processTick(tick){
+function handleTick(
+    tick
+){
 
     if(!tick){
         return;
     }
 
 
+    const symbol =
+        tick.symbol ??
+        selectedSymbol;
+
+
     if(
-        tick.symbol &&
-        selectedSymbol &&
-        tick.symbol !== selectedSymbol
+        symbol !== selectedSymbol
     ){
 
         return;
 
     }
-
-
-    const quote =
-        Number(
-            tick.quote
-        );
-
-
-    if(!Number.isFinite(quote)){
-        return;
-    }
-
-
-    const pipSize =
-        Number(
-            tick.pip_size ??
-            marketMeta[
-                selectedSymbol
-            ]?.pip_size ??
-            0
-        );
 
 
     ticks.push({
 
-        quote,
+        quote:Number(
+            tick.quote
+        ),
 
-        epoch:
-            Number(
-                tick.epoch || 0
-            ),
+        epoch:Number(
+            tick.epoch ||
+            Date.now()/1000
+        ),
 
-        pip_size:
-            pipSize
+        pip_size:Number(
+            tick.pip_size ??
+            markets[selectedSymbol]?.pip_size ??
+            0
+        )
 
     });
 
 
-    if(
-        ticks.length >
-        500
-    ){
+    if(ticks.length > 500){
 
         ticks =
             ticks.slice(-500);
@@ -2382,80 +1966,9 @@ function processTick(tick){
 }
 
 
-/* =========================================
-   RESET
-========================================= */
-
-function resetAnalysis(){
-
-    ticks = [];
-
-    confirmation = {
-
-        key:null,
-
-        started:0,
-
-        expires:0,
-
-        active:false
-
-    };
-
-
-    previousMomentum = {};
-
-
-    document.getElementById(
-        "entryStatus"
-    ).textContent =
-        "WAIT";
-
-
-    document.getElementById(
-        "entryStatus"
-    ).className =
-        "entry-status wait";
-
-
-    document.getElementById(
-        "entryContract"
-    ).textContent =
-        "NO ENTRY";
-
-
-    document.getElementById(
-        "entryTarget"
-    ).textContent =
-        "---";
-
-
-    document.getElementById(
-        "entryConfidence"
-    ).textContent =
-        "Waiting for enough live data";
-
-
-    document.getElementById(
-        "entryReason"
-    ).textContent =
-        "The analyzer will not force an entry. It must first collect and verify live data.";
-
-
-    document.getElementById(
-        "entryTimer"
-    ).textContent =
-        "--";
-
-
-    updateWindows();
-
-}
-
-
-/* =========================================
+/* =========================================================
    LAST DIGIT
-========================================= */
+========================================================= */
 
 function getLastDigit(
     quote,
@@ -2465,13 +1978,8 @@ function getLastDigit(
     const n =
         Number(quote);
 
-
-    if(
-        !Number.isFinite(n)
-    ){
-
+    if(!Number.isFinite(n)){
         return null;
-
     }
 
 
@@ -2491,7 +1999,6 @@ function getLastDigit(
                 Math.pow(10,p)
             );
 
-
         return scaled % 10;
 
     }
@@ -2500,10 +2007,7 @@ function getLastDigit(
     const text =
         Math.abs(n)
         .toFixed(10)
-        .replace(
-            /0+$/,
-            ""
-        );
+        .replace(/0+$/,"");
 
 
     const digits =
@@ -2527,48 +2031,42 @@ function getLastDigit(
 }
 
 
-/* =========================================
-   GET DIGITS
-========================================= */
+/* =========================================================
+   DIGITS
+========================================================= */
 
-function getDigits(data){
+function getDigits(
+    data
+){
 
     return data
-        .map(tick =>
-            getLastDigit(
-                tick.quote,
-                tick.pip_size
-            )
+        .map(
+            tick =>
+                getLastDigit(
+                    tick.quote,
+                    tick.pip_size
+                )
         )
         .filter(
             digit =>
-                Number.isInteger(digit)
+                Number.isInteger(digit) &&
+                digit >= 0 &&
+                digit <= 9
         );
 
 }
 
 
-/* =========================================
-   CONTRACT PROBABILITY
-========================================= */
+/* =========================================================
+   DIGIT DISTRIBUTION
+========================================================= */
 
-function contractProbability(
-    contract,
-    data,
-    target=null
-){
+function updateDigitDistribution(){
 
     const digits =
-        getDigits(data);
-
-
-    if(
-        digits.length < 20
-    ){
-
-        return null;
-
-    }
+        getDigits(
+            ticks.slice(-500)
+        );
 
 
     const counts =
@@ -2577,9 +2075,7 @@ function contractProbability(
 
     digits.forEach(
         digit => {
-
             counts[digit]++;
-
         }
     );
 
@@ -2588,129 +2084,259 @@ function contractProbability(
         digits.length;
 
 
-    if(
-        contract === "Matches"
-    ){
-
-        return {
-            probability:
-                counts[target] /
-                total,
-
-            target
-
-        };
-
-    }
+    const ranking =
+        counts
+        .map(
+            (count,digit) => ({
+                digit,
+                count
+            })
+        )
+        .sort(
+            (a,b) =>
+                b.count - a.count
+        );
 
 
-    if(
-        contract === "Differs"
-    ){
+    const highest =
+        ranking[0]?.digit;
 
-        return {
-            probability:
-                1 -
-                (
-                    counts[target] /
+    const second =
+        ranking[1]?.digit;
+
+    const secondLow =
+        ranking[8]?.digit;
+
+    const lowest =
+        ranking[9]?.digit;
+
+
+    for(let digit=0;digit<10;digit++){
+
+        const circle =
+            document.getElementById(
+                `digit-${digit}`
+            );
+
+        const percent =
+            document.getElementById(
+                `percent-${digit}`
+            );
+
+        const count =
+            document.getElementById(
+                `count-${digit}`
+            );
+
+
+        const pct =
+            total > 0
+                ? (
+                    counts[digit] /
                     total
-                ),
+                ) * 100
+                : 0;
 
-            target
 
-        };
+        percent.textContent =
+            pct.toFixed(1) +
+            "%";
+
+        count.textContent =
+            counts[digit];
+
+
+        circle.className =
+            "digit-circle";
+
+
+        if(digit === highest){
+
+            circle.classList.add(
+                "hot"
+            );
+
+        }else if(
+            digit === second
+        ){
+
+            circle.classList.add(
+                "second"
+            );
+
+        }else if(
+            digit === secondLow
+        ){
+
+            circle.classList.add(
+                "second-low"
+            );
+
+        }else if(
+            digit === lowest
+        ){
+
+            circle.classList.add(
+                "cold"
+            );
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   CONTRACT PROBABILITY
+========================================================= */
+
+function contractProbability(
+    contract,
+    target,
+    data
+){
+
+    if(!data.length){
+        return null;
+    }
+
+
+    const digits =
+        getDigits(data);
+
+
+    if(!digits.length){
+        return null;
+    }
+
+
+    if(contract === "Matches"){
+
+        return (
+            digits.filter(
+                d => d === target
+            ).length /
+            digits.length
+        );
+
+    }
+
+
+    if(contract === "Differs"){
+
+        return (
+            digits.filter(
+                d => d !== target
+            ).length /
+            digits.length
+        );
+
+    }
+
+
+    if(contract === "Over"){
+
+        return (
+            digits.filter(
+                d => d > target
+            ).length /
+            digits.length
+        );
+
+    }
+
+
+    if(contract === "Under"){
+
+        return (
+            digits.filter(
+                d => d < target
+            ).length /
+            digits.length
+        );
+
+    }
+
+
+    if(contract === "Even"){
+
+        return (
+            digits.filter(
+                d => d % 2 === 0
+            ).length /
+            digits.length
+        );
+
+    }
+
+
+    if(contract === "Odd"){
+
+        return (
+            digits.filter(
+                d => d % 2 !== 0
+            ).length /
+            digits.length
+        );
 
     }
 
 
     if(
-        contract === "Over"
+        contract === "Rise" ||
+        contract === "Fall"
     ){
 
-        const wins =
-            digits.filter(
-                digit =>
-                    digit > target
-            ).length;
+        if(data.length < 2){
+            return null;
+        }
 
 
-        return {
-
-            probability:
-                wins / total,
-
-            target
-
-        };
-
-    }
+        let rises = 0;
+        let falls = 0;
 
 
-    if(
-        contract === "Under"
-    ){
+        for(
+            let i=1;
+            i<data.length;
+            i++
+        ){
 
-        const wins =
-            digits.filter(
-                digit =>
-                    digit < target
-            ).length;
+            const a =
+                Number(
+                    data[i-1].quote
+                );
 
-
-        return {
-
-            probability:
-                wins / total,
-
-            target
-
-        };
-
-    }
+            const b =
+                Number(
+                    data[i].quote
+                );
 
 
-    if(
-        contract === "Even"
-    ){
+            if(b > a){
+                rises++;
+            }
 
-        const wins =
-            digits.filter(
-                digit =>
-                    digit % 2 === 0
-            ).length;
+            if(b < a){
+                falls++;
+            }
 
-
-        return {
-
-            probability:
-                wins / total,
-
-            target:null
-
-        };
-
-    }
+        }
 
 
-    if(
-        contract === "Odd"
-    ){
-
-        const wins =
-            digits.filter(
-                digit =>
-                    digit % 2 !== 0
-            ).length;
+        const total =
+            rises + falls;
 
 
-        return {
+        if(!total){
+            return null;
+        }
 
-            probability:
-                wins / total,
 
-            target:null
-
-        };
+        return contract === "Rise"
+            ? rises / total
+            : falls / total;
 
     }
 
@@ -2720,9 +2346,9 @@ function contractProbability(
 }
 
 
-/* =========================================
+/* =========================================================
    BASELINE
-========================================= */
+========================================================= */
 
 function baseline(
     contract,
@@ -2758,9 +2384,7 @@ function baseline(
         contract === "Under"
     ){
 
-        return (
-            target
-        ) / 10;
+        return target / 10;
 
     }
 
@@ -2780,9 +2404,9 @@ function baseline(
 }
 
 
-/* =========================================
+/* =========================================================
    SCORE
-========================================= */
+========================================================= */
 
 function probabilityScore(
     probability,
@@ -2800,11 +2424,6 @@ function probabilityScore(
         probability - base;
 
 
-    /*
-       This is an analysis score,
-       NOT a true probability of winning.
-    */
-
     return Math.max(
         0,
         Math.min(
@@ -2819,72 +2438,16 @@ function probabilityScore(
 }
 
 
-/* =========================================
-   ANALYZE TARGET
-========================================= */
-
-function analyzeTarget(
-    contract,
-    target,
-    data
-){
-
-    const result =
-        contractProbability(
-            contract,
-            data,
-            target
-        );
-
-
-    if(!result){
-        return null;
-    }
-
-
-    const base =
-        baseline(
-            contract,
-            target
-        );
-
-
-    const score =
-        probabilityScore(
-            result.probability,
-            base
-        );
-
-
-    return {
-
-        contract,
-
-        target,
-
-        probability:
-            result.probability,
-
-        score,
-
-        sample:
-            getDigits(data).length
-
-    };
-
-}
-
-
-/* =========================================
+/* =========================================================
    CANDIDATES
-========================================= */
+========================================================= */
 
 function getCandidates(
     contract,
     data
 ){
 
-    const candidates = [];
+    const results = [];
 
 
     if(
@@ -2893,26 +2456,45 @@ function getCandidates(
     ){
 
         for(
-            let digit=0;
-            digit<=9;
-            digit++
+            let target=0;
+            target<=9;
+            target++
         ){
 
-            const result =
-                analyzeTarget(
+            const probability =
+                contractProbability(
                     contract,
-                    digit,
+                    target,
                     data
                 );
 
 
-            if(result){
+            if(
+                probability === null
+            ){
+                continue;
+            }
 
-                candidates.push(
-                    result
+
+            const score =
+                probabilityScore(
+                    probability,
+                    baseline(
+                        contract,
+                        target
+                    )
                 );
 
-            }
+
+            results.push({
+
+                target,
+
+                probability,
+
+                score
+
+            });
 
         }
 
@@ -2924,26 +2506,42 @@ function getCandidates(
     ){
 
         for(
-            let barrier=0;
-            barrier<=8;
-            barrier++
+            let target=0;
+            target<=8;
+            target++
         ){
 
-            const result =
-                analyzeTarget(
+            const probability =
+                contractProbability(
                     contract,
-                    barrier,
+                    target,
                     data
                 );
 
 
-            if(result){
-
-                candidates.push(
-                    result
-                );
-
+            if(
+                probability === null
+            ){
+                continue;
             }
+
+
+            results.push({
+
+                target,
+
+                probability,
+
+                score:
+                    probabilityScore(
+                        probability,
+                        baseline(
+                            contract,
+                            target
+                        )
+                    )
+
+            });
 
         }
 
@@ -2955,26 +2553,42 @@ function getCandidates(
     ){
 
         for(
-            let barrier=1;
-            barrier<=9;
-            barrier++
+            let target=1;
+            target<=9;
+            target++
         ){
 
-            const result =
-                analyzeTarget(
+            const probability =
+                contractProbability(
                     contract,
-                    barrier,
+                    target,
                     data
                 );
 
 
-            if(result){
-
-                candidates.push(
-                    result
-                );
-
+            if(
+                probability === null
+            ){
+                continue;
             }
+
+
+            results.push({
+
+                target,
+
+                probability,
+
+                score:
+                    probabilityScore(
+                        probability,
+                        baseline(
+                            contract,
+                            target
+                        )
+                    )
+
+            });
 
         }
 
@@ -2983,52 +2597,88 @@ function getCandidates(
 
     else{
 
-        const result =
-            analyzeTarget(
+        const probability =
+            contractProbability(
                 contract,
                 null,
                 data
             );
 
 
-        if(result){
+        if(
+            probability !== null
+        ){
 
-            candidates.push(
-                result
-            );
+            results.push({
+
+                target:null,
+
+                probability,
+
+                score:
+                    probabilityScore(
+                        probability,
+                        baseline(
+                            contract,
+                            null
+                        )
+                    )
+
+            });
 
         }
 
     }
 
 
-    return candidates.sort(
+    results.sort(
         (a,b) =>
-            b.score -
-            a.score
+            b.score - a.score
     );
+
+
+    return results;
 
 }
 
 
-/* =========================================
+/* =========================================================
+   WINDOW BEST
+========================================================= */
+
+function bestForWindow(
+    contract,
+    data
+){
+
+    const candidates =
+        getCandidates(
+            contract,
+            data
+        );
+
+
+    return candidates[0] || null;
+
+}
+
+
+/* =========================================================
    BEST ENTRY
-========================================= */
+========================================================= */
 
 function findBestEntry(
     contract
 ){
 
-    if(
-        ticks.length < 500
-    ){
+    if(ticks.length < 500){
 
         return {
 
             valid:false,
 
             reason:
-                `ONLY ${ticks.length} TICKS COLLECTED. WAIT FOR 500 TICKS BEFORE ENTRY.`
+                "WAITING FOR 500 TICKS BEFORE ENTRY ANALYSIS."
 
         };
 
@@ -3045,240 +2695,171 @@ function findBestEntry(
         ticks.slice(-500);
 
 
-    const best30 =
-        getCandidates(
+    const b30 =
+        bestForWindow(
             contract,
             d30
-        )[0];
+        );
 
-
-    const best100 =
-        getCandidates(
+    const b100 =
+        bestForWindow(
             contract,
             d100
-        )[0];
+        );
 
-
-    const best500 =
-        getCandidates(
+    const b500 =
+        bestForWindow(
             contract,
             d500
-        )[0];
+        );
 
 
-    if(!best500){
+    if(!b500){
 
         return {
 
             valid:false,
 
             reason:
-                "NO VALID CANDIDATE FOUND FROM LIVE DATA."
+                "NO VALID CANDIDATE FROM 500-TICK DATA."
 
         };
 
     }
 
 
-    let agreement = 0;
+    const same30 =
+        b30 &&
+        b30.target ===
+        b500.target;
 
 
-    if(
-        best30 &&
-        best30.target ===
-        best500.target
-    ){
-
-        agreement += 1;
-
-    }
+    const same100 =
+        b100 &&
+        b100.target ===
+        b500.target;
 
 
-    if(
-        best100 &&
-        best100.target ===
-        best500.target
-    ){
-
-        agreement += 1;
-
-    }
+    const agreementCount =
+        Number(!!same30) +
+        Number(!!same100) +
+        1;
 
 
-    if(
-        best500
-    ){
-
-        agreement += 1;
-
-    }
+    const agreement =
+        agreementCount / 3;
 
 
-    const agreementScore =
-        (
-            agreement / 3
-        ) * 100;
+    const scores = [
+
+        b30?.score ?? 0,
+
+        b100?.score ?? 0,
+
+        b500.score
+
+    ];
 
 
-    const probabilities = [
+    const maxScore =
+        Math.max(...scores);
 
-        best30?.probability,
-        best100?.probability,
-        best500?.probability
-
-    ]
-    .filter(
-        value =>
-            typeof value ===
-            "number"
-    );
+    const minScore =
+        Math.min(...scores);
 
 
-    let stability = 0;
+    const spread =
+        maxScore - minScore;
 
 
-    if(
-        probabilities.length === 3
-    ){
-
-        const average =
-            probabilities.reduce(
-                (a,b) =>
-                    a+b,
-                0
-            ) / 3;
-
-
-        const deviation =
-            probabilities.reduce(
-                (sum,value) =>
-                    sum +
-                    Math.abs(
-                        value -
-                        average
-                    ),
-                0
-            ) / 3;
-
-
-        stability =
-            Math.max(
-                0,
-                Math.min(
-                    100,
-                    100 -
-                    deviation * 500
-                )
-            );
-
-    }
+    const stability =
+        Math.max(
+            0,
+            Math.min(
+                100,
+                100 - spread * 2
+            )
+        );
 
 
     const finalScore =
         Math.round(
-
-            best500.score * .55 +
-
-            agreementScore * .25 +
-
+            b500.score * .55 +
+            agreement * 100 * .25 +
             stability * .20
-
         );
 
 
-    const required =
+    const threshold =
         Number(
-            threshold.value
+            thresholdSelect.value
         );
 
 
-    /*
-       IMPORTANT:
-       The bot refuses to enter unless
-       EVERY important condition is met.
-    */
-
-    const enoughAgreement =
-        agreement >= 2;
+    const targetText =
+        b500.target === null
+            ? "NEXT MOVE"
+            : String(
+                b500.target
+            );
 
 
-    const stableEnough =
+    const reason =
+        `${b500.score}% 500-tick score • ` +
+        `${agreementCount}/3 window agreement • ` +
+        `${Math.round(stability)}% stability.`;
+
+
+    const valid =
+        b500.score >= threshold &&
+        agreementCount >= 2 &&
         stability >= 65;
-
-
-    const scoreEnough =
-        best500.score >=
-        required;
-
-
-    if(
-        !scoreEnough ||
-        !enoughAgreement ||
-        !stableEnough
-    ){
-
-        return {
-
-            valid:false,
-
-            candidate:best500,
-
-            finalScore,
-
-            agreementScore,
-
-            stability,
-
-            reason:
-
-                `WAIT. SCORE ${best500.score}%, ` +
-                `WINDOW AGREEMENT ${agreement}/3, ` +
-                `STABILITY ${Math.round(stability)}%. ` +
-                `ALL CONDITIONS ARE NOT STRONG ENOUGH.`
-
-        };
-
-    }
 
 
     return {
 
-        valid:true,
+        valid,
 
-        candidate:best500,
+        target:b500.target,
 
-        finalScore,
+        targetText,
 
-        agreementScore,
+        score:finalScore,
+
+        baseScore:b500.score,
+
+        agreementCount,
 
         stability,
 
-        best30,
+        b30,
 
-        best100,
+        b100,
 
-        best500,
+        b500,
 
         reason:
-
-            `QUALIFIED AFTER 500 TICKS. ` +
-            `THE SAME TARGET IS SUPPORTED BY ` +
-            `${agreement}/3 ANALYSIS WINDOWS. ` +
-            `500-TICK SCORE ${best500.score}%, ` +
-            `STABILITY ${Math.round(stability)}%.`
+            valid
+                ? reason
+                : "NO STRONG ENTRY: " +
+                  reason
 
     };
 
 }
 
 
-/* =========================================
-   MAIN ANALYSIS
-========================================= */
+/* =========================================================
+   ANALYSIS
+========================================================= */
 
 function analyze(){
 
     if(!selectedSymbol){
+
+        showWait(
+            "SELECT A MARKET."
+        );
 
         return;
 
@@ -3288,6 +2869,8 @@ function analyze(){
     const contract =
         contractSelect.value;
 
+
+    /* MATCHES LOCK IS UNCHANGED */
 
     if(
         contract === "Matches" &&
@@ -3309,15 +2892,17 @@ function analyze(){
         );
 
 
+    updateWindows(
+        result
+    );
+
+
     if(!result.valid){
 
-        showWait(
-            result.reason ||
-            "NO GOOD ENTRY. KEEP SCANNING."
-        );
+        invalidateCandidate();
 
-        updateScanner(
-            contract
+        showWait(
+            result.reason
         );
 
         return;
@@ -3325,60 +2910,103 @@ function analyze(){
     }
 
 
-    /*
-       A candidate has qualified.
-       We still use a 60-second confirmation
-       period before showing GOOD ENTRY.
-    */
-
-    handleCandidate(
-        result
-    );
+    const key =
+        contract +
+        "|" +
+        result.target;
 
 
-    updateScanner(
+    if(
+        candidateKey !== key
+    ){
+
+        candidateKey =
+            key;
+
+        candidateExpiresAt =
+            Date.now() +
+            60000;
+
+    }
+
+
+    if(
+        Date.now() >=
+        candidateExpiresAt
+    ){
+
+        showExpired();
+
+        return;
+
+    }
+
+
+    showCandidate(
+        result,
         contract
     );
 
 }
 
 
-/* =========================================
+/* =========================================================
    WAIT
-========================================= */
+========================================================= */
 
-function showWait(reason){
+function showWait(
+    reason
+){
 
-    document.getElementById(
-        "entryStatus"
-    ).textContent =
+    const status =
+        document.getElementById(
+            "entryStatus"
+        );
+
+    status.textContent =
         "WAIT";
 
+    status.className =
+        "entry-status wait";
+
 
     document.getElementById(
-        "entryStatus"
-    ).className =
-        "entry-status wait";
+        "entryMarket"
+    ).textContent =
+        markets[selectedSymbol]?.name ||
+        selectedSymbol ||
+        "—";
 
 
     document.getElementById(
         "entryContract"
     ).textContent =
-        "NO ENTRY";
+        contractSelect.value;
 
 
     document.getElementById(
         "entryTarget"
     ).textContent =
-        "---";
+        "—";
 
 
     document.getElementById(
-        "entryConfidence"
+        "entryScore"
     ).textContent =
-        ticks.length < 500
-        ? `${ticks.length}/500 TICKS`
-        : "MARKET CONDITIONS NOT CONFIRMED";
+        "—";
+
+
+    document.getElementById(
+        "timer"
+    ).textContent =
+        ticks.length +
+        "/500 TICKS";
+
+
+    document.getElementById(
+        "timer"
+    ).className =
+        "timer";
 
 
     document.getElementById(
@@ -3386,122 +3014,61 @@ function showWait(reason){
     ).textContent =
         reason;
 
-
-    if(
-        !confirmation.active
-    ){
-
-        document.getElementById(
-            "entryTimer"
-        ).textContent =
-            "--";
-
-    }
-
-
-    document.getElementById(
-        "analysisStatus"
-    ).textContent =
-        ticks.length < 500
-        ? "COLLECTING DATA"
-        : "WAITING FOR CONFIRMATION";
-
 }
 
 
-/* =========================================
-   CANDIDATE CONFIRMATION
-========================================= */
+/* =========================================================
+   CANDIDATE
+========================================================= */
 
-function handleCandidate(
-    result
+function showCandidate(
+    result,
+    contract
 ){
 
-    const c =
-        result.candidate;
+    const status =
+        document.getElementById(
+            "entryStatus"
+        );
 
 
-    const key =
-        [
-            selectedSymbol,
-            c.contract,
-            c.target,
-            Math.floor(
-                c.score / 5
-            )
-        ].join("|");
+    status.textContent =
+        "GOOD ENTRY";
 
-
-    if(
-        confirmation.active &&
-        confirmation.key === key
-    ){
-
-        return;
-
-    }
-
-
-    confirmation = {
-
-        key,
-
-        started:
-            Date.now(),
-
-        expires:
-            Date.now() +
-            60000,
-
-        active:true
-
-    };
+    status.className =
+        "entry-status good";
 
 
     document.getElementById(
-        "entryStatus"
+        "entryMarket"
     ).textContent =
-        "CONFIRMING";
-
-
-    document.getElementById(
-        "entryStatus"
-    ).className =
-        "entry-status wait";
+        markets[selectedSymbol]?.name ||
+        selectedSymbol;
 
 
     document.getElementById(
         "entryContract"
     ).textContent =
-        c.contract;
+        contract;
 
 
     document.getElementById(
         "entryTarget"
     ).textContent =
-        formatTarget(
-            c.contract,
-            c.target
-        );
+        result.targetText;
 
 
     document.getElementById(
-        "entryConfidence"
+        "entryScore"
     ).textContent =
-        `ANALYSIS SCORE ${result.finalScore}%`;
+        result.score +
+        "%";
 
 
     document.getElementById(
         "entryReason"
     ).textContent =
-        result.reason +
-        " CONFIRMING THAT THE SAME SETUP REMAINS VALID BEFORE ENTRY.";
-
-
-    document.getElementById(
-        "analysisStatus"
-    ).textContent =
-        "60-SECOND CONFIRMATION";
+        result.reason;
 
 
     updateTimer();
@@ -3509,27 +3076,87 @@ function handleCandidate(
 }
 
 
-/* =========================================
+/* =========================================================
+   EXPIRED
+========================================================= */
+
+function showExpired(){
+
+    const status =
+        document.getElementById(
+            "entryStatus"
+        );
+
+
+    status.textContent =
+        "SIGNAL EXPIRED";
+
+
+    status.className =
+        "entry-status bad";
+
+
+    document.getElementById(
+        "timer"
+    ).textContent =
+        "RE-SCAN REQUIRED";
+
+
+    document.getElementById(
+        "timer"
+    ).className =
+        "timer expired";
+
+
+    document.getElementById(
+        "entryReason"
+    ).textContent =
+        "60-second confirmation window expired. Waiting for a fresh strong setup.";
+
+}
+
+
+/* =========================================================
+   INVALIDATE
+========================================================= */
+
+function invalidateCandidate(){
+
+    candidateKey = "";
+
+    candidateExpiresAt = 0;
+
+}
+
+
+/* =========================================================
    TIMER
-========================================= */
+========================================================= */
 
 function updateTimer(){
 
     if(
-        !confirmation.active
+        !candidateExpiresAt
     ){
-
         return;
-
     }
 
 
     const remaining =
         Math.max(
             0,
-            confirmation.expires -
+            candidateExpiresAt -
             Date.now()
         );
+
+
+    if(remaining <= 0){
+
+        showExpired();
+
+        return;
+
+    }
 
 
     const seconds =
@@ -3539,39 +3166,48 @@ function updateTimer(){
 
 
     document.getElementById(
-        "entryTimer"
+        "timer"
     ).textContent =
-        `${seconds}s`;
+        "CONFIRMATION WINDOW: " +
+        seconds +
+        "s";
 
 
-    if(
-        remaining <= 0
-    ){
-
-        finalizeConfirmation();
-
-        return;
-
-    }
-
-
-    setTimeout(
-        updateTimer,
-        250
-    );
+    document.getElementById(
+        "timer"
+    ).className =
+        "timer";
 
 }
 
 
-/* =========================================
-   FINAL CONFIRMATION
-========================================= */
+/* =========================================================
+   WINDOWS
+========================================================= */
 
-function finalizeConfirmation(){
+function updateWindows(
+    result
+){
 
     if(
-        !confirmation.active
+        !result ||
+        !result.b500
     ){
+
+        document.getElementById(
+            "window30"
+        ).textContent =
+            "WAIT";
+
+        document.getElementById(
+            "window100"
+        ).textContent =
+            "WAIT";
+
+        document.getElementById(
+            "window500"
+        ).textContent =
+            "WAIT";
 
         return;
 
@@ -3582,700 +3218,144 @@ function finalizeConfirmation(){
         contractSelect.value;
 
 
-    const result =
-        findBestEntry(
-            contract
-        );
+    setWindow(
+        "window30",
+        "score30",
+        result.b30,
+        contract
+    );
 
 
-    if(
-        !result.valid
-    ){
-
-        confirmation.active =
-            false;
-
-
-        showWait(
-            "SIGNAL EXPIRED. CONDITIONS CHANGED DURING CONFIRMATION. RE-SCAN REQUIRED."
-        );
-
-        return;
-
-    }
+    setWindow(
+        "window100",
+        "score100",
+        result.b100,
+        contract
+    );
 
 
-    const candidate =
-        result.candidate;
+    setWindow(
+        "window500",
+        "score500",
+        result.b500,
+        contract
+    );
+
+}
 
 
-    const expectedKey =
-        [
-            selectedSymbol,
-            candidate.contract,
-            candidate.target,
-            Math.floor(
-                candidate.score / 5
-            )
-        ].join("|");
+function setWindow(
+    resultId,
+    scoreId,
+    result,
+    contract
+){
 
+    if(!result){
 
-    if(
-        expectedKey !==
-        confirmation.key
-    ){
+        document.getElementById(
+            resultId
+        ).textContent =
+            "WAIT";
 
-        confirmation.active =
-            false;
-
-
-        showWait(
-            "SIGNAL CHANGED DURING CONFIRMATION. NO ENTRY."
-        );
+        document.getElementById(
+            scoreId
+        ).textContent =
+            "—";
 
         return;
 
     }
 
 
-    confirmation.active =
-        false;
+    document.getElementById(
+        resultId
+    ).textContent =
+        result.target === null
+            ? contract
+            : contract +
+              " " +
+              result.target;
 
+
+    document.getElementById(
+        scoreId
+    ).textContent =
+        result.score +
+        "%";
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+function resetAnalysis(){
+
+    ticks = [];
+
+    candidateKey = "";
+
+    candidateExpiresAt = 0;
 
     document.getElementById(
         "entryStatus"
     ).textContent =
-        "GOOD ENTRY";
-
+        "WAIT";
 
     document.getElementById(
         "entryStatus"
     ).className =
-        "entry-status good";
-
-
-    document.getElementById(
-        "entryContract"
-    ).textContent =
-        candidate.contract;
-
+        "entry-status wait";
 
     document.getElementById(
         "entryTarget"
     ).textContent =
-        formatTarget(
-            candidate.contract,
-            candidate.target
-        );
-
+        "—";
 
     document.getElementById(
-        "entryConfidence"
+        "entryScore"
     ).textContent =
-        `ANALYSIS SCORE ${result.finalScore}%`;
-
+        "—";
 
     document.getElementById(
-        "entryTimer"
+        "timer"
     ).textContent =
-        "CONFIRMED";
-
+        "ANALYSIS WAITING";
 
     document.getElementById(
         "entryReason"
     ).textContent =
-        result.reason +
-        " SETUP SURVIVED THE FULL CONFIRMATION PERIOD.";
-
-
-    document.getElementById(
-        "analysisStatus"
-    ).textContent =
-        "GOOD ENTRY CONFIRMED";
-
-
-    playEntrySound();
+        "Collecting fresh live market data.";
 
 }
 
 
-/* =========================================
-   TARGET DISPLAY
-========================================= */
+/* =========================================================
+   EVERYTHING
+========================================================= */
 
-function formatTarget(
-    contract,
-    target
-){
+function updateEverything(){
 
-    if(
-        contract === "Matches"
-    ){
+    updateDigitDistribution();
 
-        return `DIGIT ${target}`;
+    updateTickList();
 
-    }
-
-
-    if(
-        contract === "Differs"
-    ){
-
-        return `DIGIT ${target}`;
-
-    }
-
-
-    if(
-        contract === "Over"
-    ){
-
-        return `OVER ${target}`;
-
-    }
-
-
-    if(
-        contract === "Under"
-    ){
-
-        return `UNDER ${target}`;
-
-    }
-
-
-    return "AUTO";
+    analyze();
 
 }
 
 
-/* =========================================
-   DIGIT CIRCLES
-========================================= */
+/* =========================================================
+   TICK LIST
+========================================================= */
 
-function createDigitCircles(){
+function updateTickList(){
 
-    const container =
+    const box =
         document.getElementById(
-            "digitCircles"
-        );
-
-
-    container.innerHTML = "";
-
-
-    for(
-        let digit=0;
-        digit<=9;
-        digit++
-    ){
-
-        const item =
-            document.createElement(
-                "div"
-            );
-
-
-        item.className =
-            "digit-item";
-
-
-        item.innerHTML = `
-
-            <div
-                id="digitCircle-${digit}"
-                class="digit-circle"
-            >
-
-                <span
-                    class="digit-number"
-                >
-                    ${digit}
-                </span>
-
-                <span
-                    id="digitPercent-${digit}"
-                    class="digit-percent"
-                >
-                    0.0%
-                </span>
-
-            </div>
-
-            <div
-                id="digitCount-${digit}"
-                class="digit-count"
-            >
-                0
-            </div>
-
-        `;
-
-
-        container.appendChild(
-            item
-        );
-
-    }
-
-}
-
-
-/* =========================================
-   MOMENTUM
-========================================= */
-
-function calculateDigitMomentum(){
-
-    const recent =
-        ticks.slice(-500);
-
-
-    const digits =
-        getDigits(
-            recent
-        );
-
-
-    if(
-        digits.length === 0
-    ){
-
-        return;
-
-    }
-
-
-    const counts =
-        Array(10).fill(0);
-
-
-    digits.forEach(
-        digit => {
-
-            counts[digit]++;
-
-        }
-    );
-
-
-    const total =
-        digits.length;
-
-
-    const values =
-        counts.map(
-            (count,digit) => ({
-
-                digit,
-
-                count,
-
-                percentage:
-                    count /
-                    total *
-                    100
-
-            })
-        );
-
-
-    const sorted =
-        [...values].sort(
-            (a,b) =>
-                b.percentage -
-                a.percentage
-        );
-
-
-    const high =
-        sorted[0];
-
-    const secondHigh =
-        sorted[1];
-
-    const secondLow =
-        sorted[8];
-
-    const low =
-        sorted[9];
-
-
-    values.forEach(
-        value => {
-
-            const circle =
-                document.getElementById(
-                    `digitCircle-${value.digit}`
-                );
-
-
-            const percent =
-                document.getElementById(
-                    `digitPercent-${value.digit}`
-                );
-
-
-            const count =
-                document.getElementById(
-                    `digitCount-${value.digit}`
-                );
-
-
-            if(!circle){
-                return;
-            }
-
-
-            circle.className =
-                "digit-circle";
-
-
-            if(
-                value.digit ===
-                high.digit
-            ){
-
-                circle.classList.add(
-                    "high"
-                );
-
-            }
-            else if(
-                value.digit ===
-                secondHigh.digit
-            ){
-
-                circle.classList.add(
-                    "second-high"
-                );
-
-            }
-            else if(
-                value.digit ===
-                secondLow.digit
-            ){
-
-                circle.classList.add(
-                    "second-low"
-                );
-
-            }
-            else if(
-                value.digit ===
-                low.digit
-            ){
-
-                circle.classList.add(
-                    "low"
-                );
-
-            }
-
-
-            const old =
-                previousMomentum[
-                    value.digit
-                ] || 0;
-
-
-            if(
-                Math.abs(
-                    value.percentage -
-                    old
-                ) >= .2
-            ){
-
-                circle.classList.add(
-                    "moving"
-                );
-
-
-                setTimeout(
-                    () => {
-
-                        circle.classList.remove(
-                            "moving"
-                        );
-
-                    },
-                    350
-                );
-
-            }
-
-
-            previousMomentum[
-                value.digit
-            ] =
-                value.percentage;
-
-
-            percent.textContent =
-                value.percentage
-                .toFixed(1) +
-                "%";
-
-
-            count.textContent =
-                value.count
-                .toLocaleString();
-
-        }
-    );
-
-
-    document.getElementById(
-        "digitTickCount"
-    ).textContent =
-        `${total.toLocaleString()} TICKS`;
-
-
-    document.getElementById(
-        "momentumMessage"
-    ).innerHTML =
-
-        `HIGH MOMENTUM: <strong>${high.digit}</strong>
-        &nbsp; | &nbsp;
-        SECOND HIGH: <strong>${secondHigh.digit}</strong>
-        &nbsp; | &nbsp;
-        SECOND LOW: <strong>${secondLow.digit}</strong>
-        &nbsp; | &nbsp;
-        LOW MOMENTUM: <strong>${low.digit}</strong>`;
-
-}
-
-
-/* =========================================
-   WINDOWS
-========================================= */
-
-function updateWindows(){
-
-    const contract =
-        contractSelect.value;
-
-
-    updateWindow(
-        30,
-        contract
-    );
-
-    updateWindow(
-        100,
-        contract
-    );
-
-    updateWindow(
-        500,
-        contract
-    );
-
-}
-
-
-/* =========================================
-   WINDOW
-========================================= */
-
-function updateWindow(
-    size,
-    contract
-){
-
-    const data =
-        ticks.slice(-size);
-
-
-    const candidates =
-        getCandidates(
-            contract,
-            data
-        );
-
-
-    const best =
-        candidates[0];
-
-
-    const scoreElement =
-        document.getElementById(
-            `score${size}`
-        );
-
-
-    const detailElement =
-        document.getElementById(
-            `detail${size}`
-        );
-
-
-    if(
-        !best
-    ){
-
-        scoreElement.textContent =
-            "--";
-
-        detailElement.textContent =
-            data.length < size
-            ? `${data.length}/${size} TICKS`
-            : "NO VALID SETUP";
-
-        return;
-
-    }
-
-
-    scoreElement.textContent =
-        best.score + "%";
-
-
-    detailElement.textContent =
-        formatTarget(
-            contract,
-            best.target
-        );
-
-}
-
-
-/* =========================================
-   SCANNER
-========================================= */
-
-function updateScanner(
-    contract
-){
-
-    const scanner =
-        document.getElementById(
-            "scanner"
-        );
-
-
-    const data =
-        ticks.slice(-500);
-
-
-    if(
-        data.length < 500
-    ){
-
-        scanner.innerHTML = `
-
-            <div class="scan-row">
-                <span>SCANNER</span>
-                <span>---</span>
-                <span>---</span>
-                <span class="scan-wait">
-                    COLLECTING
-                </span>
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    const candidates =
-        getCandidates(
-            contract,
-            data
-        );
-
-
-    scanner.innerHTML = `
-
-        <div class="scan-row">
-            <span>CONTRACT</span>
-            <span>SCORE</span>
-            <span>TARGET</span>
-            <span>STATUS</span>
-        </div>
-
-    `;
-
-
-    candidates
-    .slice(0,8)
-    .forEach(
-        candidate => {
-
-            const required =
-                Number(
-                    threshold.value
-                );
-
-
-            const good =
-                candidate.score >=
-                required;
-
-
-            const row =
-                document.createElement(
-                    "div"
-                );
-
-
-            row.className =
-                "scan-row";
-
-
-            row.innerHTML = `
-
-                <span>
-                    ${candidate.contract}
-                </span>
-
-                <span>
-                    ${candidate.score}%
-                </span>
-
-                <span>
-                    ${formatTarget(
-                        candidate.contract,
-                        candidate.target
-                    )}
-                </span>
-
-                <span class="${
-                    good
-                    ? "scan-good"
-                    : "scan-wait"
-                }">
-                    ${
-                        good
-                        ? "QUALIFY CANDIDATE"
-                        : "WAIT"
-                    }
-                </span>
-
-            `;
-
-
-            scanner.appendChild(
-                row
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================
-   RECENT TICKS
-========================================= */
-
-function renderRecentTicks(){
-
-    const container =
-        document.getElementById(
-            "recentTicks"
+            "tickList"
         );
 
 
@@ -4285,256 +3365,209 @@ function renderRecentTicks(){
         .reverse();
 
 
-    container.innerHTML = "";
+    if(!recent.length){
+
+        box.textContent =
+            "Waiting for market data...";
+
+        return;
+
+    }
 
 
-    recent.forEach(
-        tick => {
+    box.innerHTML =
+        recent
+        .map(
+            tick => {
 
-            const digit =
-                getLastDigit(
-                    tick.quote,
-                    tick.pip_size
-                );
-
-
-            const row =
-                document.createElement(
-                    "div"
-                );
+                const digit =
+                    getLastDigit(
+                        tick.quote,
+                        tick.pip_size
+                    );
 
 
-            row.className =
-                "tick-row";
-
-
-            row.innerHTML = `
-
-                <span class="tick-price">
-                    ${Number(
-                        tick.quote
-                    ).toFixed(
-                        tick.pip_size || 2
-                    )}
-                </span>
-
-                <span>
-                    ${
-                        tick.epoch
+                const time =
+                    tick.epoch
                         ? new Date(
                             tick.epoch * 1000
                         ).toLocaleTimeString()
-                        : "---"
-                    }
-                </span>
-
-                <span class="tick-digit">
-                    DIGIT ${digit ?? "-"}
-                </span>
-
-            `;
+                        : "—";
 
 
-            container.appendChild(
-                row
-            );
+                return `
+                    <div class="tick-row">
 
-        }
-    );
+                        <span>
+                            ${time}
+                        </span>
 
-}
+                        <span>
+                            ${Number(
+                                tick.quote
+                            ).toFixed(
+                                Math.max(
+                                    0,
+                                    Number(
+                                        tick.pip_size
+                                    )
+                                )
+                            )}
+                        </span>
 
+                        <span class="tick-digit">
+                            ${digit ?? "—"}
+                        </span>
 
-/* =========================================
-   UPDATE EVERYTHING
-========================================= */
+                    </div>
+                `;
 
-function updateEverything(){
-
-    document.getElementById(
-        "totalTicks"
-    ).textContent =
-        ticks.length;
-
-
-    calculateDigitMomentum();
-
-    updateWindows();
-
-    renderRecentTicks();
-
-    analyze();
+            }
+        )
+        .join("");
 
 }
 
 
-/* =========================================
-   MATCHES
-========================================= */
+/* =========================================================
+   SCANNER
+========================================================= */
 
-function updateLock(){
+function scannerLog(
+    message
+){
 
-    const box =
+    const scanner =
         document.getElementById(
-            "matchesLock"
+            "scanner"
         );
 
 
-    if(
-        contractSelect.value ===
-        "Matches" &&
-        !matchesUnlocked
+    const line =
+        document.createElement(
+            "div"
+        );
+
+    line.className =
+        "scanner-line";
+
+    line.textContent =
+        "[" +
+        new Date()
+            .toLocaleTimeString() +
+        "] " +
+        message;
+
+
+    scanner.prepend(
+        line
+    );
+
+
+    while(
+        scanner.children.length > 80
     ){
 
-        box.style.display =
-            "block";
-
-    }
-    else{
-
-        box.style.display =
-            "none";
+        scanner.removeChild(
+            scanner.lastChild
+        );
 
     }
 
 }
 
 
-document
-.getElementById(
-    "unlockButton"
-)
-.addEventListener(
-    "click",
+/* =========================================================
+   EVENTS
+========================================================= */
+
+marketSelect.addEventListener(
+    "change",
     () => {
 
-        const code =
-            document.getElementById(
-                "unlockCode"
-            ).value;
+        selectedSymbol =
+            marketSelect.value;
 
-
-        if(
-            code === MATCHES_CODE
-        ){
-
-            matchesUnlocked =
-                true;
-
-
-            document.getElementById(
-                "matchesLock"
-            ).style.display =
-                "none";
-
-
-            resetAnalysis();
-
-            analyze();
-
-        }
-        else{
-
-            alert(
-                "INVALID ACTIVATION CODE"
-            );
-
-        }
+        subscribeMarket(
+            selectedSymbol
+        );
 
     }
 );
 
 
-/* =========================================
-   SOUND
-   Hidden — no dashboard control.
-========================================= */
+contractSelect.addEventListener(
+    "change",
+    () => {
 
-function playEntrySound(){
+        resetAnalysis();
 
-    try{
+        updateLock();
 
-        const AudioContext =
-            window.AudioContext ||
-            window.webkitAudioContext;
-
-
-        if(!AudioContext){
-            return;
-        }
-
-
-        const ctx =
-            new AudioContext();
-
-
-        const oscillator =
-            ctx.createOscillator();
-
-
-        const gain =
-            ctx.createGain();
-
-
-        oscillator.type =
-            "sine";
-
-
-        oscillator.frequency.value =
-            700;
-
-
-        gain.gain.setValueAtTime(
-            .0001,
-            ctx.currentTime
-        );
-
-
-        gain.gain.exponentialRampToValueAtTime(
-            .12,
-            ctx.currentTime + .03
-        );
-
-
-        gain.gain.exponentialRampToValueAtTime(
-            .0001,
-            ctx.currentTime + .35
-        );
-
-
-        oscillator.connect(
-            gain
-        );
-
-
-        gain.connect(
-            ctx.destination
-        );
-
-
-        oscillator.start();
-
-        oscillator.stop(
-            ctx.currentTime + .4
-        );
+        analyze();
 
     }
-    catch(error){
+);
 
-        /* sound is optional */
+
+thresholdSelect.addEventListener(
+    "change",
+    () => {
+
+        resetAnalysis();
+
+        analyze();
 
     }
+);
+
+
+/* =========================================================
+   APPLICATION
+========================================================= */
+
+function startApplication(){
+
+    if(appStarted){
+        return;
+    }
+
+    appStarted = true;
+
+    createDigitCircles();
+
+    updateLock();
+
+    connectDeriv();
 
 }
 
 
-/* =========================================
-   START UI
-========================================= */
+/* =========================================================
+   TIMER LOOP
+========================================================= */
 
-createDigitCircles();
+setInterval(
+    () => {
+
+        if(
+            candidateExpiresAt > 0
+        ){
+
+            updateTimer();
+
+        }
+
+    },
+    500
+);
+
+
+/* INITIAL LOCK STATE */
+
+updateLock();
 
 </script>
 
 </body>
-        </html>
+    </html>
